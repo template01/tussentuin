@@ -29,7 +29,9 @@ module.exports = {
   // mode: 'spa',
 
   css: [
-    '~assets/marginpaddinghelpers.css',
+    '~assets/css/marginpaddinghelpers.css',
+    '~assets/css/sizehelpers.css',
+    '~assets/css/aligner.css',
     '~assets/bulmaCustom/custom/custom.css',
     '~assets/fonts/okomito/stylesheet.css',
     //'~assets/main.css',
@@ -43,9 +45,9 @@ module.exports = {
   router: {
     middleware: ['closeReadmore', 'closeMenu'],
     scrollBehavior: function(to, from, savedPosition) {
-      if(to.path === '/about' && from.path === '/about'){
+      if (to.path === '/about' && from.path === '/about') {
 
-      }else{
+      } else {
 
         if (savedPosition) {
           window.setTimeout(function() {
@@ -118,7 +120,12 @@ module.exports = {
       plugins: {
         'postcss-custom-properties': false
       }
+    },
+    styleResources: {
+      scss: './assets/scss/variables.scss',
+      scss: './assets/scss/coloroffset.scss'
     }
+
     /*
      ** Run ESLint on save
      */

@@ -1,6 +1,7 @@
 export const state = () => ({
   appinitated:false,
-  apiRoot: 'https://jsonplaceholder.typicode.com',
+  apiRoot: 'http://api.tussentuin.nl/wp-json',
+  menuopen: false,
   posts:[],
   screensize: 0,
   screensizeformat:null
@@ -23,6 +24,10 @@ export const getters = {
     return state.appinitated
   },
 
+  GET_MENUOPEN(state) {
+    return state.menuopen
+  },
+
   GET_SCREENSIZE(state){
     return state.screensizeformat
   },
@@ -37,6 +42,15 @@ export const mutations = {
   SET_POSTS(state, posts) {
     state.posts = posts;
   },
+
+  SET_MENUCLOSE(state, posts) {
+    state.menuopen = false;
+  },
+
+  SET_MENUOPEN(state, posts) {
+    state.menuopen = true;
+  },
+
 
   SET_APPINITIATED(state, toggle) {
     state.appinitated = toggle;

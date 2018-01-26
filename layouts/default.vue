@@ -1,10 +1,38 @@
 <template>
   <div>
+    <menucomp></menucomp>
+    <togglemenu></togglemenu>
     <nuxt/>
   </div>
 </template>
 
+
+<script>
+import togglemenu from '~/components/menu/togglemenu.vue'
+import menucomp from '~/components/menu/menu.vue'
+
+
+import axios from 'axios'
+import {
+  mapGetters
+} from 'vuex'
+
+
+export default {
+  components: {
+    togglemenu,
+    menucomp,
+
+  },
+  computed: {
+    ...mapGetters({
+      appinitated: "GET_APP_INITIATED",
+    }),
+  },
+}
+</script>
 <style>
+
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;

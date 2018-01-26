@@ -1,10 +1,20 @@
 <template>
-<div class="mt-80 mb-80 mr-20 ml-20">
-  <div v-if="appinitated" class="container">
-    <div >
+<div class="">
+  <div v-if="appinitated" class="">
+    <!-- <postlistcomp></postlistcomp> -->
+    <indexsection :boomfile="'boomtop'">
+
+    </indexsection>
+    <indexsection :boomfile="'boom1'">
+      test
+    </indexsection>
+    <indexsection :boomfile="'boom'">
+      test
+    </indexsection>
+    <!-- <div >
       <div class="columns">
         <div class="column">
-          <p class="is-size-3 has-text-success">
+          <p class="is-size-3 " id="test">
             nuxt-boilerplate-bulma
           </p>
         </div>
@@ -29,7 +39,7 @@
           <postlistcomp></postlistcomp>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <div v-else class="container">
     <div>
@@ -49,6 +59,7 @@
 <script>
 import genericcomp from '~/components/_genericComp.vue'
 import postlistcomp from '~/components/postListComp.vue'
+import indexsection from '~/components/index/indexsection.vue'
 
 import axios from 'axios'
 import {
@@ -59,7 +70,8 @@ import {
 export default {
   components: {
     genericcomp,
-    postlistcomp
+    postlistcomp,
+    indexsection
   },
   computed: {
     ...mapGetters({
@@ -79,8 +91,11 @@ export default {
 
 
     // GET POSTS START
+    console.log(store.state.apiRoot + '/wp/v2/posts')
+
     if (store.state.posts.length == 0) {
-      const postsRes = await axios.get(store.state.apiRoot + '/posts')
+      const postsRes = await axios.get(store.state.apiRoot + '/wp/v2/posts')
+      console.log(store.state.apiRoot + '/wp/v2/posts')
       store.commit('SET_POSTS', postsRes.data)
     }
 
@@ -94,6 +109,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
