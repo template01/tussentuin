@@ -99,6 +99,7 @@ export default {
     animation: ripple-in1 1s;
     animation-fill-mode: forwards;
     border-radius: 8000px;
+    transition: border-radius 0.3s;
 }
 @keyframes fade-in {
     0% {
@@ -115,10 +116,13 @@ export default {
         border-radius: 8000px;
         transform: scale(0);
     }
+    15% {
+        border-radius: 0px;
+    }
     20% {
         transform: scale(1);
-        border-radius: 0px;
         opacity: 0.3;
+        border-radius: 0px;
     }
     60% {
         transform: scale(1);

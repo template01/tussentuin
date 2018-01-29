@@ -1,15 +1,16 @@
 <template>
-<div class="">
+<div class="" style="">
   <div v-if="appinitated" class="">
+
     <!-- <postlistcomp></postlistcomp> -->
     <indexsection :boomfile="'boomtop'">
 
     </indexsection>
     <indexsection :boomfile="'boom1'">
-      test
+      <!-- test -->
     </indexsection>
     <indexsection :boomfile="'boom'">
-      test
+      <!-- test -->
     </indexsection>
     <!-- <div >
       <div class="columns">

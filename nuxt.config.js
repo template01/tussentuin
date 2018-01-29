@@ -31,9 +31,12 @@ module.exports = {
   css: [
     '~assets/css/marginpaddinghelpers.css',
     '~assets/css/sizehelpers.css',
+    '~assets/css/animationhelpers.css',
     '~assets/css/aligner.css',
     '~assets/bulmaCustom/custom/custom.css',
-    '~assets/fonts/okomito/stylesheet.css',
+    // '~assets/fonts/okomito/stylesheet.css',
+    // '~assets/fonts/NeueEinstellung/stylesheet.css',
+    '~assets/fonts/Nova/stylesheet.css',
     //'~assets/main.css',
     //'~assets/font-awesome-4.7.0/css/font-awesome.min.css',
     // 'swiper/dist/css/swiper.css',
@@ -95,6 +98,10 @@ module.exports = {
     },
     {
       src: '~/plugins/lazyload.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/inview.js',
       ssr: false
     },
     // {

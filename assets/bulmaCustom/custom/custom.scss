@@ -11,13 +11,14 @@ $text: #091540;
 $link: #091540;
 // 2. Set your own initial variables
 // Update blue
-$blue: #72d0eb;
+$blue: rgb(0,164,255);
 // Add pink and its invert
 $pink: #ffb3b3;
 $pink-invert: #fff;
 // Add a serif family
-$family-serif: "Okomito", sans;
-
+// $family-serif: "Neue Einstellung", sans;
+$family-serif: "HK Nova", sans;
+$size-1: 3.5rem;
 // 3. Set the derived variables
 // Use the new pink as the primary color
 $primary: $pink;

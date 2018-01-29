@@ -10,6 +10,7 @@
 <script>
 import togglemenu from '~/components/menu/togglemenu.vue'
 import menucomp from '~/components/menu/menu.vue'
+import logo from '~/components/logo/logo.vue'
 
 
 import axios from 'axios'
@@ -22,7 +23,7 @@ export default {
   components: {
     togglemenu,
     menucomp,
-
+    logo,
   },
   computed: {
     ...mapGetters({

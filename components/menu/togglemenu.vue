@@ -54,6 +54,7 @@ export default {
   position: fixed;
   display: flex;
   width: 100%;
+  top: 0;
   #togglemenu{
     border: 0px !important;
     min-width: 60px;
