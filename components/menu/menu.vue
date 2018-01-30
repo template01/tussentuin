@@ -4,10 +4,10 @@
     <div class="ripple-button1">
       <div id="menu-inner" class="aligner">
         <div id="menu-list" class="aligner-item">
-          <a class="is-size-1">Tuinen</a>
-          <a class="is-size-1">Tuinen</a>
-          <a class="is-size-1">Tuinen</a>
-          <a class="is-size-1">Tuinen</a>
+          <a class="is-size-1 has-text-weight-semibold">Tuinen</a>
+          <a class="is-size-1 has-text-weight-semibold">Thema's</a>
+          <a class="is-size-1 has-text-weight-semibold">Kennis</a>
+          <a class="is-size-1 has-text-weight-semibold">Contact</a>
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@ export default {
     }
     20% {
         transform: scale(1);
-        opacity: 0.3;
+        opacity: 1;
         border-radius: 0px;
     }
     60% {

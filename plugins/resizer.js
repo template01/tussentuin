@@ -33,10 +33,12 @@ export default ({
 
     window.addEventListener('resize', _.debounce(detectScreensize, 100));
 
-    window.setTimeout(function(){
-      detectScreensize();
-      store.commit('SET_APPINITIATED', true)
-    },100)
+
+      window.setTimeout(function() {
+        detectScreensize();
+
+      }, 100)
+
 
   }
 };

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <transition name="fade">
+    <loading v-if="!appinitated"></loading>
+    </transition>
     <menucomp></menucomp>
     <togglemenu></togglemenu>
     <nuxt/>
@@ -11,6 +14,7 @@
 import togglemenu from '~/components/menu/togglemenu.vue'
 import menucomp from '~/components/menu/menu.vue'
 import logo from '~/components/logo/logo.vue'
+import loading from '~/components/loading.vue'
 
 
 import axios from 'axios'
@@ -24,6 +28,7 @@ export default {
     togglemenu,
     menucomp,
     logo,
+    loading,
   },
   computed: {
     ...mapGetters({
@@ -33,16 +38,21 @@ export default {
 }
 </script>
 <style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 
 html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
+
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 *, *:before, *:after {

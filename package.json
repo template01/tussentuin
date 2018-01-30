@@ -26,6 +26,7 @@
 		"nuxt": "latest",
 		"sass-loader": "^6.0.6",
 		"smoothscroll-polyfill": "^0.4.0",
+		"vivus": "^0.4.3",
 		"vue-awesome-swiper": "^3.1.0",
 		"vue-lazyload": "^1.1.4"
 	},

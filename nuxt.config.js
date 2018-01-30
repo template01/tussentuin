@@ -85,6 +85,11 @@ module.exports = {
     '~/mixins/computedresizerglobalmixin.js',
 
     {
+      src: '~/plugins/initialLoad.js',
+      ssr: false
+    },
+
+    {
       src: '~/plugins/vueawesomeswiper-plugin.js',
       ssr: false
     },
@@ -104,6 +109,10 @@ module.exports = {
       src: '~/plugins/inview.js',
       ssr: false
     },
+    {
+      src: '~/plugins/vivus.js',
+      ssr: false
+    },
     // {
     //   src: '~/mixins/computedscrollbarwidth.js',
     //   ssr: false
@@ -113,9 +122,11 @@ module.exports = {
   /*
    ** Customize the progress bar color
    */
-  loading: {
-    color: '#091540'
-  },
+  // loading: {
+  //   color: '#091540'
+  // },
+
+  loading: '~/components/loading.vue'
 
   /*
    ** Build configuration

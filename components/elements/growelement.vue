@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div class="grow" :style="{ 'background-image': 'url(' + 'boomtop' + '.svg)' }" :class="[slideIn ? 'growStart':'']">
+    <div class="grow delay-750" :style="{ 'background-image': 'url(' + 'boomtop' + '.svg)' }" :class="[slideIn ? 'growStart':'']">
     </div>
   </div>
 </template>
@@ -25,19 +25,12 @@ export default {
   methods: {},
   mounted() {
     var vm = this
-    this.$nextTick()
-      .then(function() {
         var inViewClass = vm.inViewClass
         inView('.' + inViewClass).on('enter', function() {
-          console.log('goooooooooooooooooooo')
-          console.log(vm.slideIn)
-          console.log(inView.is(vm.$el.querySelector('.' + inViewClass)))
           // IF SPECIFIC ITEM IN VIEW
           if (inView.is(vm.$el.querySelector('.' + inViewClass))) {
             vm.slideIn = true
           }
-
-        });
       })
   }
   // computed: {
@@ -54,16 +47,19 @@ export default {
     height: 100%;
     position: absolute;
     background-attachment: fixed;
-    background-position: 85% bottom;
+    background-position: 90% bottom;
     background-size: contain;
     right: 0;
     bottom: 0;
     background-repeat: no-repeat;
-    transform: translateY(100vh);
-    transition: transform 0.5s;
+    transform: translateY(50vh);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
 }
 .growStart{
   transform: translateY(0vh);
+  opacity: 1;
+
 }
 
 .background-tree {

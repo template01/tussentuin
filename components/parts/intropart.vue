@@ -1,10 +1,10 @@
 <template>
 <div class="" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
-  <p class="is-size-1 has-text-weight-bold has-text-info	 " :class="[slideIn ? 'slideIn':'', inViewClass]">
+  <p class=" has-text-weight-bold has-text-info	 " :class="[slideIn ? 'slideIn':'', inViewClass, islarge ? 'is-size-1':'is-size-2']">
     <span>Collective</span>
     <span>groene ruimten</span>
   </p>
-  <p class="is-size-4 has-text-weight-semibold has-text-info	 pt-10 transitionOpacity" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':'1300ms'}]">
+  <p class="is-size-4 has-text-weight-semibold has-text-info pt-10 transitionOpacity" :class="[ islarge ? 'is-size-4':'is-size-5']" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':'1300ms'}]">
     Stichting Tussentuin heeft als doel het ontwikkelen en verspreiden van kennis over collectieve groene ruimten tussen de bebouwde omgeving.
   </p>
 </div>
@@ -18,7 +18,7 @@ import inView from 'in-view'
 
 
 export default {
-  props: [],
+  props: ['islarge','isblue','isbrown'],
   data: function() {
     return {
       slideIn: false,
@@ -28,19 +28,13 @@ export default {
   methods: {},
   mounted() {
     var vm = this
-    this.$nextTick()
-      .then(function() {
-        var inViewClass = vm.inViewClass
-        inView('.' + inViewClass).on('enter', function() {
-          console.log(vm.slideIn)
-          console.log(inView.is(vm.$el.querySelector('.' + inViewClass)))
-          // IF SPECIFIC ITEM IN VIEW
-          if (inView.is(vm.$el.querySelector('.' + inViewClass))) {
-            vm.slideIn = true
-          }
-
-        });
-      })
+    var inViewClass = vm.inViewClass
+    inView('.' + inViewClass).on('enter', function() {
+      // IF SPECIFIC ITEM IN VIEW
+      if (inView.is(vm.$el.querySelector('.' + inViewClass))) {
+        vm.slideIn = true
+      }
+    });
   }
   // computed: {
   //   ...mapGetters({
@@ -52,6 +46,14 @@ export default {
 </script>
 <style scoped lang="scss">
 .is-size-1 {
+    // line-height: 0.95;
+    margin-top: 20px;
+    span {
+        margin-top: -20px;
+    }
+}
+
+.is-size-2 {
     // line-height: 0.95;
     margin-top: 20px;
     span {

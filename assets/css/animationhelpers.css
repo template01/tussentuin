@@ -1,6 +1,9 @@
 .delay-500{
   transition-delay: 500ms !important;
 }
+.delay-750{
+  transition-delay: 1000ms !important;
+}
 .delay-1000{
   transition-delay: 1000ms !important;
 }

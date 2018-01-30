@@ -3,55 +3,13 @@
   <div v-if="appinitated" class="">
 
     <!-- <postlistcomp></postlistcomp> -->
-    <indexsection :boomfile="'boomtop'">
+    <indexsection>
+      <section_a></section_a>
+    </indexsection>
+    <indexsection>
+      <section_b></section_b>
+    </indexsection>
 
-    </indexsection>
-    <indexsection :boomfile="'boom1'">
-      <!-- test -->
-    </indexsection>
-    <indexsection :boomfile="'boom'">
-      <!-- test -->
-    </indexsection>
-    <!-- <div >
-      <div class="columns">
-        <div class="column">
-          <p class="is-size-3 " id="test">
-            nuxt-boilerplate-bulma
-          </p>
-        </div>
-        <div class="column">
-          <p class="is-size-3">
-            screensize from store:
-            <span v-html="screensize"></span>
-          </p>
-        </div>
-        <div class="column">
-          <p class="is-size-3">
-            app initated from store:
-            <span v-html="appinitated"></span>
-          </p>
-        </div>
-        <div class="column">
-          <genericcomp></genericcomp>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column">
-          <postlistcomp></postlistcomp>
-        </div>
-      </div>
-    </div> -->
-  </div>
-  <div v-else class="container">
-    <div>
-      <div class="columns">
-        <div class="column">
-          <p class="is-size-3 has-text-danger">
-            Loading
-          </p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 </div>
@@ -61,6 +19,8 @@
 import genericcomp from '~/components/_genericComp.vue'
 import postlistcomp from '~/components/postListComp.vue'
 import indexsection from '~/components/index/indexsection.vue'
+import section_a from '~/components/index/section_a.vue'
+import section_b from '~/components/index/section_b.vue'
 
 import axios from 'axios'
 import {
@@ -72,7 +32,9 @@ export default {
   components: {
     genericcomp,
     postlistcomp,
-    indexsection
+    indexsection,
+    section_a,
+    section_b,
   },
   computed: {
     ...mapGetters({
