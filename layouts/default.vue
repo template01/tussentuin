@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-    <loading v-if="!appinitated"></loading>
+    <loadinginit v-if="!appinitated"></loadinginit>
     </transition>
     <menucomp></menucomp>
     <togglemenu></togglemenu>
@@ -14,7 +14,7 @@
 import togglemenu from '~/components/menu/togglemenu.vue'
 import menucomp from '~/components/menu/menu.vue'
 import logo from '~/components/logo/logo.vue'
-import loading from '~/components/loading.vue'
+import loadinginit from '~/components/loadinginit.vue'
 
 
 import axios from 'axios'
@@ -28,7 +28,7 @@ export default {
     togglemenu,
     menucomp,
     logo,
-    loading,
+    loadinginit,
   },
   computed: {
     ...mapGetters({

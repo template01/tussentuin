@@ -1,13 +1,12 @@
 <template>
 <div class="indexsection-outer window-full-height">
    <!-- :style="{ 'background-image': 'url(' + 'patternLeafLighter' + '.svg)' }" -->
-  <div <section class="section is-paddingless">
+  <section class="section is-paddingless">
     <slot>
 
     </slot>
     </section>
 
-  </div>
 </div>
 </template>
 <script>
@@ -39,6 +38,9 @@ export default {
     position: relative;
     .columns:last-child {
         margin-bottom: 0;
+    }
+    .section{
+      overflow-y: hidden;
     }
 }
 </style>

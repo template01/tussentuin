@@ -1,8 +1,8 @@
 <template>
-<div class="loader-leaf aligner">
-  <div class="align-item" id="my-div">
+  <div class="loader-leaf aligner">
+    <div class="align-item" id="my-div">
+    </div>
   </div>
-</div>
 </template>
 <script>
 import {
@@ -41,7 +41,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .loader-leaf {
-    // z-index: 1001;
+    z-index: 1001;
     position: fixed;
     top: 0;
     left: 0;
