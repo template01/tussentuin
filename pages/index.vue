@@ -5,8 +5,13 @@
     <!-- <postlistcomp></postlistcomp> -->
     <indexsection>
       <section_a></section_a>
+      <tonextsection :idprop="'wauw'"></tonextsection>
     </indexsection>
-    <indexsection>
+    <indexsection id="wauw">
+      <section_foto_a></section_foto_a>
+      <tonextsection :idprop="'tuinen'"></tonextsection>
+    </indexsection>
+    <indexsection id="tuinen">
       <section_b></section_b>
     </indexsection>
 
@@ -18,8 +23,10 @@
 <script>
 import genericcomp from '~/components/_genericComp.vue'
 import postlistcomp from '~/components/postListComp.vue'
+import tonextsection from '~/components/index/tonextsection.vue'
 import indexsection from '~/components/index/indexsection.vue'
 import section_a from '~/components/index/section_a.vue'
+import section_foto_a from '~/components/index/section_foto_a.vue'
 import section_b from '~/components/index/section_b.vue'
 
 import axios from 'axios'
@@ -33,7 +40,9 @@ export default {
     genericcomp,
     postlistcomp,
     indexsection,
+    tonextsection,
     section_a,
+    section_foto_a,
     section_b,
   },
   computed: {

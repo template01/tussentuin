@@ -32,8 +32,12 @@ export default {
 
 }
 </script>
-<style scoped lang="scss">
+<style  lang="scss">
 .indexsection-outer {
+
+    .container-display-grid{
+      display: grid;
+    }
     overflow-y: hidden;
     position: relative;
     .columns:last-child {

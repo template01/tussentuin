@@ -11,7 +11,7 @@ import {
   mapGetters
 } from 'vuex'
 
-import inView from 'in-view'
+import scrollMonitor from 'scrollmonitor'
 
 
 export default {
@@ -24,14 +24,17 @@ export default {
   },
   methods: {},
   mounted() {
+    var myElement = this.$el.querySelector("."+this.inViewClass);
+    var elementWatcher = scrollMonitor.create(myElement);
     var vm = this
-        var inViewClass = vm.inViewClass
-        inView('.' + inViewClass).on('enter', function() {
-          // IF SPECIFIC ITEM IN VIEW
-          if (inView.is(vm.$el.querySelector('.' + inViewClass))) {
-            vm.slideIn = true
-          }
-      })
+
+    elementWatcher.enterViewport(function() {
+        vm.slideIn = true
+    });
+
+    elementWatcher.exitViewport(function() {
+        vm.slideIn = false
+    });
   }
   // computed: {
   //   ...mapGetters({

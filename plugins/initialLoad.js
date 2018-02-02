@@ -7,10 +7,9 @@ export default ({
   if (isClient) {
 
     window.addEventListener("load", function(event) {
-      setTimeout(function(){
-
-        store.commit('SET_APPINITIATED', true)
-      },3000)
+      store.commit('SET_APPINITIATED', true)
+      // setTimeout(function(){
+      // },3000)
 
     });
   }

@@ -2,7 +2,7 @@
   <div id="togglemenu-outer" class="mt-20" >
     <!-- OPEN MENU -->
     <a @click="openmenu()" v-if="!menuopen" id="togglemenu" class="button is-centered is-success is-rounded color-offset-green">
-      <div class="">
+      <div class="p-10 ">
         <div class="" id="nav-icon1">
           <span></span>
           <span></span>
@@ -13,7 +13,7 @@
     <!-- CLOSE MENU -->
 
     <a @click="closemenu()" v-else id="togglemenu" class="button is-centered is-rounded color-offset-green">
-      <div class="">
+      <div class="p-10 ">
         <div class="open" id="nav-icon1">
           <span></span>
           <span></span>
@@ -57,10 +57,8 @@ export default {
   top: 0;
   #togglemenu{
     border: 0px !important;
-    padding: 20px;
-    min-width: 50px;
-    min-height: 50px;
-    height: 80px;
+    min-width: 60px;
+    min-height: 60px;
     margin: 0 auto;
   }
 }

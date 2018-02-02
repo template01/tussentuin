@@ -2,11 +2,11 @@
   <div>
     <backgroundpattern :pattern="'patternLeafLighter.svg'"></backgroundpattern>
     <growelement></growelement>
-    <div class="container">
-      <logo></logo>
+    <div class="container pt-80">
+      <!-- <logo></logo> -->
       <div class="columns is-mobile pt-80">
         <div class="column is-4 is-offset-1 ">
-          <intropart :islarge="true">
+          <intropart :islarge="true" :headertext="'<p>Collective</p><p>groene ruimten</p>'" :blurbtext="'<p>Stichting Tussentuin heeft als doel het ontwikkelen en verspreiden van kennis over collectieve groene ruimten tussen de bebouwde omgeving.</p>'">
           </intropart>
         </div>
       </div>

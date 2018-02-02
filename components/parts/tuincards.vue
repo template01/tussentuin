@@ -12,7 +12,7 @@
 </div>
 </template>
 <script>
-import inView from 'in-view'
+import scrollMonitor from 'scrollmonitor'
 import card from '~/components/parts/card.vue'
 
 // import {
@@ -34,13 +34,16 @@ export default {
   },
   methods: {},
   mounted() {
+    var myElement = this.$el.querySelector("."+this.inViewClass);
+    var elementWatcher = scrollMonitor.create(myElement);
     var vm = this
-    var inViewClass = vm.inViewClass
-    inView('.' + inViewClass).on('enter', function() {
-      // IF SPECIFIC ITEM IN VIEW
-      if (inView.is(vm.$el.querySelector('.' + inViewClass))) {
+
+    elementWatcher.enterViewport(function() {
         vm.slideIn = true
-      }
+    });
+
+    elementWatcher.exitViewport(function() {
+        vm.slideIn = false
     });
   }
   // computed: {

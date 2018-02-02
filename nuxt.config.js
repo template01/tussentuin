@@ -110,7 +110,15 @@ module.exports = {
       ssr: false
     },
     {
-      src: '~/plugins/vivus.js',
+      src: '~/plugins/inview.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/scrollMonitor.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/rellax.js',
       ssr: false
     }
     // {
@@ -132,7 +140,7 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    vendor: ['axios', 'lodash'],
+    vendor: ['axios', 'lodash','rellax','scrollmonitor'],
 
     postcss: {
       plugins: {

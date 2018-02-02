@@ -1,19 +1,14 @@
 <template>
   <div>
-    <backgroundpattern :pattern="'patternDroplet.svg'"></backgroundpattern>
-    <div class="container pt-30 pb-80">
+    <backgroundphoto :pattern="'/fotos/Tuin-de-bajonet-4.jpg'"></backgroundphoto>
+    <div class="container container-display-grid">
+      <!-- <logo></logo> -->
       <div class="columns is-mobile pt-80">
-        <div class=" column is-4 is-offset-4 ">
-          <intropart :islarge="true" :headertext="'<p>Onze</p><p>Tuinen</p>'" :blurbtext="'<p>Stichting Tussentuin heeft als doel het ontwikkelen en verspreiden van kennis over collectieve groene ruimten tussen de bebouwde omgeving.</p>'">
+        <div class="column is-4 is-offset-1">
+          <intropart :islarge="true" :isgreen="true" :headertext="'<p>Bij voorbeld</p><p>deze mooie</p><p>ding...</p>'" :blurbtext="''">
           </intropart>
         </div>
       </div>
-
-      <div class="is-mobile pt-80">
-        <tuincards></tuincards>
-      </div>
-
-
     </div>
   </div>
 </template>
@@ -25,8 +20,7 @@ import {
 import logo from '~/components/logo/logo.vue'
 import intropart from '~/components/parts/intropart.vue'
 import growelement from '~/components/elements/growelement.vue'
-import tuincards from '~/components/parts/tuincards.vue'
-import backgroundpattern from '~/components/elements/backgroundpattern.vue'
+import backgroundphoto from '~/components/elements/backgroundphoto.vue'
 
 
 export default {
@@ -35,8 +29,7 @@ export default {
     logo,
     intropart,
     growelement,
-    tuincards,
-    backgroundpattern
+    backgroundphoto
   },
   data: function() {
     return {
@@ -56,10 +49,8 @@ export default {
 .indexsection-outer {
     overflow-y: hidden;
     position: relative;
-
-    .columns {
+    .columns:last-child{
       margin-bottom: 0;
-      margin-top: 0;
     }
 }
 </style>
