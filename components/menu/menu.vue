@@ -7,6 +7,7 @@
           <a class="is-size-1 has-text-weight-semibold">Tuinen</a>
           <a class="is-size-1 has-text-weight-semibold">Thema's</a>
           <a class="is-size-1 has-text-weight-semibold">Kennis</a>
+          <a class="is-size-1 has-text-weight-semibold">Stichting</a>
           <a class="is-size-1 has-text-weight-semibold">Contact</a>
         </div>
       </div>

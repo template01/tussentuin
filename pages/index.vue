@@ -3,18 +3,17 @@
   <div v-if="appinitated" class="">
 
     <!-- <postlistcomp></postlistcomp> -->
-    <indexsection>
+    <indexsection :halfheight="true">
       <section_a></section_a>
-      <tonextsection :idprop="'wauw'"></tonextsection>
-    </indexsection>
-    <indexsection id="wauw">
-      <section_foto_a></section_foto_a>
       <tonextsection :idprop="'tuinen'"></tonextsection>
     </indexsection>
-    <indexsection id="tuinen">
+    <!-- <indexsection id="wauw" :fullheight="true">
+      <section_a_foto></section_a_foto>
+      <tonextsection :idprop="'tuinen'"></tonextsection>
+    </indexsection> -->
+    <indexsection id="tuinen" :fullheight="true">
       <section_b></section_b>
     </indexsection>
-
   </div>
 </div>
 </div>
@@ -26,7 +25,7 @@ import postlistcomp from '~/components/postListComp.vue'
 import tonextsection from '~/components/index/tonextsection.vue'
 import indexsection from '~/components/index/indexsection.vue'
 import section_a from '~/components/index/section_a.vue'
-import section_foto_a from '~/components/index/section_foto_a.vue'
+import section_a_foto from '~/components/index/section_a_foto.vue'
 import section_b from '~/components/index/section_b.vue'
 
 import axios from 'axios'
@@ -42,7 +41,7 @@ export default {
     indexsection,
     tonextsection,
     section_a,
-    section_foto_a,
+    section_a_foto,
     section_b,
   },
   computed: {

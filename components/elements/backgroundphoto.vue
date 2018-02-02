@@ -14,7 +14,7 @@ import {
 
 
 export default {
-  props: ['pattern'],
+  props: ['pattern',],
   data: function() {
     return {
       slideIn: false,
@@ -62,24 +62,22 @@ export default {
 }
 .backgroundphoto {
     position: absolute;
-    height: 110%;
+    height: calc(100% + 50px);
+    // bottom:25px;
     width: calc(100% + 50px);
     margin-left: -50px;
     margin-right: 50px;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    // background-position: bottom bottom;
     transition: transform 2s, filter 0.25s;
-    // transition-delay: 0.5s;
-    transform: translateY( -25px);
-    filter: blur(5px);
+    transform: translateY( 0px);
+    // filter: blur(5px);
 
 }
 .parallaxIn {
-    // background-position: bottom bottom;
-    transform: translateY( 0px);
-    filter: blur(0px);
+    transform: translateY(-25px);
+    // filter: blur(0px);
 
 
 }

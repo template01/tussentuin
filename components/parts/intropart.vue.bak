@@ -1,12 +1,14 @@
 <template>
-<div class="intropart " :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
-  <div :class="[inViewClass]">
-    <div v-show="titletext" v-html="titletext" class=" has-text-weight-bold" :class="[slideIn ? 'slideIn':'',  islarge ? 'is-size-1':'is-size-2', isgreen ? 'has-text-primary':'has-text-info']">
-    </div>
-    <div v-show="blurbtext" v-html="blurbtext" class="is-size-4 has-text-weight-semibold pt-10 transitionOpacity" :class="[ islarge ? 'is-size-4':'is-size-5', isgreen ? 'has-text-primary':'has-text-info']" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':'1300ms'}]">
-    </div>
+<div class="intropart" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
+
+  <div v-show="headertext" v-html="headertext" class=" has-text-weight-bold" :class="[slideIn ? 'slideIn':'', inViewClass, islarge ? 'is-size-1':'is-size-2', isgreen ? 'has-text-primary':'has-text-info']">
+    <!-- <span>Collective</span><span>groene ruimten</span> -->
   </div>
+
+  <div v-show="blurbtext" v-html="blurbtext" class="is-size-4 has-text-weight-semibold pt-10 transitionOpacity" :class="[ islarge ? 'is-size-4':'is-size-5', isgreen ? 'has-text-primary':'has-text-info']" :style="[slideIn ? {'opacity':'0'}:{'opacity':'0'},{'transition-delay':'1300ms'}]">
+
   </div>
+</div>
 </template>
 <script>
 import scrollMonitor from 'scrollmonitor'
@@ -17,8 +19,19 @@ import scrollMonitor from 'scrollmonitor'
 
 
 export default {
-  props: ['titletext', 'islarge', 'isgreen', 'blurbtext','offset'],
-
+  props:['headertext','blurbtext','islarge','isgreen'],
+  // props: {
+  //   headertext: {
+  //     type: String,
+  //     default: ''
+  //   },
+  //   blurbtext: {
+  //     type: String,
+  //     default: ''
+  //   },
+  //   islarge: Boolean,
+  //   isgreen: Boolean
+  // },
   data: function() {
     return {
       slideIn: false,
@@ -26,12 +39,31 @@ export default {
     }
   },
   methods: {
+    isEmpty: function(input) {
+      if (input == null) {
+        // your code here.
+        return false
 
+      }else{
+        return true
+
+      }
+      // if (input.length === 0) {
+      //   console.log('emtpty')
+      //   console.log(input)
+      //
+      //   return true
+      // } else {
+      //   console.log(input)
+      //
+      //   return false
+      // }
+    }
 
   },
   mounted() {
     var myElement = this.$el.querySelector("." + this.inViewClass);
-    var elementWatcher = scrollMonitor.create(myElement, this.offset);
+    var elementWatcher = scrollMonitor.create(myElement,-350);
     var vm = this
 
     elementWatcher.enterViewport(function() {

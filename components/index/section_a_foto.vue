@@ -4,8 +4,8 @@
     <div class="container container-display-grid">
       <!-- <logo></logo> -->
       <div class="columns is-mobile pt-80">
-        <div class="column is-4 is-offset-1">
-          <intropart :islarge="true" :isgreen="true" :headertext="'<p>Bij voorbeld</p><p>deze mooie</p><p>ding...</p>'" :blurbtext="''">
+        <div class="column is-6">
+          <intropart :offset="-500" :islarge="true" :isgreen="true" :titletext="'<p>Bij voorbeld</p><p>deze mooie</p><p>ding...</p>'">
           </intropart>
         </div>
       </div>

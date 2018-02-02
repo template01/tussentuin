@@ -1,3 +1,7 @@
 .window-full-height{
   min-height: 100vh;
 }
+
+.window-half-height{
+  min-height: 50vh;
+}
