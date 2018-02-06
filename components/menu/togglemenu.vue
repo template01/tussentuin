@@ -1,8 +1,10 @@
 <template>
   <div id="togglemenu-outer" class="mt-20" >
     <!-- OPEN MENU -->
-    <a @click="openmenu()" v-if="!menuopen" id="togglemenu" class="button is-centered is-success is-rounded color-offset-green">
+    <!-- <a @click="openmenu()" v-if="!menuopen" id="togglemenu" class="button is-centered is-success is-rounded color-offset-green"> -->
+    <a @click="openmenu()" v-if="!menuopen" id="togglemenu" class="button is-info is-centered is-rounded">
       <div class="">
+        <!-- <i class="is-size-2 fas fa-bars"></i> -->
         <div class="" id="nav-icon1">
           <span></span>
           <span></span>
@@ -12,8 +14,11 @@
     </a>
     <!-- CLOSE MENU -->
 
-    <a @click="closemenu()" v-else id="togglemenu" class="button is-centered is-rounded color-offset-green">
+    <!-- <a @click="closemenu()" v-else id="togglemenu" class="button is-centered is-rounded color-offset-green"> -->
+    <a @click="closemenu()" v-else id="togglemenu" class="button is-centered is-rounded">
       <div class="">
+        <!-- <i class="is-size-2 fas fa-bars"></i> -->
+
         <div class="open" id="nav-icon1">
           <span></span>
           <span></span>
@@ -68,8 +73,9 @@ export default {
 /* Icon 1 */
 
 #nav-icon1{
-  width: 40px;
-  height: 36px;
+  width: 25px;
+  height: 25px;
+  margin: 7px;
   position: relative;
   // margin: 50px auto;
   -webkit-transform: rotate(0deg);
@@ -86,10 +92,10 @@ export default {
 #nav-icon1 span{
   display: block;
   position: absolute;
-  height: 5px;
+  height: 3px;
   width: 100%;
   background: white;
-  border-radius: 10px;
+  // border-radius: 10px;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
@@ -107,18 +113,18 @@ export default {
 }
 
 #nav-icon1 span:nth-child(2) {
-  top: 16px;
+  top: 10px;
 }
 
 #nav-icon1 span:nth-child(3) {
-  top: 31px;
+  top: 20px;
 }
 #nav-icon1.open span {
-  background: $green;
+  background: $darkblue;
 }
 
 #nav-icon1.open span:nth-child(1) {
-  top: 16px;
+  top: 10px;
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   -o-transform: rotate(135deg);
@@ -131,7 +137,7 @@ export default {
 }
 
 #nav-icon1.open span:nth-child(3) {
-  top: 16px;
+  top: 10px;
   -webkit-transform: rotate(-135deg);
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);

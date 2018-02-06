@@ -1,6 +1,6 @@
 <template>
   <div class="aligner toNextSection p-80 ">
-    <a @click="goToId(idprop)" class="has-text-weight-bold aligner-item button is-centered is-success is-rounded color-offset-green">
+    <a @click="goToId(idprop)" class="has-text-weight-bold aligner-item button is-centered is-info is-rounded">
       <div class="">
         Next
       </div>

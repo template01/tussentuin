@@ -1,4 +1,7 @@
 // 1. Import the initial variables
+@import "../../scss/variables.scss";
+
+
 @import "../sass/utilities/initial-variables";
 @import "../sass/utilities/functions";
 
@@ -13,7 +16,9 @@ $body-line-height: 1.4;
 
 $text: #091540;
 $link: #091540;
-$info:  #1b1bab;
+// dark blue
+$info: $darkblue;
+// dark brown
 $dark: #724A33;
 
 // 2. Set your own initial variables

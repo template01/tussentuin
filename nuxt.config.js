@@ -3,7 +3,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'Nuxt boilerplate - bulma flavour',
+    title: 'Tussentuin',
     meta: [{
         charset: 'utf-8'
       },
@@ -21,8 +21,12 @@ module.exports = {
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
-    }]
+    }],
+    script: [{
+      src: 'https://use.fontawesome.com/releases/v5.0.0/js/all.js'
+    }],
   },
+
 
 
 
@@ -140,7 +144,7 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    vendor: ['axios', 'lodash','rellax','scrollmonitor'],
+    vendor: ['axios', 'lodash', 'rellax', 'scrollmonitor'],
 
     postcss: {
       plugins: {

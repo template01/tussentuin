@@ -14,6 +14,9 @@
     <indexsection id="tuinen" :fullheight="true">
       <section_b></section_b>
     </indexsection>
+    <indexsection id="themas" :fullheight="true">
+      <section_c></section_c>
+    </indexsection>
   </div>
 </div>
 </div>
@@ -27,6 +30,7 @@ import indexsection from '~/components/index/indexsection.vue'
 import section_a from '~/components/index/section_a.vue'
 import section_a_foto from '~/components/index/section_a_foto.vue'
 import section_b from '~/components/index/section_b.vue'
+import section_c from '~/components/index/section_c.vue'
 
 import axios from 'axios'
 import {
@@ -43,6 +47,7 @@ export default {
     section_a,
     section_a_foto,
     section_b,
+    section_c,
   },
   computed: {
     ...mapGetters({

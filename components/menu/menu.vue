@@ -88,10 +88,10 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: $darkgreen;
-    -webkit-box-shadow: 0px 0px 100px 27px $darkgreen;
-    -moz-box-shadow: 0px 0px 100px 27px $darkgreen;
-    box-shadow: 0px 0px 100px 27px $darkgreen;
+    background-color: $darkblue;
+    -webkit-box-shadow: 0px 0px 100px 27px $darkblue;
+    -moz-box-shadow: 0px 0px 100px 27px $darkblue;
+    box-shadow: 0px 0px 100px 27px $darkblue;
     color: #FFF;
     text-decoration: none;
     text-align: center;
