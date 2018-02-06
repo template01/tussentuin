@@ -52,10 +52,10 @@ export default {
 
 #menu-outer {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
     z-index: 999;
 
     #menu-inner {
@@ -89,18 +89,18 @@ export default {
     width: 100%;
     height: 100%;
     background-color: $darkblue;
-    -webkit-box-shadow: 0px 0px 100px 27px $darkblue;
-    -moz-box-shadow: 0px 0px 100px 27px $darkblue;
-    box-shadow: 0px 0px 100px 27px $darkblue;
+    // -webkit-box-shadow: 0px 0px 100px 27px $darkblue;
+    // -moz-box-shadow: 0px 0px 100px 27px $darkblue;
+    // box-shadow: 0px 0px 100px 27px $darkblue;
     color: #FFF;
     text-decoration: none;
     text-align: center;
     vertical-align: middle;
     display: table-cell;
-    animation: ripple-in1 1s;
+    animation: ripple-in1 3s;
     animation-fill-mode: forwards;
     border-radius: 8000px;
-    transition: border-radius 0.3s;
+    transition: border-radius 1s;
 }
 @keyframes fade-in {
     0% {

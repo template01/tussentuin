@@ -1,8 +1,8 @@
 <template>
   <div class="aligner toNextSection p-80 ">
     <a @click="goToId(idprop)" class="has-text-weight-bold aligner-item button is-centered is-info is-rounded">
-      <div class="">
-        Next
+      <div class="" v-html="text">
+
       </div>
     </a>
   </div>
@@ -15,7 +15,7 @@ import {
 
 
 export default {
-  props:['idprop'],
+  props:['idprop','text'],
   data: function() {
     return {
       genericData: 'generic component text'

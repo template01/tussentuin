@@ -1,6 +1,6 @@
 <template>
   <div >
-    <backgroundpattern class="peach-background" :pattern="'drawing.svg'"></backgroundpattern>
+    <backgroundpattern class="peach-background" :pattern="'pattern_grass1.svg'"></backgroundpattern>
     <div class="container pt-30 pb-80">
       <div class="columns is-mobile pt-80">
         <div class=" column is-6 ">

@@ -5,7 +5,7 @@
     <!-- <postlistcomp></postlistcomp> -->
     <indexsection :halfheight="true">
       <section_a></section_a>
-      <tonextsection :idprop="'tuinen'"></tonextsection>
+      <tonextsection :text="'Lees meer'" :idprop="'tuinen'"></tonextsection>
     </indexsection>
     <!-- <indexsection id="wauw" :fullheight="true">
       <section_a_foto></section_a_foto>
