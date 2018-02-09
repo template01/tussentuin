@@ -1,5 +1,5 @@
 export const state = () => ({
-  appinitated:false,
+  appinitated:true,
   apiRoot: 'http://api.tussentuin.nl/wp-json',
   menuopen: false,
   posts:[],
