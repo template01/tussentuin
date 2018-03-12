@@ -57,6 +57,10 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+
+*{
+    background: $darkblue;
+}
 .indexsection-outer {
     overflow-y: hidden;
     position: relative;
