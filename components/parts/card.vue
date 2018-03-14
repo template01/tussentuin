@@ -1,14 +1,16 @@
 <template>
-<div class="tuin-card m-10">
-  <div class="p-20">
-    <p class="is-size-4 has-text-weight-semibold has-text-dark has-text-centered">
-      Portiek
-    </p>
-    <img class="pt-30 pb-30" :src="'tuin1.svg'" />
-    <p class="is-size-5 has-text-weight-semibold has-text-dark">
-      Tussentuin werkt aan het verbeteren van de leefomgeving.
-    </p>
+<div class="p-10">
+  <div class=" tuin-card">
+
+    <div class="p-20">
+      <p class="is-size-4 has-text-weight-semibold has-text-dark has-text-centered" v-html="title">
+      </p>
+      <img class="pt-30 pb-30" :src="image" />
+      <p class="is-size-5 has-text-weight-semibold has-text-dark" v-html="blurb">
+      </p>
+    </div>
   </div>
+
 </div>
 </template>
 <script>
@@ -18,7 +20,7 @@ import {
 
 
 export default {
-  props: [],
+  props: ['title','blurb','image'],
   data: function() {
     return {
       genericData: 'generic component text'

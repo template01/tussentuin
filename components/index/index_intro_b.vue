@@ -1,18 +1,12 @@
 <template>
   <div >
-    <backgroundpattern class="peach-background" :pattern="'drawing.svg'"></backgroundpattern>
+    <backgroundpattern class="blue-background" :patternfull="'rain.svg'"></backgroundpattern>
     <div class="container pt-30 pb-80">
       <div class="columns is-mobile pt-80">
-        <div class=" column is-6 is-offset-3 ">
-          <intropart :islarge="true" :titletext="'<p>Onze</p><p>Tuinen</p>'">
-          </intropart>
-          <intropart :islarge="true" :blurbtext="'<p>Stichting Tussentuin heeft als doel het ontwikkelen en verspreiden van kennis over collectieve groene ruimten tussen de bebouwde omgeving.</p>'">
+        <div class=" column is-8 is-offset-2 ">
+          <intropart :islarge="true" :secondDelay="200" :blurbtext="intro">
           </intropart>
         </div>
-      </div>
-
-      <div class="is-mobile pt-80">
-        <tuincards></tuincards>
       </div>
 
 
@@ -32,7 +26,11 @@ import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
 
 export default {
-  props: ['boomfile'],
+  props: {
+    intro:{
+      default:'<p>...</p>'
+    },
+  },
   components: {
     logo,
     intropart,
@@ -55,9 +53,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.peach-background{
-  background:$peach
-}
+
 .indexsection-outer {
     overflow-y: hidden;
     position: relative;

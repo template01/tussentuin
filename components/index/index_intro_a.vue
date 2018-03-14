@@ -1,22 +1,19 @@
 <template>
-<div>
-  <backgroundpattern :pattern="'patternGreen.svg'"></backgroundpattern>
-  <!-- <growelement></growelement> -->
-  <div class="container pt-80 pb-80">
-    <div class="pb-80 pt-80">
+<div class="window-full-height">
+  <backgroundpattern :patternfull="'patternGreen.svg'"></backgroundpattern>
+  <div class="pt-80 pb-80 window-full-height aligner  window-half-width">
+    <div class="pb-80 pt-80 ">
 
       <div class="columns is-mobile pt-80 pb-80">
-        <div class="column is-6">
-          <intropart :islarge="true" :titletext="'<p>Collective</p><p>groene ruimten</p>'">
-          </intropart>
-        </div>
-        <div class="column is-6">
-          <intropart :islarge="true" :blurbtext="'<p>Stichting Tussentuin heeft als doel het ontwikkelen en verspreiden van kennis over collectieve groene ruimten tussen de bebouwde omgeving.</p>'">
+        <div class="column is-8 is-offset-2">
+          <intropart :islarge="true" :titletext="intro">
           </intropart>
         </div>
       </div>
     </div>
   </div>
+  <backgroundphoto :isHalf="'true'" :isRight="'true'" :patternfull="image"></backgroundphoto>
+
 </div>
 </template>
 <script>
@@ -30,17 +27,26 @@ import intropart from '~/components/parts/intropart.vue'
 // import intropartblurb from '~/components/parts/intropartblurb.vue'
 import growelement from '~/components/elements/growelement.vue'
 import backgroundpattern from '~/components/elements/backgroundpattern.vue'
+import backgroundphoto from '~/components/elements/backgroundphoto.vue'
 
 
 export default {
-  props: ['boomfile'],
+  props: {
+    intro:{
+      default:'<p>...</p>'
+    },
+    image:{
+      default:'fotos/Garten-Landhof-1-tall.jpg'
+    }
+  },
   components: {
     logo,
     intropart,
     // introparttitle,
     // intropartblurb,
     growelement,
-    backgroundpattern
+    backgroundpattern,
+    backgroundphoto
   },
   data: function() {
     return {
@@ -58,9 +64,6 @@ export default {
 </script>
 <style scoped lang="scss">
 
-*{
-    background: $darkblue;
-}
 .indexsection-outer {
     overflow-y: hidden;
     position: relative;

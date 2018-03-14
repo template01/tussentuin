@@ -4,9 +4,9 @@
       Posts from store
     </p>
     <ul>
-      <li class="has-text-centered is-size-5" v-for="item in posts" v-html="item.title">
+      <!-- <li class="has-text-centered is-size-5" v-for="item in posts" v-html="item.title"> -->
 
-      </li>
+      <!-- </li> -->
     </ul>
   </div>
 </template>

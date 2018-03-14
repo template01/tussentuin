@@ -5,3 +5,6 @@
 .window-half-height{
   min-height: 50vh;
 }
+.window-half-width{
+  width: 50%;
+}

@@ -7,10 +7,10 @@
       <div v-for="i in 6" class="thema-inner pb-40 pr-20 pl-20">
         <div class="logo mb-20":style="{ 'background-image': 'url(' + 'thema-0' + i + '.svg)' }">
         </div>
-        <p class="pb-20 has-text-centered has-text-dark is-size-4 has-text-weight-semibold">
+        <p class="pb-20 has-text-centered has-text-info is-size-4 has-text-weight-semibold">
           Vergroening
         </p>
-        <p class="has-text-centered has-text-dark is-size-5">
+        <p class="has-text-centered has-text-info is-size-5">
           Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris.
         </p>
       </div>
@@ -84,7 +84,7 @@ export default {
   }
 }
 .thema-inner{
-  width: 50%;
+  width: 33.333%;
   float: left;
   display: block;
 

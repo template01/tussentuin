@@ -1,22 +1,36 @@
 <template>
 <div class="" style="">
   <div v-if="appinitated" class="">
+    <indexsection :fullheight="true">
+      <index_intro_a :intro="indexContent.intro_a.bam_text" :image="indexContent.intro_a.background_image.sizes.large">
+      </index_intro_a>
+      <tonextsection :text="'Ga verder'" :idprop="'tuinen'"></tonextsection>
+    </indexsection>
 
-    <!-- <postlistcomp></postlistcomp> -->
-    <indexsection :halfheight="true">
-      <section_a></section_a>
-      <tonextsection :text="'Lees meer'" :idprop="'tuinen'"></tonextsection>
+    <indexsection id="tuinen">
+      <index_intro_b :intro="indexContent.intro_b"></index_intro_b>
     </indexsection>
-    <!-- <indexsection id="wauw" :fullheight="true">
-      <section_a_foto></section_a_foto>
-      <tonextsection :idprop="'tuinen'"></tonextsection>
-    </indexsection> -->
-    <indexsection id="tuinen" :fullheight="true">
-      <section_b></section_b>
+    <indexsection id="">
+      <index_onzetuinen :title="indexContent.onze_tuinen.titel" :intro="indexContent.onze_tuinen.desc"></index_onzetuinen>
+      <topage :text="'Lees meer'"></topage>
     </indexsection>
-    <indexsection id="themas" :fullheight="true">
-      <section_c></section_c>
+    <indexsection id="">
+      <index_onzethemas></index_onzethemas>
+      <topage :text="'Lees meer'"></topage>
+
     </indexsection>
+    <indexsection id="">
+      <index_onzekennis></index_onzekennis>
+      <topage :text="'Lees meer'"></topage>
+
+    </indexsection>
+    <indexsection :fullheight="true">
+      <index_stichtingtussentuin>
+        <topage :left="true" :text="'Lees meer'"></topage>
+      </index_stichtingtussentuin>
+
+    </indexsection>
+
   </div>
 </div>
 </div>
@@ -25,12 +39,15 @@
 <script>
 import genericcomp from '~/components/_genericComp.vue'
 import postlistcomp from '~/components/postListComp.vue'
-import tonextsection from '~/components/index/tonextsection.vue'
+import tonextsection from '~/components/parts/tonextsection.vue'
+import topage from '~/components/parts/topage.vue'
 import indexsection from '~/components/index/indexsection.vue'
-import section_a from '~/components/index/section_a.vue'
-import section_a_foto from '~/components/index/section_a_foto.vue'
-import section_b from '~/components/index/section_b.vue'
-import section_c from '~/components/index/section_c.vue'
+import index_intro_a from '~/components/index/index_intro_a.vue'
+import index_intro_b from '~/components/index/index_intro_b.vue'
+import index_onzetuinen from '~/components/index/index_onzetuinen.vue'
+import index_onzethemas from '~/components/index/index_onzethemas.vue'
+import index_onzekennis from '~/components/index/index_onzekennis.vue'
+import index_stichtingtussentuin from '~/components/index/index_stichtingtussentuin.vue'
 
 import axios from 'axios'
 import {
@@ -44,10 +61,13 @@ export default {
     postlistcomp,
     indexsection,
     tonextsection,
-    section_a,
-    section_a_foto,
-    section_b,
-    section_c,
+    topage,
+    index_intro_a,
+    index_intro_b,
+    index_onzetuinen,
+    index_onzethemas,
+    index_onzekennis,
+    index_stichtingtussentuin,
   },
   computed: {
     ...mapGetters({
@@ -65,18 +85,12 @@ export default {
     redirect
   }) {
 
-
-    // GET POSTS START
-    console.log(store.state.apiRoot + '/wp/v2/posts')
-
-    if (store.state.posts.length == 0) {
-      const postsRes = await axios.get(store.state.apiRoot + '/wp/v2/posts')
-      console.log(store.state.apiRoot + '/wp/v2/posts')
-      store.commit('SET_POSTS', postsRes.data)
+    let {
+      data
+    } = await axios.get(store.state.apiRoot + '/wp/v2/pages?slug=index')
+    return {
+      indexContent: data[0].acf
     }
-
-    // RETURN DATA DIRECTLY
-    // return { title: 'blah blah blah' }
 
 
   },

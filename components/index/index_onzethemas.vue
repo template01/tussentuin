@@ -1,15 +1,21 @@
 <template>
   <div >
-    <backgroundpattern class="peach-background" :pattern="'pattern_grass1.svg'"></backgroundpattern>
+    <backgroundpattern :patternfull="'pattern_grass1.svg'"></backgroundpattern>
     <div class="container pt-30 pb-80">
+
       <div class="columns is-mobile pt-80">
-        <div class=" column is-6 ">
+        <div class=" column is-8 is-offset-2 ">
           <intropart :islarge="true" :titletext="'<p>Onze</p><p>Themas</p>'">
           </intropart>
           <intropart :islarge="true" :blurbtext="'<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris.</p>'">
           </intropart>
         </div>
-        <div class="column is-6 is-mobile">
+      </div>
+
+
+      <div class="columns is-mobile pt-80">
+
+        <div class="column  is-mobile">
           <themas></themas>
         </div>
 

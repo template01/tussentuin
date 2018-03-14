@@ -1,5 +1,6 @@
 <template>
-  <div class="backgroundpattern" :style="{ 'background-image': 'url(' + pattern }">
+  <div class="backgroundpattern" :style="{ 'background-image': `url(`+patternfull+`)`}">
+
   </div>
 </template>
 <script>
@@ -10,7 +11,7 @@ import {
 
 
 export default {
-  props:['pattern'],
+  props:['patternfull'],
   data: function() {
     return {
       genericData: 'generic component text'
@@ -29,6 +30,7 @@ export default {
 <style scoped lang="scss">
 
   .backgroundpattern{
+    top: 0;
     position: absolute;
     height: 100%;
     width: 100%;

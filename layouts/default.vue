@@ -7,6 +7,7 @@
     <menucomp></menucomp>
     <togglemenu></togglemenu>
     <nuxt/>
+    <footercomp></footercomp>
   </div>
 </template>
 
@@ -15,6 +16,7 @@
 import togglemenu from '~/components/menu/togglemenu.vue'
 import navbar from '~/components/nav/navbar.vue'
 import menucomp from '~/components/menu/menu.vue'
+import footercomp from '~/components/parts/footer.vue'
 import logo from '~/components/logo/logo.vue'
 import loadinginit from '~/components/loadinginit.vue'
 
@@ -29,6 +31,7 @@ export default {
   components: {
     togglemenu,
     menucomp,
+    footercomp,
     navbar,
     logo,
     loadinginit,

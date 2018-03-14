@@ -1,14 +1,21 @@
 <template>
-  <div>
-    <backgroundphoto :pattern="'/fotos/Tuin-de-bajonet-4.jpg'"></backgroundphoto>
-    <div class="container container-display-grid">
-      <!-- <logo></logo> -->
+  <div >
+    <backgroundpattern class="peach-background" :patternfull="'drawing.svg'"></backgroundpattern>
+    <div class="container pt-30 pb-80">
       <div class="columns is-mobile pt-80">
-        <div class="column is-6">
-          <intropart :offset="-500" :islarge="true" :isgreen="true" :titletext="'<p>Bij voorbeld</p><p>deze mooie</p><p>ding...</p>'">
+        <div class=" column is-8 is-offset-2 ">
+          <intropart :islarge="true" :titletext="title">
+          </intropart>
+          <intropart :islarge="true" :blurbtext="intro">
           </intropart>
         </div>
       </div>
+
+      <div class="is-mobile pt-80">
+        <tuincards></tuincards>
+      </div>
+
+
     </div>
   </div>
 </template>
@@ -20,16 +27,25 @@ import {
 import logo from '~/components/logo/logo.vue'
 import intropart from '~/components/parts/intropart.vue'
 import growelement from '~/components/elements/growelement.vue'
-import backgroundphoto from '~/components/elements/backgroundphoto.vue'
+import tuincards from '~/components/parts/tuincards.vue'
+import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
 
 export default {
-  props: ['boomfile'],
+  props: {
+    title:{
+      default:'<p>...</p>'
+    },
+    intro:{
+      default:'<p>...</p>'
+    },
+  },
   components: {
     logo,
     intropart,
     growelement,
-    backgroundphoto
+    tuincards,
+    backgroundpattern
   },
   data: function() {
     return {
@@ -46,11 +62,14 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+
 .indexsection-outer {
     overflow-y: hidden;
     position: relative;
-    .columns:last-child{
+
+    .columns {
       margin-bottom: 0;
+      margin-top: 0;
     }
 }
 </style>
