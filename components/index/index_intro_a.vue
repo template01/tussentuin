@@ -1,16 +1,19 @@
 <template>
 <div class="window-full-height">
   <backgroundpattern :patternfull="'patternGreen.svg'"></backgroundpattern>
+
+  <div class="container">
   <div class="pt-80 pb-80 window-full-height aligner  window-half-width">
     <div class="pb-80 pt-80 ">
 
       <div class="columns is-mobile pt-80 pb-80">
-        <div class="column is-8 is-offset-2">
+        <div class="column is-12 is-offset-0">
           <intropart :islarge="true" :titletext="intro">
           </intropart>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <backgroundphoto :isHalf="'true'" :isRight="'true'" :patternfull="image"></backgroundphoto>
 

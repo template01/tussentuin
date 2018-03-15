@@ -11,16 +11,22 @@
       <index_intro_b :intro="indexContent.intro_b"></index_intro_b>
     </indexsection>
     <indexsection id="">
-      <index_onzetuinen :title="indexContent.onze_tuinen.titel" :intro="indexContent.onze_tuinen.desc"></index_onzetuinen>
+      <index_onzetuinen :title="indexContent.onze_tuinen.titel" :intro="indexContent.onze_tuinen.desc">
+        <tuincards :tuinsoorten="tuinsoortenContent"></tuincards>
+      </index_onzetuinen>
       <topage :text="'Lees meer'"></topage>
     </indexsection>
     <indexsection id="">
-      <index_onzethemas></index_onzethemas>
+      <index_onzethemas>
+        <themas :themas="themaContent"></themas>
+      </index_onzethemas>
       <topage :text="'Lees meer'"></topage>
 
     </indexsection>
     <indexsection id="">
-      <index_onzekennis></index_onzekennis>
+      <index_onzekennis>
+        <kenniscard :kennissoorten="kennissoortContent"></kenniscard>
+      </index_onzekennis>
       <topage :text="'Lees meer'"></topage>
 
     </indexsection>
@@ -28,9 +34,7 @@
       <index_stichtingtussentuin>
         <topage :left="true" :text="'Lees meer'"></topage>
       </index_stichtingtussentuin>
-
     </indexsection>
-
   </div>
 </div>
 </div>
@@ -45,8 +49,11 @@ import indexsection from '~/components/index/indexsection.vue'
 import index_intro_a from '~/components/index/index_intro_a.vue'
 import index_intro_b from '~/components/index/index_intro_b.vue'
 import index_onzetuinen from '~/components/index/index_onzetuinen.vue'
+import tuincards from '~/components/parts/tuincards.vue'
 import index_onzethemas from '~/components/index/index_onzethemas.vue'
+import themas from '~/components/parts/themas.vue'
 import index_onzekennis from '~/components/index/index_onzekennis.vue'
+import kenniscard from '~/components/parts/kenniscard.vue'
 import index_stichtingtussentuin from '~/components/index/index_stichtingtussentuin.vue'
 
 import axios from 'axios'
@@ -65,8 +72,11 @@ export default {
     index_intro_a,
     index_intro_b,
     index_onzetuinen,
+    tuincards,
     index_onzethemas,
+    themas,
     index_onzekennis,
+    kenniscard,
     index_stichtingtussentuin,
   },
   computed: {
@@ -85,13 +95,18 @@ export default {
     redirect
   }) {
 
-    let {
-      data
-    } = await axios.get(store.state.apiRoot + '/wp/v2/pages?slug=index')
+    let [pagecontentRes,tuinsoortenRes,kennissoortRes,themaRes] = await Promise.all([
+      axios.get(store.state.apiRoot + '/wp/v2/pages?slug=index'),
+      axios.get(store.state.apiRoot + '/wp/v2/tuinsoort'),
+      axios.get(store.state.apiRoot + '/wp/v2/kennissoort'),
+      axios.get(store.state.apiRoot + '/wp/v2/thema'),
+    ])
     return {
-      indexContent: data[0].acf
+      indexContent: pagecontentRes.data[0].acf,
+      tuinsoortenContent: tuinsoortenRes.data,
+      kennissoortContent: kennissoortRes.data,
+      themaContent: themaRes.data,
     }
-
 
   },
 

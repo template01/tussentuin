@@ -78,7 +78,7 @@ export default {
     .is-size-1 {
         p {
             padding-top: 0;
-            line-height: 1.1 !important;
+            line-height: 1.15 !important;
             // margin-top: -20px;
         }
     }

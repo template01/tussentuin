@@ -12,9 +12,9 @@
       </div>
 
       <div class="is-mobile pt-80">
-        <tuincards></tuincards>
+        <slot>
+        </slot>
       </div>
-
 
     </div>
   </div>
@@ -27,7 +27,6 @@ import {
 import logo from '~/components/logo/logo.vue'
 import intropart from '~/components/parts/intropart.vue'
 import growelement from '~/components/elements/growelement.vue'
-import tuincards from '~/components/parts/tuincards.vue'
 import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
 
@@ -44,7 +43,6 @@ export default {
     logo,
     intropart,
     growelement,
-    tuincards,
     backgroundpattern
   },
   data: function() {

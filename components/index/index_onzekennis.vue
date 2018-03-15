@@ -12,9 +12,9 @@
       </div>
     </div>
     <div class="columns is-mobile pt-80">
-
       <div class=" column ">
-        <kenniscard></kenniscard>
+        <slot>
+        </slot>
       </div>
     </div>
 
@@ -32,7 +32,6 @@ import {
 import logo from '~/components/logo/logo.vue'
 import intropart from '~/components/parts/intropart.vue'
 import growelement from '~/components/elements/growelement.vue'
-import kenniscard from '~/components/parts/kenniscard.vue'
 import themas from '~/components/parts/themas.vue'
 import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
@@ -43,7 +42,6 @@ export default {
     logo,
     intropart,
     growelement,
-    kenniscard,
     themas,
     backgroundpattern
   },

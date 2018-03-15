@@ -1,16 +1,14 @@
 <template>
 <div>
-
   <div :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
     <div class="card-wrapper" v-if="slideIn">
       <div class="card-wrapper-inner aligner" :class="{slideInHorizontal: slideInHorizontal, slideOutHorizontal: slideOutHorizontal}">
-        <card v-for="(item,key,index) in cardsData[selected]"  :key="key" class="card-single aligner-item--top" :title="item.title" :blurb="item.blurb" :image="item.image"></card>
+        <card v-for="(item,key,index) in chunkTuinsoortenDesktop[selected]"  :key="key" class="card-single aligner-item--top" :title="item.title.rendered" :blurb="item.acf.blurb" :image="item.acf.icon"></card>
       </div>
     </div>
     <div class="aligner">
-
       <p class="is-size-5 has-text-dark mt-40">
-        <span class="bullet mr-10" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in cardsData"></span>
+        <span class="bullet mr-10" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in chunkTuinsoortenDesktop"></span>
       </p>
     </div>
   </div>
@@ -19,7 +17,7 @@
 <script>
 import scrollMonitor from 'scrollmonitor'
 import card from '~/components/parts/card.vue'
-
+import _ from 'lodash'
 // import {
 //   mapGetters
 // } from 'vuex'
@@ -27,7 +25,7 @@ import card from '~/components/parts/card.vue'
 
 
 export default {
-  props: ['islarge', 'isblue', 'isbrown'],
+  props: ['islarge', 'isblue', 'isbrown','tuinsoorten'],
   components: {
     card
   },
@@ -38,38 +36,7 @@ export default {
       selected: 0,
       slideInHorizontal: true,
       slideOutHorizontal: false,
-      cardsData: [
-        [
 
-          {
-            "title": "First",
-            "blurb": "Fusce et facilisis dolor. Suspendisse cursus urna sit amet orci Suspendisse cursus urna sit amet orci iaculis vehicula aenean molestFusce et facilisis dolor. Suspendisse cursus u",
-            "image": "fotos/Garten-Landhof-1-tall.jpg",
-          },
-          {
-            "title": "Tuineren 101",
-            "blurb": "Suspendisse cursus urna sit amet orci Suspendisse cursus urna sit amet orci iaculis vehicula aenean molestFusce et facilisis dolor. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. ",
-            "image": "fotos/Tuin-de-Bajonet-3.jpg",
-          },
-          {
-            "title": "Ontwerp en Plannen",
-            "blurb": "Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Suspendisse cursus urna sit amet orci Suspendisse cursus urna sit amet orci iaculis vehicula aenean molestFusce et facilisis dolor. ",
-            "image": "fotos/Buurtpluktuin-20-4-2016-7.jpg",
-          }
-        ],
-        [{
-            "title": "Ontwerp en Plannen",
-            "blurb": "Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Suspendisse cursus urna sit amet orci Suspendisse cursus urna sit amet orci iaculis vehicula aenean molestFusce et facilisis dolor. ",
-            "image": "fotos/Buurtpluktuin-20-4-2016-7.jpg",
-          },
-          {
-            "title": "Tour-De-Tuin",
-            "blurb": "Fusce et facilisis dolor. Suspendisse cursus urna sit amet orci Suspendisse cursus urna sit amet orci iaculis vehicula aenean molestFusce et facilisis dolor. Suspendisse cursus u",
-            "image": "fotos/Garten-Landhof-1-tall.jpg",
-          }
-
-        ]
-      ]
     }
   },
   methods: {
@@ -99,12 +66,12 @@ export default {
     elementWatcher.exitViewport(function() {
       vm.slideIn = false
     });
-  }
-  // computed: {
-  //   ...mapGetters({
-  //    appinitated: "GET_APP_INITIATED",
-  //   }),
-  // },
+  },
+  computed: {
+    chunkTuinsoortenDesktop: function(){
+      return _.chunk(this.tuinsoorten, 4);
+    }
+  },
 
 }
 </script>

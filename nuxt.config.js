@@ -82,12 +82,15 @@ module.exports = {
   ],
 
   plugins: [
-    '~/plugins/lodash-plugin.js',
     //'~/plugins/maps.js',
     '~/plugins/resizer.js',
     //GLOBAL MIXINS
     '~/mixins/computedresizerglobalmixin.js',
 
+    {
+      src:     '~/plugins/lodash-plugin.js',
+      ssr: false
+    },
     {
       src: '~/plugins/initialLoad.js',
       ssr: false
@@ -171,10 +174,10 @@ module.exports = {
     //   }
     // }
   },
-generate: {
-  minify: {
-    collapseWhitespace: false
+  generate: {
+    minify: {
+      collapseWhitespace: false
+    }
   }
-}
 
 }

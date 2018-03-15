@@ -4,12 +4,15 @@
     <div class="ripple-button1">
       <div id="menu-inner" class="aligner">
         <div id="menu-list" class="aligner-item">
-          <a class="is-size-1 has-text-weight-semibold">Tuinen</a>
-          <a class="is-size-1 has-text-weight-semibold">Thema's</a>
-          <a class="is-size-1 has-text-weight-semibold">Kennis</a>
-          <a class="is-size-1 has-text-weight-semibold">Stichting</a>
-          <a class="is-size-1 has-text-weight-semibold">Contact</a>
+          <nuxt-link v-for="link in menuContent.acf.linktointern" class="is-size-1 has-text-weight-semibold" :to="link.intern_link" v-html="link.naam"></nuxt-link>
+            <a v-for="(link,index) in menuContent.acf.linktoextern" :class="{'mt-80' : index === 0}" class="is-size-3 has-text-weight-semibold" target="_blank" :href="link.extern_link" v-html="link.naam"></a>
+
         </div>
+<!-- {{menuContent.acf.linktointern}} -->
+        <!-- <span v-for="link in footerContent.acf.linkto">
+          <nuxt-link  v-if="link.inten_of_extern" class="has-text-dark pr-80"  :to="link.intern_link" v-html="link.naam"></nuxt-link>
+          <a v-else class="has-text-dark pr-80" target="_blank" :href="link.extern_link" v-html="link.naam"></a>
+        </span> -->
       </div>
     </div>
   </div>
@@ -27,6 +30,7 @@ export default {
   computed: {
     ...mapGetters({
       menuopen: "GET_MENUOPEN",
+      menuContent: "GET_MENU",
     }),
   },
   methods: {
@@ -56,7 +60,7 @@ export default {
     left: -40%;
     width: 180%;
     height: 180%;
-    z-index: 999;
+    z-index: 1000;
 
     #menu-inner {
         // margin-top: 80px;

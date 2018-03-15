@@ -4,14 +4,13 @@
   <div :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
     <div class="thema-wrapper" v-if="slideIn">
 
-      <div v-for="i in 6" class="thema-inner pb-40 pr-20 pl-20">
-        <div class="logo mb-20":style="{ 'background-image': 'url(' + 'thema-0' + i + '.svg)' }">
+      <div v-for="thema in themas" class="thema-inner pb-40 pr-20 pl-20">
+        <div class="logo mb-20":style="{ 'background-image': 'url(' + thema.acf.icon +')' }">
         </div>
-        <p class="pb-20 has-text-centered has-text-info is-size-4 has-text-weight-semibold">
-          Vergroening
+        <p class="pb-20 has-text-centered has-text-info is-size-4 has-text-weight-semibold" v-html="thema.title.rendered">
+
         </p>
-        <p class="has-text-centered has-text-info is-size-5">
-          Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris.
+        <p class="has-text-centered has-text-info is-size-5" v-html="thema.acf.blurb">
         </p>
       </div>
 
@@ -24,6 +23,7 @@
 <script>
 import scrollMonitor from 'scrollmonitor'
 import card from '~/components/parts/card.vue'
+import _ from 'lodash'
 
 // import {
 //   mapGetters
@@ -32,7 +32,7 @@ import card from '~/components/parts/card.vue'
 
 
 export default {
-  props: ['islarge', 'isblue', 'isbrown'],
+  props: ['islarge', 'isblue', 'isbrown','themas'],
   components: {
     card
   },
@@ -55,7 +55,13 @@ export default {
     elementWatcher.exitViewport(function() {
         // vm.slideIn = false
     });
-  }
+  },
+  // computed: {
+  //   chunkThemasDesktop: function(){
+  //     return _.chunk(this.themas, 4);
+  //   }
+  // },
+
   // computed: {
   //   ...mapGetters({
   //    appinitated: "GET_APP_INITIATED",

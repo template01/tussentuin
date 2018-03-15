@@ -1,23 +1,23 @@
 <template>
 <div class="kenniscardsingle m-10" :class="{slideInHorizontal: slideIn, slideOutHorizontal: slideOut}" :style="{'min-height':minHeight+'px'}">
-  <div class="kenniscardsingleinner columns">
+    <div class="kenniscardsingleinner columns">
     <div class="column">
       <div class="p-80 ">
 
-        <p class="is-size-4 has-text-weight-semibold has-text-dark mb-20" v-html="cardsData[selected].title">
+        <p class="is-size-4 has-text-weight-semibold has-text-dark mb-20" v-html="kennissoorten[selected].title.rendered">
 
         </p>
-        <p class="is-size-5 has-text-dark" v-html="cardsData[selected].blurb">
+        <p class="is-size-5 has-text-dark" v-html="kennissoorten[selected].acf.blurb">
 
         </p>
         <p class="is-size-5 has-text-dark mt-40">
-          <span class="bullet mr-10" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in cardsData"></span>
+          <span class="bullet mr-10" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in kennissoorten"></span>
         </p>
       </div>
 
     </div>
     <div class="column">
-      <backgroundphoto :borderradius="'0px 10px 10px 0px'" :isHalf="'true'" :isRight="'true'" :patternfull="cardsData[selected].image"></backgroundphoto>
+      <backgroundphoto :borderradius="'0px 10px 10px 0px'" :isHalf="'true'" :isRight="'true'" :patternfull="kennissoorten[selected].acf.background_image.sizes.large"></backgroundphoto>
     </div>
   </div>
 </div>
@@ -33,7 +33,7 @@ export default {
   components: {
     backgroundphoto
   },
-  props: [],
+  props: ['kennissoorten'],
   data: function() {
     return {
       selected: 0,

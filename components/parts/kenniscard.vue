@@ -1,9 +1,8 @@
 <template>
 <div>
-
   <div :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
     <div class="card-wrapper">
-      <kenniscardsingle class="kenniscardsingleouter" >
+      <kenniscardsingle :kennissoorten="kennissoorten" class="kenniscardsingleouter" >
     </kenniscardsingle>
     </div>
 
@@ -22,7 +21,7 @@ import kenniscardsingle from '~/components/parts/kenniscardsingle.vue'
 
 
 export default {
-  props: ['islarge', 'isblue', 'isbrown'],
+  props: ['islarge', 'isblue', 'isbrown','kennissoorten'],
   components: {
     kenniscardsingle
   },

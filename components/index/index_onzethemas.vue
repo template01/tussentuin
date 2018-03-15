@@ -16,7 +16,8 @@
       <div class="columns is-mobile pt-80">
 
         <div class="column  is-mobile">
-          <themas></themas>
+          <slot>
+          </slot>
         </div>
 
       </div>
@@ -35,7 +36,6 @@ import logo from '~/components/logo/logo.vue'
 import intropart from '~/components/parts/intropart.vue'
 import growelement from '~/components/elements/growelement.vue'
 import tuincards from '~/components/parts/tuincards.vue'
-import themas from '~/components/parts/themas.vue'
 import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
 
@@ -46,7 +46,6 @@ export default {
     intropart,
     growelement,
     tuincards,
-    themas,
     backgroundpattern
   },
   data: function() {
