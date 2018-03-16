@@ -40,7 +40,13 @@ export default {
     closemenu: function() {
       this.$store.commit('SET_MENUCLOSE')
     }
+  },
+  watch:{
+    $route:function(){
+      this.$store.commit('SET_MENUCLOSE')
+    }
   }
+
 }
 </script>
 <style lang="scss" scoped>

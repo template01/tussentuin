@@ -1,6 +1,6 @@
 <template>
 <div class="intropart " :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
-  <div :class="[inViewClass]">
+  <div :class="[inViewClass, hascentertext ? 'has-text-centered':'']"> 
     <div v-show="titletext" v-html="'<p>'+titletext+'</p>'" class=" has-text-weight-bold" :class="[slideIn ? 'slideIn':'',  islarge ? 'is-size-1':'is-size-2', isgreen ? 'has-text-primary':'has-text-info']">
     </div>
     <div v-show="blurbtext" v-html="blurbtext" class="is-size-4 has-text-weight-semibold pt-10 transitionOpacity" :class="[ islarge ? 'is-size-4':'is-size-5', isgreen ? 'has-text-primary':'has-text-info']" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]">
@@ -18,6 +18,9 @@ import scrollMonitor from 'scrollmonitor'
 
 export default {
   props: {
+    hascentertext:{
+
+    },
     titletext: {
 
     },

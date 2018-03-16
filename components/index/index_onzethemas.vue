@@ -5,9 +5,9 @@
 
       <div class="columns is-mobile pt-80">
         <div class=" column is-8 is-offset-2 ">
-          <intropart :islarge="true" :titletext="'<p>Onze</p><p>Themas</p>'">
+          <intropart :islarge="true" :titletext="title">
           </intropart>
-          <intropart :islarge="true" :blurbtext="'<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris.</p>'">
+          <intropart :islarge="true" :blurbtext="desc">
           </intropart>
         </div>
       </div>
@@ -40,7 +40,7 @@ import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
 
 export default {
-  props: ['boomfile'],
+  props: ['boomfile','title','desc'],
   components: {
     logo,
     intropart,

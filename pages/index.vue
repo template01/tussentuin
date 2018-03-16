@@ -17,14 +17,14 @@
       <topage :text="'Lees meer'"></topage>
     </indexsection>
     <indexsection id="">
-      <index_onzethemas>
+      <index_onzethemas :desc="indexContent.onze_themas.desc" :title="indexContent.onze_themas.titel">
         <themas :themas="themaContent"></themas>
       </index_onzethemas>
       <topage :text="'Lees meer'"></topage>
 
     </indexsection>
     <indexsection id="">
-      <index_onzekennis>
+      <index_onzekennis :desc="indexContent.onze_kennis.desc" :title="indexContent.onze_kennis.titel">
         <kenniscard :kennissoorten="kennissoortContent"></kenniscard>
       </index_onzekennis>
       <topage :text="'Lees meer'"></topage>

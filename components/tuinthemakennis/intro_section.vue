@@ -1,27 +1,10 @@
 <template>
 <div>
-  <backgroundpattern class="blue-background" :patternfull="'rain.svg'"></backgroundpattern>
-  <div class="container pt-30 pb-80">
+  <backgroundpattern :patternfull="pattern"></backgroundpattern>
 
-    <div class="columns is-mobile pt-80">
-      <div class=" column is-8 is-offset-2 ">
-        <intropart :islarge="true" :titletext="title">
-        </intropart>
-        <intropart :islarge="true" :blurbtext="desc">
-        </intropart>
-      </div>
-    </div>
-    <div class="columns is-mobile pt-80">
-      <div class=" column ">
-        <slot>
-        </slot>
-      </div>
-    </div>
+  <slot>
+  </slot>
 
-
-
-
-  </div>
 </div>
 </template>
 <script>
@@ -32,17 +15,17 @@ import {
 import logo from '~/components/logo/logo.vue'
 import intropart from '~/components/parts/intropart.vue'
 import growelement from '~/components/elements/growelement.vue'
-import themas from '~/components/parts/themas.vue'
+import tuincards from '~/components/parts/tuincards.vue'
 import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
 
 export default {
-  props: ['boomfile','title','desc'],
+  props: ['pattern', 'title', 'desc'],
   components: {
     logo,
     intropart,
     growelement,
-    themas,
+    tuincards,
     backgroundpattern
   },
   data: function() {

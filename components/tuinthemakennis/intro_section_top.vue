@@ -1,28 +1,31 @@
 <template>
-<div>
-  <backgroundpattern class="blue-background" :patternfull="'rain.svg'"></backgroundpattern>
-  <div class="container pt-30 pb-80">
+  <div >
+    <backgroundpattern :patternfull="pattern"></backgroundpattern>
+    <div class="container pt-30 pb-80">
 
-    <div class="columns is-mobile pt-80">
-      <div class=" column is-8 is-offset-2 ">
-        <intropart :islarge="true" :titletext="title">
-        </intropart>
-        <intropart :islarge="true" :blurbtext="desc">
-        </intropart>
+      <div class="columns is-mobile pt-80">
+        <div class=" column is-8 is-offset-2 ">
+          <intropart :hascentertext="true" :islarge="true" :titletext="title">
+          </intropart>
+          <intropart :islarge="true" :blurbtext="desc">
+          </intropart>
+        </div>
       </div>
-    </div>
-    <div class="columns is-mobile pt-80">
-      <div class=" column ">
-        <slot>
-        </slot>
+
+
+      <div class="columns is-mobile pt-80">
+
+        <div class="column  is-mobile">
+          <slot>
+          </slot>
+        </div>
+
       </div>
+
+
+
     </div>
-
-
-
-
   </div>
-</div>
 </template>
 <script>
 import {
@@ -32,17 +35,17 @@ import {
 import logo from '~/components/logo/logo.vue'
 import intropart from '~/components/parts/intropart.vue'
 import growelement from '~/components/elements/growelement.vue'
-import themas from '~/components/parts/themas.vue'
+import tuincards from '~/components/parts/tuincards.vue'
 import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
 
 export default {
-  props: ['boomfile','title','desc'],
+  props: ['pattern','title','desc'],
   components: {
     logo,
     intropart,
     growelement,
-    themas,
+    tuincards,
     backgroundpattern
   },
   data: function() {
@@ -60,16 +63,16 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.peach-background {
-    background: $peach;
+.peach-background{
+  background:$peach
 }
 .indexsection-outer {
     overflow-y: hidden;
     position: relative;
 
     .columns {
-        margin-bottom: 0;
-        margin-top: 0;
+      margin-bottom: 0;
+      margin-top: 0;
     }
 }
 </style>
