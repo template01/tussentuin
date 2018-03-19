@@ -1,15 +1,26 @@
 <template>
 <div class="" style="">
   <div class="">
-    <tuinthemakennis_section id="" class="pt-80 has-text-info">
-      <intro_section_top :pattern="'pattern_grass1.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
+    <tuinthemakennis_section id="" class="pt-80 has-text-info peach-background">
+      <intro_section_top class="" :pattern="'drawing.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
       </intro_section_top>
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class="has-text-dark">
-      <intro_section :pattern="'pattern_grass1_inverted.svg'">
-        <section_content :content="fetchedContent.content"></section_content>
+
+      <intro_section :pattern="'drawing_inverted.svg'">
+        <!-- <section_content :content="fetchedContent.content"></section_content> -->
+        <div class="container pt-30 pb-80">
+          <div class="pt-80">
+            <tuincard v-for="(soortdata,index) in tuinsoortenContent" :reverse="index & 1 ? false:true" :tuinsortdata="soortdata"></tuincard>
+          </div>
+        </div>
       </intro_section>
     </tuinthemakennis_section>
+    <!-- <tuinthemakennis_section id="" class="has-text-info">
+      <intro_section :pattern="'patternDroplet_inverted.svg'">
+        <section_content :content="fetchedContent.content"></section_content>
+      </intro_section>
+    </tuinthemakennis_section> -->
   </div>
 </div>
 </div>
@@ -20,6 +31,7 @@ import tuinthemakennis_section from '~/components/tuinthemakennis/section.vue'
 import intro_section from '~/components/tuinthemakennis/intro_section.vue'
 import intro_section_top from '~/components/tuinthemakennis/intro_section_top.vue'
 import section_content from '~/components/tuinthemakennis/section_content.vue'
+import tuincard from '~/components/parts/tuinen/tuincard.vue'
 import intropart from '~/components/parts/intropart.vue'
 
 import axios from 'axios'
@@ -35,6 +47,7 @@ export default {
     intro_section,
     section_content,
     intro_section_top,
+    tuincard,
     intropart
   },
   computed: {
@@ -53,14 +66,15 @@ export default {
     redirect
   }) {
 
-    let [pagecontentRes] = await Promise.all([
-      axios.get(store.state.apiRoot + '/wp/v2/pages?slug=themas'),
-
+    let [pagecontentRes, tuinsoortenRes] = await Promise.all([
+      axios.get(store.state.apiRoot + '/wp/v2/pages?slug=tuinen'),
+      axios.get(store.state.apiRoot + '/wp/v2/tuinsoort'),
     ])
 
     console.log(pagecontentRes.data[0].acf)
     return {
       fetchedContent: pagecontentRes.data[0].acf,
+      tuinsoortenContent: tuinsoortenRes.data,
     }
 
   },

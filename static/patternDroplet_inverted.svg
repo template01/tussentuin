@@ -3,11 +3,11 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="250px" height="166.666px" viewBox="0 0 250 166.666" enable-background="new 0 0 250 166.666" xml:space="preserve">
-<rect fill="#E9F7FF" width="250" height="166.666"/>
-<path fill="#00A4FF" stroke="#00A4FF" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+<rect fill="#FFFFFF" width="250" height="166.666"/>
+<path fill="#BDEBFF" stroke="#BDEBFF" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 	M86.821,63.359c-0.067-3.297-4.116-8.91-4.116-8.91H82.68c0,0-4.127,5.548-4.243,8.84c0,0-0.718,5.414,4.134,5.479v0.005
 	c0.007-0.005,0.013-0.005,0.016-0.005c0.005,0,0.012,0.005,0.017,0.005v-0.005C87.458,68.781,86.821,63.359,86.821,63.359z"/>
-<path fill="#00A4FF" stroke="#00A4FF" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-	M211.821,146.693c-0.066-3.297-4.116-8.91-4.116-8.91h-0.023c0,0-4.129,5.548-4.245,8.84c0,0-0.721,5.413,4.134,5.479v0.004
-	c0.005-0.004,0.013-0.004,0.018-0.004c0,0,0.01,0.004,0.015,0.004v-0.004C212.458,152.115,211.821,146.693,211.821,146.693z"/>
+<path fill="#BDEBFF" stroke="#BDEBFF" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M211.82,146.692c-0.065-3.297-4.115-8.909-4.115-8.909h-0.023c0,0-4.129,5.548-4.244,8.84c0,0-0.722,5.413,4.133,5.479v0.004
+	c0.006-0.004,0.014-0.004,0.019-0.004c0,0,0.011,0.004,0.015,0.004v-0.004C212.458,152.114,211.82,146.692,211.82,146.692z"/>
 </svg>

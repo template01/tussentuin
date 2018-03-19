@@ -1,10 +1,13 @@
 <template>
 <div class="intropart " :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
-  <div :class="[inViewClass, hascentertext ? 'has-text-centered':'']"> 
-    <div v-show="titletext" v-html="'<p>'+titletext+'</p>'" class=" has-text-weight-bold" :class="[slideIn ? 'slideIn':'',  islarge ? 'is-size-1':'is-size-2', isgreen ? 'has-text-primary':'has-text-info']">
+  <div :class="[inViewClass, hascentertext ? 'has-text-centered':'']">
+    <div v-show="titletext" v-html="'<p>'+titletext+'</p>'" class=" has-text-weight-bold" :class="[slideIn ? 'slideIn':'',  islarge ? 'is-size-1':'is-size-2' ]">
     </div>
-    <div v-show="blurbtext" v-html="blurbtext" class="is-size-4 has-text-weight-semibold pt-10 transitionOpacity" :class="[ islarge ? 'is-size-4':'is-size-5', isgreen ? 'has-text-primary':'has-text-info']" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]">
+    <div v-show="blurbtext" v-html="blurbtext" class="is-size-4 has-text-weight-semibold pt-10 transitionOpacity" :class="[ islarge ? 'is-size-4':'is-size-5']" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]">
     </div>
+    <div v-show="desc" v-html="desc" class="desc is-size-3 pt-40 transitionOpacity" :class="[ islarge ? 'is-size-4':'is-size-5']" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]">
+    </div>
+    <img :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]" class="topicon transitionOpacity" v-show="icon" :src="icon"/>
   </div>
 </div>
 </template>
@@ -24,10 +27,16 @@ export default {
     titletext: {
 
     },
+    icon: {
+
+    },
     islarge: {
 
     },
     isgreen: {
+
+    },
+    desc: {
 
     },
     blurbtext: {
@@ -78,6 +87,21 @@ export default {
 
 <style lang="scss">
 .intropart {
+  .desc{
+    img{
+      margin: 0 auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: block;
+      max-width: 100%;
+      border-radius: 5px;
+    }
+  }
+  .topicon{
+    width: 100px;
+    margin-bottom: 20px;
+    opacity: 0;
+  }
     .is-size-1 {
         p {
             padding-top: 0;

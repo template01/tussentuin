@@ -2,11 +2,11 @@
 <div class="" style="">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info">
-      <intro_section_top :pattern="'pattern_grass1.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
+      <intro_section_top :pattern="'patternDroplet.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
       </intro_section_top>
     </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="has-text-dark">
-      <intro_section :pattern="'pattern_grass1_inverted.svg'">
+    <tuinthemakennis_section id="" class="has-text-info">
+      <intro_section :pattern="'patternDroplet_inverted.svg'">
         <section_content :content="fetchedContent.content"></section_content>
       </intro_section>
     </tuinthemakennis_section>
@@ -54,7 +54,7 @@ export default {
   }) {
 
     let [pagecontentRes] = await Promise.all([
-      axios.get(store.state.apiRoot + '/wp/v2/pages?slug=themas'),
+      axios.get(store.state.apiRoot + '/wp/v2/pages?slug=kennis'),
 
     ])
 

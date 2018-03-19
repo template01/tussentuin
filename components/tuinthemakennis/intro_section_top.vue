@@ -12,18 +12,6 @@
         </div>
       </div>
 
-
-      <div class="columns is-mobile pt-80">
-
-        <div class="column  is-mobile">
-          <slot>
-          </slot>
-        </div>
-
-      </div>
-
-
-
     </div>
   </div>
 </template>

@@ -1,22 +1,27 @@
 <template>
-  <div id="footer" class="">
-    <div id="waves":style="{ 'background-image': `url('waves.svg')`}">
+  <div id="footer" class="" :class="$route.path != '/' ? 'has-text-info blue-background':'has-text-dark'">
+
+
+    <div v-if="$route.path != '/'" id="waves":style="{ 'background-image': `url('wavesblue.svg')`}">
+    </div>
+    <div v-else id="waves":style="{ 'background-image': `url('waves.svg')`}">
     </div>
   <div class="container pt-30 pb-80">
     <div class="columns pt-80">
       <div class="column is-3 pr-40 pl-40" >
-        <img class="logo" :src="footerContent.acf.logo"/>
+        <img v-if="$route.path != '/'"  class="logo" :src="footerContent.acf.logo_alt"/>
+        <img v-else class="logo" :src="footerContent.acf.logo"/>
       </div>
       <div class="column pr-40 pl-40" >
-        <div class="is-size-4 has-text-weight-semibold pt-20 is-size-5 ">
+        <div class="is-size-4 has-text-weight-semibold pt-20 is-size-5 " >
           <span v-for="link in footerContent.acf.linkto">
-            <nuxt-link  v-if="link.inten_of_extern" class="has-text-dark pr-80"  :to="link.intern_link" v-html="link.naam"></nuxt-link>
-            <a v-else class="has-text-dark pr-80" target="_blank" :href="link.extern_link" v-html="link.naam"></a>
+            <nuxt-link  v-if="link.inten_of_extern" class="pr-80"  :to="link.intern_link" v-html="link.naam"></nuxt-link>
+            <a v-else class="pr-80" target="_blank" :href="link.extern_link" v-html="link.naam"></a>
           </span>
         </div>
       </div>
       <div class="column is-3  pr-40 pl-40" >
-        <div class="has-text-weight-semibold pt-20 is-size-5 has-text-dark" v-html="footerContent.acf.contact">
+        <div class="has-text-weight-semibold pt-20 is-size-5" v-html="footerContent.acf.contact">
 
         </div>
       </div>
@@ -57,6 +62,9 @@ export default {
 </script>
 <style scoped lang="scss">
 
+a{
+  color: inherit;
+}
 .logo{
   width: 100%;
   max-width: 240px;

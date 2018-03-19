@@ -1,6 +1,6 @@
 <template>
 <div class="" style="">
-  <div v-if="appinitated" class="">
+  <div v-if="appinitated" class=" has-text-info">
     <indexsection :fullheight="true">
       <index_intro_a :intro="indexContent.intro_a.bam_text" :image="indexContent.intro_a.background_image.sizes.large">
       </index_intro_a>
@@ -18,7 +18,7 @@
     </indexsection>
     <indexsection id="">
       <index_onzethemas :desc="indexContent.onze_themas.desc" :title="indexContent.onze_themas.titel">
-        <themas :themas="themaContent"></themas>
+        <themas :themas="fetchedContent"></themas>
       </index_onzethemas>
       <topage :text="'Lees meer'"></topage>
 
@@ -105,7 +105,7 @@ export default {
       indexContent: pagecontentRes.data[0].acf,
       tuinsoortenContent: tuinsoortenRes.data,
       kennissoortContent: kennissoortRes.data,
-      themaContent: themaRes.data,
+      fetchedContent: themaRes.data,
     }
 
   },
