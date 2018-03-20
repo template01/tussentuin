@@ -1,6 +1,6 @@
 <template>
-<div class="" style="">
-  <div v-if="appinitated" class=" has-text-info">
+<div class="" style="" v-if="loaderhasrun">
+  <div class=" has-text-info">
     <indexsection :fullheight="true">
       <index_intro_a :intro="indexContent.intro_a.bam_text" :image="indexContent.intro_a.background_image.sizes.large">
       </index_intro_a>
@@ -81,10 +81,9 @@ export default {
   },
   computed: {
     ...mapGetters({
-      appinitated: "GET_APP_INITIATED",
+      loaderhasrun: "GET_LOADER_RUN",
     }),
   },
-
 
   async asyncData({
     params,

@@ -141,7 +141,7 @@ module.exports = {
   //   color: '#091540'
   // },
 
-  // loading: '~/components/loading.vue',
+  loading: '~/components/loading.vue',
 
   /*
    ** Build configuration

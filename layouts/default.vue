@@ -1,13 +1,17 @@
 <template>
   <div>
     <transition name="fade">
-    <loadinginit v-if="!appinitated"></loadinginit>
+    <loadinginit v-if="!loaderhasrun"></loadinginit>
     </transition>
-    <navbar></navbar>
-    <menucomp></menucomp>
-    <togglemenu></togglemenu>
-    <nuxt/>
-    <footercomp></footercomp>
+    <!-- {{loaderhasrun}} -->
+    <div>
+
+      <navbar  v-if="loaderhasrun"></navbar>
+      <menucomp  v-if="loaderhasrun"></menucomp>
+      <togglemenu  v-if="loaderhasrun"></togglemenu>
+      <nuxt/>
+      <footercomp  v-if="loaderhasrun"></footercomp>
+    </div>
   </div>
 </template>
 
@@ -39,8 +43,28 @@ export default {
   computed: {
     ...mapGetters({
       appinitated: "GET_APP_INITIATED",
+      loaderhasrun: "GET_LOADER_RUN"
     }),
   },
+  mounted(){
+    var vm = this
+    function ready() {
+      // window.setTimeout(function(){
+        vm.$store.commit('SET_LOADER_RUN',true)
+      // },500)
+
+  // image is not yet loaded (unless was cached), so the size is 0x0
+}
+
+var vm = this
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    console.log("DOM fully loaded and parsed");
+      vm.$store.commit('SET_LOADER_RUN',true)
+  });
+
+
+  }
 }
 </script>
 <style>

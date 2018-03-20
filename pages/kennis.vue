@@ -1,5 +1,5 @@
 <template>
-<div class="" style="">
+<div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info">
       <intro_section_top :pattern="'patternDroplet.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
@@ -39,9 +39,10 @@ export default {
   },
   computed: {
     ...mapGetters({
-      appinitated: "GET_APP_INITIATED",
+      loaderhasrun: "GET_LOADER_RUN",
     }),
   },
+
 
 
   async asyncData({

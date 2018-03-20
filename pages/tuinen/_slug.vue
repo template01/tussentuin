@@ -1,13 +1,12 @@
 <template>
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
-    <tuinthemakennis_section id="" class="pt-80 has-text-info">
-      <intro_section_top :pattern="'pattern_grass1.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
-      </intro_section_top>
+    <tuinthemakennis_section id="" class="has-text-info">
+      <tuinintro :image="fetchedContent.acf.achtergronds_foto.sizes.large" :title="fetchedContent.title.rendered" :intro="fetchedContent.acf.intro"></tuinintro>
     </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="has-text-dark">
-      <intro_section :pattern="'pattern_grass1_inverted.svg'">
-        <section_content :content="fetchedContent.content"></section_content>
+    <tuinthemakennis_section id="" class="has-text-info">
+      <intro_section :pattern="'../../patternDroplet_inverted.svg'">
+        <section_content_tuin :content="fetchedContent.acf.content"></section_content_tuin>
       </intro_section>
     </tuinthemakennis_section>
   </div>
@@ -19,7 +18,8 @@
 import tuinthemakennis_section from '~/components/tuinthemakennis/section.vue'
 import intro_section from '~/components/tuinthemakennis/intro_section.vue'
 import intro_section_top from '~/components/tuinthemakennis/intro_section_top.vue'
-import section_content from '~/components/tuinthemakennis/section_content.vue'
+import section_content_tuin from '~/components/tuinthemakennis/section_content_tuin.vue'
+import tuinintro from '~/components/tuinthemakennis/tuinintro.vue'
 import intropart from '~/components/parts/intropart.vue'
 
 import axios from 'axios'
@@ -33,7 +33,8 @@ export default {
   components: {
     tuinthemakennis_section,
     intro_section,
-    section_content,
+    section_content_tuin,
+    tuinintro,
     intro_section_top,
     intropart
   },
@@ -54,13 +55,13 @@ export default {
   }) {
 
     let [pagecontentRes] = await Promise.all([
-      axios.get(store.state.apiRoot + '/wp/v2/pages?slug=themas'),
+      axios.get(store.state.apiRoot + '/wp/v2/tuin?slug='+route.params.slug),
 
     ])
 
     console.log(pagecontentRes.data[0].acf)
     return {
-      fetchedContent: pagecontentRes.data[0].acf,
+      fetchedContent: pagecontentRes.data[0],
     }
 
   },

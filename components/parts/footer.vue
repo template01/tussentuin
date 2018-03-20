@@ -15,7 +15,7 @@
       <div class="column pr-40 pl-40" >
         <div class="is-size-4 has-text-weight-semibold pt-20 is-size-5 " >
           <span v-for="link in footerContent.acf.linkto">
-            <nuxt-link  v-if="link.inten_of_extern" class="pr-80"  :to="link.intern_link" v-html="link.naam"></nuxt-link>
+            <nuxt-link  v-if="link.inten_of_extern" class="pr-80"  :to="'/'+link.intern_link" v-html="link.naam"></nuxt-link>
             <a v-else class="pr-80" target="_blank" :href="link.extern_link" v-html="link.naam"></a>
           </span>
         </div>

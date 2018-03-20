@@ -4,7 +4,7 @@
     <div class="ripple-button1">
       <div id="menu-inner" class="aligner">
         <div id="menu-list" class="aligner-item">
-          <nuxt-link v-for="link in menuContent.acf.linktointern" class="is-size-1 has-text-weight-semibold" :to="link.intern_link" v-html="link.naam"></nuxt-link>
+          <nuxt-link v-for="link in menuContent.acf.linktointern" class="is-size-1 has-text-weight-semibold" :to="'/'+link.intern_link" v-html="link.naam"></nuxt-link>
             <a v-for="(link,index) in menuContent.acf.linktoextern" :class="{'mt-80' : index === 0}" class="is-size-3 has-text-weight-semibold" target="_blank" :href="link.extern_link" v-html="link.naam"></a>
 
         </div>
@@ -79,7 +79,17 @@ export default {
             display: inline-block;
             clear: both;
             width: 100%;
+
         }
+
+        .nuxt-link-exact-active{
+          display: inline;
+          -webkit-box-shadow: inset 0px -6px 0px 0px;
+          -moz-box-shadow: inset 0px -6px 0px 0px;
+          box-shadow: inset 0px -6px 0px 0px;
+        }
+
+
 
         @for $i from 1 through 30 {
             a:nth-child(#{$i}) {

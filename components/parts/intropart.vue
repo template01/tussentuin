@@ -90,10 +90,10 @@ export default {
   .desc{
     img{
       margin: 0 auto;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      max-width: calc(100% - 80px);
       display: block;
-      max-width: 100%;
       border-radius: 5px;
     }
   }

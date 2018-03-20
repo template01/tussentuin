@@ -2,7 +2,8 @@ import axios from 'axios'
 
 
 export const state = () => ({
-  appinitated:true,
+  appinitated:false,
+  loaderhasrun: false,
   apiRoot: 'http://api.tussentuin.nl/wp-json',
   menuopen: false,
   posts:[],
@@ -27,6 +28,10 @@ export const getters = {
 
   GET_APP_INITIATED(state) {
     return state.appinitated
+  },
+
+  GET_LOADER_RUN(state) {
+    return state.loaderhasrun
   },
 
   GET_MENUOPEN(state) {
@@ -69,6 +74,10 @@ export const mutations = {
     state.appinitated = toggle;
   },
 
+  SET_LOADER_RUN(state, toggle){
+    state.loaderhasrun = toggle;
+  },
+
   SET_SCREENSIZEFORMAT(state, screensizeformat) {
     state.screensizeformat = screensizeformat;
   },
@@ -92,6 +101,9 @@ export const actions = {
     ])
     state.footerContent = footerRes.data[0]
     state.menuContent = menuRes.data[0]
+
+    var vmstate = state
+
     // return {
       // menuContent: menuRes.data[0].acf,
       // footerContent: footerRes.data[0].acf
