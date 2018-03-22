@@ -47,7 +47,7 @@ export default {
     },
     secondDelay: {
       type: Number,
-      default: 1300
+      default: 1100
     },
 
 
@@ -127,24 +127,24 @@ export default {
             clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
             transform: translateY(-50px);
             opacity: 0;
-            animation-delay: 0.5;
+            animation-delay: 0.3;
             animation-name: titleAnimation;
             animation-timing-function: ease;
-            animation-duration: 0.8s;
+            animation-duration: 0.7s;
             animation-fill-mode: forwards;
         }
     }
     .slideIn p {
-        animation-delay: 0.6s;
+        animation-delay: 0.4s;
         -webkit-animation-fill-mode: forwards;
 
         &:first-child {
-            animation-delay: 0.7s;
+            animation-delay: 0.5s;
 
         }
 
         &:last-child {
-            animation-delay: 0.5s;
+            animation-delay: 0.3s;
         }
     }
 

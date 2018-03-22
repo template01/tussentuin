@@ -5,7 +5,7 @@
       <div class="container pt-40 pb-40">
         <div class="columns is-mobile">
           <div class=" column is-8 is-offset-2 ">
-            <intropart :secondDelay="600" :desc="layout.content">
+            <intropart :secondDelay="400" :desc="layout.content">
             </intropart>
           </div>
         </div>
@@ -20,7 +20,7 @@
       <div class="container ">
         <div class="columns is-mobile">
           <div class=" column is-8 is-offset-2 ">
-            <tuingallerycaroussel :secondDelay="600" :content="layout.content"></tuingallerycaroussel>
+            <tuingallerycaroussel :secondDelay="400" :content="layout.content"></tuingallerycaroussel>
           </div>
         </div>
       </div>

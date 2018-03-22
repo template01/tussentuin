@@ -8,19 +8,14 @@
     <tuinthemakennis_section id="" class="has-text-dark">
 
       <intro_section :pattern="'drawing_inverted.svg'">
-        <!-- <section_content :content="fetchedContent.content"></section_content> -->
         <div class="container pt-30 pb-80">
           <div class="pt-80">
-            <tuincard v-for="(soortdata,index) in tuinsoortenContent" :reverse="index & 1 ? false:true" :tuinsortdata="soortdata"></tuincard>
+            <tuincard v-for="(soortdata,index) in tuinsoortenContent"  :reverse="index & 1 ? false:true" :tuinsortdata="soortdata"></tuincard>
           </div>
         </div>
       </intro_section>
     </tuinthemakennis_section>
-    <!-- <tuinthemakennis_section id="" class="has-text-info">
-      <intro_section :pattern="'patternDroplet_inverted.svg'">
-        <section_content :content="fetchedContent.content"></section_content>
-      </intro_section>
-    </tuinthemakennis_section> -->
+
   </div>
 </div>
 </div>
@@ -56,7 +51,29 @@ export default {
     }),
   },
 
+  mounted(){
+    this.scrollToHash()
+  },
+  methods:{
+    scrollToHash: function(){
 
+          function getOffsetSum(elem) {
+              var top=0, left=0;
+              while(elem) {
+                  top = top + parseInt(elem.offsetTop);
+                  left = left + parseInt(elem.offsetLeft);
+                  elem = elem.offsetParent;
+              }
+              return {top: top, left: left};
+          }
+
+          setTimeout(function(){
+            var target = document.getElementById(window.location.hash.slice(1))
+            console.log(getOffsetSum(target).top)
+            window.scrollTo({ top: getOffsetSum(target).top - 80, left: 0, behavior: 'smooth' });
+          },1500)
+    }
+  },
 
   async asyncData({
     params,

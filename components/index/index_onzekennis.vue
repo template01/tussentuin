@@ -32,7 +32,6 @@ import {
 import logo from '~/components/logo/logo.vue'
 import intropart from '~/components/parts/intropart.vue'
 import growelement from '~/components/elements/growelement.vue'
-import themas from '~/components/parts/themas.vue'
 import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
 
@@ -42,7 +41,6 @@ export default {
     logo,
     intropart,
     growelement,
-    themas,
     backgroundpattern
   },
   data: function() {

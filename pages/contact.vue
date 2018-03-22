@@ -1,19 +1,13 @@
 <template>
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
-    <tuinthemakennis_section id="" class="has-text-info">
-      <tuinintro :image="fetchedContent.acf.achtergronds_foto.sizes.large" :title="fetchedContent.title.rendered" :intro="fetchedContent.acf.intro"></tuinintro>
+    <tuinthemakennis_section id="" class="pt-80 has-text-info">
+      <intro_section_top :pattern="'patternDroplet.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
+      </intro_section_top>
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class="has-text-dark">
       <intro_section :pattern="'../../drawing_inverted.svg'">
         <section_content_tuin :content="fetchedContent.acf.content"></section_content_tuin>
-      </intro_section>
-    </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="has-text-dark">
-      <intro_section :pattern="'../../drawing_inverted.svg'">
-
-        <tuinfooter :id="fetchedContent.id" :content="fetchedContent.acf"></tuinfooter>
-        <!-- <section_content_tuin :content="fetchedContent.acf.content"></section_content_tuin> -->
       </intro_section>
     </tuinthemakennis_section>
   </div>
@@ -64,7 +58,7 @@ export default {
   }) {
 
     let [pagecontentRes] = await Promise.all([
-      axios.get(store.state.apiRoot + '/wp/v2/tuin?slug='+route.params.slug),
+      axios.get(store.state.apiRoot + '/wp/v2/pages?slug='+'contact'),
 
     ])
 

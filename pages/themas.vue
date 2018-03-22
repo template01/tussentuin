@@ -24,6 +24,11 @@ import intropart from '~/components/parts/intropart.vue'
 
 import axios from 'axios'
 
+// if (process.browser) {
+//   var offset = require('document-offset')
+//
+// }
+
 import {
   mapGetters
 } from 'vuex'
@@ -43,6 +48,29 @@ export default {
     }),
   },
 
+  mounted(){
+    this.scrollToHash()
+  },
+  methods:{
+    scrollToHash: function(){
+
+          function getOffsetSum(elem) {
+              var top=0, left=0;
+              while(elem) {
+                  top = top + parseInt(elem.offsetTop);
+                  left = left + parseInt(elem.offsetLeft);
+                  elem = elem.offsetParent;
+              }
+              return {top: top, left: left};
+          }
+
+          setTimeout(function(){
+            var target = document.getElementById(window.location.hash.slice(1))
+            console.log(getOffsetSum(target).top)
+            window.scrollTo({ top: getOffsetSum(target).top - 170, left: 0, behavior: 'smooth' });
+          },1500)
+    }
+  },
 
   async asyncData({
     params,

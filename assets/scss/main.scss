@@ -1,0 +1,87 @@
+@import "variables";
+
+.peach-background{
+  background-color: $peach;
+}
+
+.blue-background{
+  background-color: $lightblue;
+}
+
+.has-text-underline-dark{
+  -webkit-box-shadow: inset 0px -2px 0px 0px $brown;
+  -moz-box-shadow: inset 0px -2px 0px 0px $brown;
+  box-shadow: inset 0px -2px 0px 0px $brown;
+}
+
+.button:hover{
+  transform:translateX(10px);
+  &.down{
+    transform:translateX(0px);
+    transform:translateY(10px);
+  }
+  &.ignore{
+    transform:translateX(0);
+    transform:translateY(0);
+  }
+  &.expand{
+    transform: scaleX(1.1) scaleY(1.1);
+  }
+}
+
+.button{
+  transform:ranslateX(10px);
+  transition: transform 0.25s;
+}
+
+
+.cool-link {
+    display: inline-block;
+    text-decoration: none;
+    &.cool-link-blue{
+      &::after{
+        background: $darkblue;
+      }
+    }
+
+    &.cool-link-white{
+      &::after{
+        background: $white;
+      }
+    }
+
+    &.cool-link-nav-large{
+        &::after{
+          margin-bottom: 6px;
+          margin-top:-10px;
+          height: 6px;
+        }
+    }
+
+}
+
+.cool-link::after {
+    margin-top:-3px;
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    transition: width .3s;
+}
+
+.cool-link:hover::after {
+    width: 100%;
+
+    //transition: width .3s;
+}
+
+  .nuxt-link-exact-active {
+        display: inline-block;
+        text-decoration: none;
+
+        &.cool-link::after {
+            width: 100%;
+        }
+
+
+  }

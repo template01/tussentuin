@@ -1,23 +1,23 @@
 <template>
-<div class="">
+<div v-if="content.length>0" class="">
 
-        <div class="tuincardcaroussel aligner" :class="{slideInVertical: slideInVertical, slideOutVertical: slideOutVertical}">
+        <div  class="tuincardcaroussel aligner" :class="{slideInVertical: slideInVertical, slideOutVertical: slideOutVertical}">
           <template v-if="menuleft">
             <p class="bulletWrapper left is-size-5 has-text-dark p-20">
               <span class="bullet mt-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
             </p>
             <div>
-              <img :src="content[selected].tuin.acf.featured_foto.sizes.medium_large"/>
+              <img :src="content[selected].acf.featured_foto.sizes.medium_large"/>
               <p class=" has-text-centered p-10">
-                <nuxt-link :to="'tuinen/'+content[selected].tuin.post_name" v-html="content[selected].tuin.post_title" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
+                <nuxt-link :to="'/tuinen/'+content[selected].slug" v-html="content[selected].title.rendered" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
               </p>
             </div>
           </template>
           <template v-else>
             <div>
-              <img :src="content[selected].tuin.acf.featured_foto.sizes.medium_large"/>
+              <img :src="content[selected].acf.featured_foto.sizes.medium_large"/>
               <p class=" has-text-centered p-10">
-                <nuxt-link :to="'tuinen/'+content[selected].tuin.post_name" v-html="content[selected].tuin.post_title" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
+                <nuxt-link :to="'/tuinen/'+content[selected].slug" v-html="content[selected].title.rendered" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
               </p>
             </div>
             <p class="bulletWrapper is-size-5 has-text-dark p-20">
@@ -29,9 +29,12 @@
 </div>
 </template>
 <script>
+import axios from 'axios'
+// import Vuex from 'vuex'
+
 
 export default {
-  props: ['content','menuleft'],
+  props: ['menuleft','tuinsoort'],
   components: {
   },
   data: function() {
@@ -39,9 +42,28 @@ export default {
       selected: 0,
       slideInVertical: true,
       slideOutVertical: false,
+      content:[]
     }
   },
-  methods: {
+  mounted(){
+    this.getRelatedTuinen(this.tuinsoort)
+  },
+  methods:{
+    getRelatedTuinen: function(input){
+      console.log(input)
+
+      axios.get(this.$store.state.apiRoot + '/wp/v2/tuin?tuinsoort='+input)
+      .then(response => {
+        // JSON responses are automatically parsed.
+        this.content = response.data
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+
+    },
+
+
     transitionCard: function(input) {
       this.slideOutVertical = true
       this.slideInVertical = false

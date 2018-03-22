@@ -14,25 +14,25 @@
       <index_onzetuinen :title="indexContent.onze_tuinen.titel" :intro="indexContent.onze_tuinen.desc">
         <tuincards :tuinsoorten="tuinsoortenContent"></tuincards>
       </index_onzetuinen>
-      <topage :text="'Lees meer'"></topage>
+      <topage :link="'/tuinen'":text="'Lees meer'"></topage>
     </indexsection>
     <indexsection id="">
       <index_onzethemas :desc="indexContent.onze_themas.desc" :title="indexContent.onze_themas.titel">
-        <themas :themas="fetchedContent"></themas>
+        <themasindex :themas="fetchedContent"></themasindex>
       </index_onzethemas>
-      <topage :text="'Lees meer'"></topage>
+      <topage :link="'/themas'":text="'Lees meer'"></topage>
 
     </indexsection>
     <indexsection id="">
       <index_onzekennis :desc="indexContent.onze_kennis.desc" :title="indexContent.onze_kennis.titel">
         <kenniscard :kennissoorten="kennissoortContent"></kenniscard>
       </index_onzekennis>
-      <topage :text="'Lees meer'"></topage>
+      <topage :link="'/kennis'":text="'Lees meer'"></topage>
 
     </indexsection>
     <indexsection :fullheight="true">
       <index_stichtingtussentuin>
-        <topage :left="true" :text="'Lees meer'"></topage>
+        <topage :link="'/stichting'":left="true" :text="'Lees meer'"></topage>
       </index_stichtingtussentuin>
     </indexsection>
   </div>
@@ -51,7 +51,7 @@ import index_intro_b from '~/components/index/index_intro_b.vue'
 import index_onzetuinen from '~/components/index/index_onzetuinen.vue'
 import tuincards from '~/components/parts/tuincards.vue'
 import index_onzethemas from '~/components/index/index_onzethemas.vue'
-import themas from '~/components/parts/themas.vue'
+import themasindex from '~/components/parts/themasindex.vue'
 import index_onzekennis from '~/components/index/index_onzekennis.vue'
 import kenniscard from '~/components/parts/kenniscard.vue'
 import index_stichtingtussentuin from '~/components/index/index_stichtingtussentuin.vue'
@@ -74,7 +74,7 @@ export default {
     index_onzetuinen,
     tuincards,
     index_onzethemas,
-    themas,
+    themasindex,
     index_onzekennis,
     kenniscard,
     index_stichtingtussentuin,

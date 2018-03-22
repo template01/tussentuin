@@ -1,18 +1,18 @@
 <template>
+<div>
+  <transition name="fade">
+    <loadinginit v-if="!appinitated"></loadinginit>
+  </transition>
+  <!-- {{loaderhasrun}} -->
   <div>
-    <transition name="fade">
-    <loadinginit v-if="!loaderhasrun"></loadinginit>
-    </transition>
-    <!-- {{loaderhasrun}} -->
-    <div>
 
-      <navbar  v-if="loaderhasrun"></navbar>
-      <menucomp  v-if="loaderhasrun"></menucomp>
-      <togglemenu  v-if="loaderhasrun"></togglemenu>
-      <nuxt/>
-      <footercomp  v-if="loaderhasrun"></footercomp>
-    </div>
+    <navbar v-if="loaderhasrun"></navbar>
+    <menucomp v-if="loaderhasrun"></menucomp>
+    <togglemenu v-if="loaderhasrun"></togglemenu>
+    <nuxt/>
+    <footercomp v-if="loaderhasrun"></footercomp>
   </div>
+</div>
 </template>
 
 
@@ -46,32 +46,34 @@ export default {
       loaderhasrun: "GET_LOADER_RUN"
     }),
   },
-  mounted(){
+  mounted() {
     var vm = this
-    function ready() {
-      // window.setTimeout(function(){
-        vm.$store.commit('SET_LOADER_RUN',true)
-      // },500)
 
-  // image is not yet loaded (unless was cached), so the size is 0x0
-}
-
-var vm = this
-
-document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
-      vm.$store.commit('SET_LOADER_RUN',true)
-  });
+    window.addEventListener("load", function(event) {
+      console.log("DOM fully loaded and parsed");
+      setTimeout(function(){
+        vm.$store.commit('SET_APPINITIATED', true)
+      },1500)
+      setTimeout(function(){
+        vm.$store.commit('SET_LOADER_RUN', true)
+      },1000)
+    });
 
 
   }
 }
 </script>
 <style>
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter,
+.fade-leave-to
+/* .fade-leave-active below version 2.1.8 */
+
+  {
   opacity: 0;
 }
 
@@ -85,7 +87,9 @@ html {
   overflow-x: hidden;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
 }

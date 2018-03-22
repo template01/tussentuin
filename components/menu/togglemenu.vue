@@ -2,7 +2,7 @@
   <div id="togglemenu-outer" class="mt-20" >
     <!-- OPEN MENU -->
     <!-- <a @click="openmenu()" v-if="!menuopen" id="togglemenu" class="button is-centered is-success is-rounded color-offset-green"> -->
-    <a @click="openmenu()" v-if="!menuopen" id="togglemenu" class="button is-info is-centered is-rounded">
+    <a @click="openmenu()" v-if="!menuopen" id="togglemenu" class="button expand ignore is-info is-centered is-rounded">
       <div class="">
         <!-- <i class="is-size-2 fas fa-bars"></i> -->
         <div class="" id="nav-icon1">
@@ -15,7 +15,7 @@
     <!-- CLOSE MENU -->
 
     <!-- <a @click="closemenu()" v-else id="togglemenu" class="button is-centered is-rounded color-offset-green"> -->
-    <a @click="closemenu()" v-else id="togglemenu" class="button is-centered is-rounded">
+    <a @click="closemenu()" v-else id="togglemenu" class="button expand ignore is-centered is-rounded">
       <div class="">
         <!-- <i class="is-size-2 fas fa-bars"></i> -->
 

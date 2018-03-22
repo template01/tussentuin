@@ -3,8 +3,8 @@
 
   <div :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
     <div class="thema-wrapper" v-if="slideIn">
-
       <div v-for="thema in themas" class="thema-inner pb-40 pr-20 pl-20">
+        <nuxt-link :to="'themas/#'+thema.slug">
         <div class="logo mb-20":style="{ 'background-image': 'url(' + thema.acf.icon +')' }">
         </div>
         <p class="pb-20 has-text-centered has-text-info is-size-4 has-text-weight-semibold" v-html="thema.title.rendered">
@@ -12,6 +12,7 @@
         </p>
         <p class="has-text-centered has-text-info is-size-5" v-html="thema.acf.blurb">
         </p>
+      </nuxt-link>
       </div>
 
 

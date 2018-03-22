@@ -157,7 +157,8 @@ module.exports = {
     styleResources: {
       scss: './assets/scss/variables.scss',
       scss: './assets/scss/coloroffset.scss',
-      scss: './assets/scss/colores.scss'
+      scss: './assets/scss/main.scss',
+      // scss: './assets/scss/underlines.scss'
     }
 
     /*

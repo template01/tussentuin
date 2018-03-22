@@ -1,16 +1,16 @@
 <template>
 <div class="p-10">
-  <div class=" tuin-card">
-
-    <div class="p-20">
-      <p class="is-size-4 has-text-weight-semibold has-text-dark has-text-centered" v-html="title">
-      </p>
-      <img class="pt-30 pb-30" :src="image" />
-      <p class="is-size-5 has-text-weight-semibold has-text-dark" v-html="blurb">
-      </p>
+  <nuxt-link :to="'tuinen/#'+slug">
+    <div class=" tuin-card">
+      <div class="p-20">
+        <p class="is-size-4 has-text-weight-semibold has-text-dark has-text-centered" v-html="title">
+        </p>
+        <img class="pt-30 pb-30" :src="image" />
+        <p class="is-size-5 has-text-weight-semibold has-text-dark" v-html="blurb">
+        </p>
+      </div>
     </div>
-  </div>
-
+  </nuxt-link>
 </div>
 </template>
 <script>
@@ -20,7 +20,7 @@ import {
 
 
 export default {
-  props: ['title','blurb','image'],
+  props: ['title', 'blurb', 'image','slug'],
   data: function() {
     return {
       genericData: 'generic component text'

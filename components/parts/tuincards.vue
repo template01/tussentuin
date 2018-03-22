@@ -2,9 +2,9 @@
 <div>
   <div :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
     <div class="card-wrapper" v-if="slideIn">
-      <div class="card-wrapper-inner aligner" :class="{slideInHorizontal: slideInHorizontal, slideOutHorizontal: slideOutHorizontal}">
-        <card v-for="(item,key,index) in chunkTuinsoortenDesktop[selected]"  :key="key" class="card-single aligner-item--top" :title="item.title.rendered" :blurb="item.acf.blurb" :image="item.acf.icon"></card>
-      </div>
+        <div class="card-wrapper-inner aligner" :class="{slideInHorizontal: slideInHorizontal, slideOutHorizontal: slideOutHorizontal}">
+          <card v-for="(item,key,index) in chunkTuinsoortenDesktop[selected]" :key="key" class="card-single aligner-item--top" :slug="item.slug" :title="item.title.rendered" :blurb="item.acf.blurb" :image="item.acf.icon"></card>
+        </div>
     </div>
     <div class="aligner">
       <p class="is-size-5 has-text-dark mt-40">
@@ -25,7 +25,7 @@ import _ from 'lodash'
 
 
 export default {
-  props: ['islarge', 'isblue', 'isbrown','tuinsoorten'],
+  props: ['islarge', 'isblue', 'isbrown', 'tuinsoorten'],
   components: {
     card
   },
@@ -64,11 +64,11 @@ export default {
     });
 
     elementWatcher.exitViewport(function() {
-      vm.slideIn = false
+      // vm.slideIn = false
     });
   },
   computed: {
-    chunkTuinsoortenDesktop: function(){
+    chunkTuinsoortenDesktop: function() {
       return _.chunk(this.tuinsoorten, 4);
     }
   },
@@ -99,13 +99,13 @@ export default {
 }
 
 .card-wrapper {
-  .card-single {
-      width: 25%;
-  }
+    .card-single {
+        width: 25%;
+    }
     .card-wrapper-inner {
-      transform: translateX(20px);
-      opacity: 0.0;
-      transition: transform 500ms, opacity 500ms;
+        transform: translateX(20px);
+        opacity: 0.0;
+        transition: transform 500ms, opacity 500ms;
         & > * {
             // transition: opacity 0.5
             opacity: 0;
@@ -122,8 +122,6 @@ export default {
         }
     }
 }
-
-
 
 @keyframes titleAnimation {
     0% {

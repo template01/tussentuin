@@ -1,9 +1,9 @@
 <template>
   <div class=" toNextSection " :class="{'pb-80  aligner':!left}">
-    <a class="has-text-weight-bold aligner-item button is-centered is-info is-rounded">
+    <nuxt-link :to="link" class="has-text-weight-bold aligner-item button is-centered is-info is-rounded">
       <div class="" v-html="text">
       </div>
-    </a>
+    </nuxt-link>
   </div>
 </template>
 <script>
@@ -14,7 +14,7 @@ import {
 
 
 export default {
-  props:['idprop','text','left'],
+  props:['link','text','left'],
   data: function() {
     return {
       genericData: 'generic component text'

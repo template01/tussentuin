@@ -1,6 +1,6 @@
 <template>
   <div class="aligner toNextSection p-80 ">
-    <a @click="goToId(idprop)" class="has-text-weight-bold aligner-item button is-centered is-info is-rounded">
+    <a @click="goToId(idprop)" class="has-text-weight-bold aligner-item button down is-centered is-info is-rounded">
       <div class="" v-html="text">
       </div>
     </a>

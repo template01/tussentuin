@@ -1,7 +1,7 @@
 <template>
 <div>
 
-  <div class="tuincard mb-80" :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
+  <div :id="tuinsortdata.slug" class="tuincard mb-80" :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
     <div class="columns ">
       <div class="column is-10 is-offset-1">
         <template v-if="reverse">
@@ -15,15 +15,15 @@
                 </div>
               </div>
             </div>
-            <div class="column mr-20 ml-20" v-if="tuinsortdata.acf.related_tuinen.length>0">
-              <tuincardcaroussel :content="tuinsortdata.acf.related_tuinen"></tuincardcaroussel>
+            <div class="column mr-20 ml-20" >
+              <tuincardcaroussel :tuinsoort="tuinsortdata.id" ></tuincardcaroussel>
             </div>
           </div>
         </template>
         <template v-else>
           <div class="columns aligner">
-            <div class="column mr-20 ml-20" v-if="tuinsortdata.acf.related_tuinen.length>0">
-              <tuincardcaroussel :menuleft="true" :content="tuinsortdata.acf.related_tuinen"></tuincardcaroussel>
+            <div class="column mr-20 ml-20">
+              <tuincardcaroussel :tuinsoort="tuinsortdata.id" :menuleft="true"></tuincardcaroussel>
             </div>
             <div class="column mr-20 ml-20">
               <div class="">
@@ -38,16 +38,7 @@
         </template>
       </div>
     </div>
-    <!-- <div class="card-wrapper" v-if="slideIn">
-          <div class="card-wrapper-inner aligner" :class="{slideInHorizontal: slideInHorizontal, slideOutHorizontal: slideOutHorizontal}">
-            <card v-for="(item,key,index) in chunkTuinsoortenDesktop[selected]"  :key="key" class="card-single aligner-item--top" :title="item.title.rendered" :blurb="item.acf.blurb" :image="item.acf.icon"></card>
-          </div>
-        </div>
-        <div class="aligner">
-          <p class="is-size-5 has-text-dark mt-40">
-            <span class="bullet mr-10" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in chunkTuinsoortenDesktop"></span>
-          </p>
-        </div> -->
+
   </div>
 
 </div>
@@ -57,6 +48,7 @@ import tuincardcaroussel from '~/components/parts/tuinen/tuincardcaroussel.vue'
 
 import scrollMonitor from 'scrollmonitor'
 import _ from 'lodash'
+
 // import {
 //   mapGetters
 // } from 'vuex'
@@ -64,7 +56,7 @@ import _ from 'lodash'
 
 
 export default {
-  props: ['tuinsortdata','reverse'],
+  props: ['tuinsortdata','reverse','tuinsoort'],
   components: {
     tuincardcaroussel
   },
@@ -87,6 +79,7 @@ export default {
     elementWatcher.exitViewport(function() {
       vm.slideIn = false
     });
+
   },
   computed: {
     chunkTuinsoortenDesktop: function() {

@@ -1,8 +1,10 @@
 <template>
 <div class="container">
-  <div class="navbar  mt-20">
-        <a class="valign is-size-4 has-text-weight-semibold has-text-info">Stichting Tussentuin</a>
-  </div>
+  <transition name="fade">
+    <div v-if="!menuopen" class="navbar  mt-20">
+      <nuxt-link to="/" class=" cool-link cool-link-blue valign is-size-4 has-text-weight-semibold has-text-info">Stichting Tussentuin</nuxt-link>
+    </div>
+  </transition>
 </div>
 </template>
 <script>
@@ -22,24 +24,34 @@ export default {
   computed: {
     ...mapGetters({
       appinitated: "GET_APP_INITIATED",
+      menuopen: "GET_MENUOPEN",
     }),
   },
 
 }
 </script>
 <style scoped lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.25s;
+}
+/* .fade-leave-active below version 2.1.8 */
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
 .navbar {
     background: transparent;
     position: absolute;
-    width: 100%;
+    // width: 100%;
     top: 0;
-    z-index: 1;
+    z-index: 1001;
     height: 80px;
     -webkit-transform-style: preserve-3d;
--moz-transform-style: preserve-3d;
-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     .valign {
-      display: table;
+        display: table;
         position: relative;
         top: 50%;
         transform: translateY(-50%);
