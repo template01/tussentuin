@@ -5,7 +5,7 @@
       <intro_section_top :pattern="'patternDroplet.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
       </intro_section_top>
     </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="has-text-info">
+    <tuinthemakennis_section id="" class="has-text-dark">
       <intro_section :pattern="'patternDroplet_inverted.svg'">
         <section_content :content="fetchedContent.content"></section_content>
       </intro_section>

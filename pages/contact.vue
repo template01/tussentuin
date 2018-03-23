@@ -2,13 +2,50 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info">
-      <intro_section_top :pattern="'patternDroplet.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
+      <intro_section_top :ignorepaddingbottom="true" :pattern="'patternGreen.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
       </intro_section_top>
-    </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="has-text-dark">
-      <intro_section :pattern="'../../drawing_inverted.svg'">
-        <section_content_tuin :content="fetchedContent.acf.content"></section_content_tuin>
-      </intro_section>
+      <intro_section>
+        <div class="container pt-40 pb-40">
+          <div class="columns is-mobile">
+            <div class=" column is-8 is-offset-2 ">
+              <!-- <intropart :secondDelay="400" :desc="layout.content">
+            </intropart> -->
+            <div class="columns pb-40">
+              <div class=" column is-size-4 has-text-weight-semibold" v-html="fetchedContent.acf.general_contact.column_i">
+              </div>
+              <div class=" column is-size-4 has-text-weight-semibold" v-html="fetchedContent.acf.general_contact.column_ii">
+              </div>
+            </div>
+            <div class="columns">
+              <div class=" column is-size-4">
+                <div v-for="person in chunkContactPersons[0]"  >
+                    <p v-html="person.naam">
+                    </p>
+                    <p>
+                      <a class="has-text-info" :href="'mailto:'+person.email+'?Subject=Hoi%20'+person.naam" target="_top" v-html="person.email"></a>
+                    </p>
+                    <p>
+                      <a class="has-text-info" :href="'tel:'+person.tele" v-html="person.tele"></a>
+                    </p>
+                </div>
+              </div>
+              <div class=" column is-size-4">
+                <div v-for="person in chunkContactPersons[1]"  >
+                    <p v-html="person.naam">
+                    </p>
+                    <p>
+                      <a class="has-text-info" :href="'mailto:'+person.email+'?Subject=Hoi%20'+person.naam" target="_top" v-html="person.email"></a>
+                    </p>
+                    <p>
+                      <a class="has-text-info" :href="'tel:'+person.tele" v-html="person.tele"></a>
+                    </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </intro_section>
     </tuinthemakennis_section>
   </div>
 </div>
@@ -45,6 +82,14 @@ export default {
     ...mapGetters({
       loaderhasrun: "GET_LOADER_RUN",
     }),
+    chunkContactPersons: function() {
+      var contactpersons = this.fetchedContent.acf.contact_persons
+      if(contactpersons.length<3){
+        return _.chunk(contactpersons, 1);
+      }else{
+        return _.chunk(contactpersons, 2);
+      }
+    }
   },
 
 

@@ -1,23 +1,19 @@
 <template>
-<div id="footer" class="" :class="$route.path != '/' ? 'has-text-info blue-background':'has-text-dark'">
+<div id="footer" class="" :class="normalpage  ? 'has-text-info blue-background':'has-text-dark'">
 
-  <div v-if="$route.path != '/'" class="wave waveblue"></div>
+  <div v-if="normalpage" class="wave waveblue"></div>
   <div v-else class="wave wavewhite"></div>
-  <!-- <div v-if="$route.path != '/'" id="waves":style="{ 'background-image': `url('/wavesblue.svg')`}">
-    </div>
-    <div v-else id="waves":style="{ 'background-image': `url('waves.svg')`}">
-    </div> -->
-  <div class="container pt-30 pb-80">
+  <div class="innerfooter container pt-30 pb-80 pr-20 pl-20">
     <div class="columns pt-80">
       <div class="column is-3 pr-40 pl-40">
-        <img v-if="$route.path != '/'" class="logo" :src="footerContent.acf.logo_alt" />
+        <img v-if="normalpage" class="logo" :src="footerContent.acf.logo_alt" />
         <img v-else class="logo" :src="footerContent.acf.logo" />
       </div>
       <div class="column pr-40 pl-40">
         <div class="is-size-4 has-text-weight-semibold pt-20 is-size-5 ">
           <span v-for="link in footerContent.acf.linkto">
-            <nuxt-link  v-if="link.inten_of_extern" class="cool-link cool-link-blue pr-80"  :to="'/'+link.intern_link" v-html="link.naam"></nuxt-link>
-            <a v-else class="pr-80" target="_blank" :href="link.extern_link" v-html="link.naam"></a>
+            <nuxt-link  v-if="link.inten_of_extern" class="cool-link pr-30"  :class="normalpage  ? 'cool-link-blue':'cool-link-dark'" :to="'/'+link.intern_link" v-html="link.naam"></nuxt-link>
+            <a v-else class="pr-30" target="_blank" :href="link.extern_link" v-html="link.naam"></a>
           </span>
         </div>
       </div>
@@ -26,11 +22,7 @@
 
         </div>
       </div>
-      <!-- <div class=" column is-8 is-offset-2 ">
-         <p class="is-size-4 has-text-weight-semibold pt-10 is-size-4 has-text-info">
-           Tussentijd is een samenwerking tussen Tanja Lina, Joost van Dijk, Wolbert van Dijk, Kim Zwart en Meike Sloover
-         </p>
-      </div> -->
+
     </div>
 
 
@@ -55,6 +47,16 @@ export default {
     ...mapGetters({
       footerContent: "GET_FOOTER",
     }),
+    normalpage: function(){
+
+      var notnormal = ["/contact", "/"];
+
+      if(notnormal.indexOf(this.$route.path)=== -1){
+        return true
+      }else{
+        return false
+      }
+    }
   },
 
 }
@@ -73,10 +75,15 @@ a {
     text-align: center;
     background: linear-gradient(to top);
     height: 50px;
-    position: relative;
+    // position: absolute;
     margin-top: -50px;
+    width: 100%;
     // background: green;
     transform: scaleX(2);
+    @media (max-width: 768px) {
+      transform: scaleX(1);
+
+    }
 }
 
 .wave::before {
@@ -95,6 +102,7 @@ a {
     left: 0;
     bottom: 0;
     right: 0;
+    // width: 100px;
     background-repeat: repeat-x;
     height: 15px;
     background-size: 40px 20px;
@@ -118,5 +126,10 @@ a {
     z-index: 999;
     position: absolute;
     width: 100%;
+    // overflow-x: hidden;
+}
+
+.innerfooter{
+  overflow-x: hidden;
 }
 </style>

@@ -5,11 +5,11 @@
       <div class="container pt-30 pb-80">
         <div class="columns is-mobile pt-80">
           <div class=" column is-8 is-offset-2 " :id="layout.content.post_name">
-            <intropart :secondDelay="700" :hascentertext="true"  :icon="layout.content.acf.icon">
+            <intropart :secondDelay="450" :hascentertext="true"  :icon="layout.content.acf.icon">
             </intropart>
             <intropart :hascentertext="true" :islarge="true" :titletext="layout.content.post_title">
             </intropart>
-            <intropart :secondDelay="400" :islarge="true" :blurbtext="layout.content.acf.desc_intro">
+            <intropart class="mt-20" :secondDelay="400" :islarge="true" :blurbtext="layout.content.acf.desc_intro">
             </intropart>
             <intropart :secondDelay="400" :desc="layout.content.acf.desc">
             </intropart>

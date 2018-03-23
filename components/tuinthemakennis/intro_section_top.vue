@@ -1,7 +1,7 @@
 <template>
   <div >
     <backgroundpattern :patternfull="pattern"></backgroundpattern>
-    <div class="container pt-30 pb-80">
+    <div class="container pt-30" :class="!ignorepaddingbottom ? 'pb-80':''">
 
       <div class="columns is-mobile pt-80">
         <div class=" column is-8 is-offset-2 ">
@@ -28,7 +28,7 @@ import backgroundpattern from '~/components/elements/backgroundpattern.vue'
 
 
 export default {
-  props: ['pattern','title','desc'],
+  props: ['pattern','title','desc','ignorepaddingbottom'],
   components: {
     logo,
     intropart,

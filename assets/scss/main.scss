@@ -1,5 +1,14 @@
 @import "variables";
 
+
+@media (max-width: 768px) {
+
+  .is-size-1{
+    font-size: 2rem !important;
+  }
+}
+
+
 .peach-background{
   background-color: $peach;
 }
@@ -41,6 +50,13 @@
     &.cool-link-blue{
       &::after{
         background: $darkblue;
+      }
+    }
+
+
+    &.cool-link-dark{
+      &::after{
+        background: $brown;
       }
     }
 

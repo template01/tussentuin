@@ -31,7 +31,7 @@
 
     </indexsection>
     <indexsection :fullheight="true">
-      <index_stichtingtussentuin>
+      <index_stichtingtussentuin :image="indexContent.stichting_tussentuin.background_image" :title="indexContent.stichting_tussentuin.titel_desc._titel" :intro="indexContent.stichting_tussentuin.titel_desc._desc">
         <topage :link="'/stichting'":left="true" :text="'Lees meer'"></topage>
       </index_stichtingtussentuin>
     </indexsection>

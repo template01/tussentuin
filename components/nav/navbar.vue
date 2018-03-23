@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <transition name="fade">
-    <div v-if="!menuopen" class="navbar  mt-20">
+    <div v-if="!menuopen" class="navbar pr-20 pl-20  mt-20">
       <nuxt-link to="/" class=" cool-link cool-link-blue valign is-size-4 has-text-weight-semibold has-text-info">Stichting Tussentuin</nuxt-link>
     </div>
   </transition>

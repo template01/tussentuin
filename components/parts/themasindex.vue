@@ -5,7 +5,7 @@
     <div class="thema-wrapper" v-if="slideIn">
       <div v-for="thema in themas" class="thema-inner pb-40 pr-20 pl-20">
         <nuxt-link :to="'themas/#'+thema.slug">
-        <div class="logo mb-20":style="{ 'background-image': 'url(' + thema.acf.icon +')' }">
+        <div class="logo mb-10":style="{ 'background-image': 'url(' + thema.acf.icon +')' }">
         </div>
         <p class="pb-20 has-text-centered has-text-info is-size-4 has-text-weight-semibold" v-html="thema.title.rendered">
 
@@ -97,7 +97,7 @@ export default {
 
   .logo{
     width: 100%;
-    height: 60px;
+    height: 90px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

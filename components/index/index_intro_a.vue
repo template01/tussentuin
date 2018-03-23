@@ -3,17 +3,25 @@
   <backgroundpattern :patternfull="'patternGreen.svg'"></backgroundpattern>
 
   <div class="container">
-  <div class="pt-80 pb-80 window-full-height aligner  window-half-width">
-    <div class="pb-80 pt-80 ">
+    <div class="pr-20 pl-20 pt-80 pb-80 window-full-height aligner  window-half-width  is-hidden-touch">
+      <div class="pb-80 pt-80 ">
 
-      <div class="columns is-mobile pt-80 pb-80">
-        <div class="column is-12 is-offset-0">
+        <div class="columns is-mobile pt-80 pb-80">
+          <div class="column is-12 is-offset-0">
+            <intropart :islarge="true" :titletext="intro">
+            </intropart>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pr-20 pl-20 pt-80 pb-80 aligner is-hidden-desktop">
+      <div class="pt-80 ">
+        <div class="">
           <intropart :islarge="true" :titletext="intro">
           </intropart>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <backgroundphoto :isHalf="'true'" :isRight="'true'" :patternfull="image"></backgroundphoto>
 
@@ -35,11 +43,11 @@ import backgroundphoto from '~/components/elements/backgroundphoto.vue'
 
 export default {
   props: {
-    intro:{
-      default:'<p>...</p>'
+    intro: {
+      default: '<p>...</p>'
     },
-    image:{
-      default:'fotos/Garten-Landhof-1-tall.jpg'
+    image: {
+      default: 'fotos/Garten-Landhof-1-tall.jpg'
     }
   },
   components: {
@@ -66,7 +74,6 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-
 .indexsection-outer {
     overflow-y: hidden;
     position: relative;

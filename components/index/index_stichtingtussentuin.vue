@@ -1,20 +1,13 @@
 <template>
 <div class="window-full-height">
   <backgroundpattern class="peach-background" :patternfull="'drawing.svg'"></backgroundpattern>
-  <div class="container pt-80 pb-80 window-full-height aligner">
+  <div class="container pt-80 pb-80 window-full-height aligner is-hidden-touch">
     <div class="pb-80 pt-80">
-
       <div class="columns is-mobile pt-80 pb-80">
         <div class="column is-offset-7 is-5">
-          <intropart :islarge="true" :titletext="'<p>Stichting</p><p>Tussentuin</p>'">
+          <intropart :islarge="true" :titletext="title">
           </intropart>
-          <intropart :islarge="true" :blurbtext="`<p>
-          Stichting Tussentijd is een
-samenwerking tussen
-Tanja Lina, Joost van Dijk,
-Wolbert van Dijk, Kim
-Zwart en Meike Sloover.
-          </p>`">
+          <intropart :islarge="true" :blurbtext="intro">
           </intropart>
           <div  class="pt-80">
             <slot>
@@ -25,7 +18,7 @@ Zwart en Meike Sloover.
       </div>
     </div>
   </div>
-  <backgroundphoto :isHalf="'true'" :patternfull="'fotos/Garten-Landhof-1-tall.jpg'"></backgroundphoto>
+  <backgroundphoto :isHalf="'true'" :patternfull="image.url"></backgroundphoto>
 
 </div>
 </template>
@@ -44,7 +37,7 @@ import backgroundphoto from '~/components/elements/backgroundphoto.vue'
 
 
 export default {
-  props: ['boomfile'],
+  props: ['intro','image','title'],
   components: {
     logo,
     intropart,

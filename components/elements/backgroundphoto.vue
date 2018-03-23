@@ -1,6 +1,10 @@
 <template>
-<div :class="{half: isHalf ,right: isRight }" class="backgroundpattern" :style="{ 'border-radius':borderradius, 'background-image': `url(`+patternfull+`)` }">
-</div>
+  <div>
+    <div :class="{half: isHalf ,right: isRight }" class="backgroundpattern is-hidden-touch" :style="{ 'border-radius':borderradius, 'background-image': `url(`+patternfull+`)` }">
+    </div>
+    <div class="backgroundpatternmobile is-hidden-desktop" :style="{'background-image': `url(`+patternfull+`)` }">
+    </div>
+  </div>
 </template>
 <script>
 import {
@@ -32,13 +36,23 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+
+.backgroundpatternmobile{
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
 .backgroundpattern {
     top: 0;
     position: absolute;
     width: 100%;
     height: 100%;
     background-position: center center;
-    // background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
 

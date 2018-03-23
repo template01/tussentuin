@@ -9,7 +9,8 @@
             <div class="column mr-20 ml-20">
               <div class="">
                 <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
-                <p class="pb-30 is-size-4 has-text-weight-semibold has-text-centered" v-html="tuinsortdata.title.rendered">
+                <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
+                <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
                 </p>
                 <div class="is-size-5" v-html="tuinsortdata.acf.desc">
                 </div>
@@ -28,7 +29,8 @@
             <div class="column mr-20 ml-20">
               <div class="">
                 <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
-                <p class="pb-30 is-size-4 has-text-weight-semibold has-text-centered" v-html="tuinsortdata.title.rendered">
+                <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
+                <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
                 </p>
                 <div class="is-size-5" v-html="tuinsortdata.acf.desc">
                 </div>
@@ -56,7 +58,7 @@ import _ from 'lodash'
 
 
 export default {
-  props: ['tuinsortdata','reverse','tuinsoort'],
+  props: ['tuinsortdata', 'reverse', 'tuinsoort'],
   components: {
     tuincardcaroussel
   },
@@ -90,6 +92,11 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+.pdf-attachment {
+    position: absolute;
+    margin-top: -36px;
+    margin-left: 30px;
+}
 .tuincard {
     position: relative;
     .icontop {

@@ -77,6 +77,10 @@ export default {
   opacity: 0;
 }
 
+
+body{
+  overflow-x: hidden;
+}
 html {
 
   -ms-text-size-adjust: 100%;
