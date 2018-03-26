@@ -7,7 +7,7 @@
               <span class="bullet mt-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
             </p>
             <div>
-              <img :src="content[selected].acf.featured_foto.sizes.medium_large"/>
+              <img :src="content[selected].acf.featured_foto.url"/>
               <p class=" has-text-centered p-10">
                 <nuxt-link :to="'/tuinen/'+content[selected].slug" v-html="content[selected].title.rendered" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
               </p>
@@ -15,7 +15,7 @@
           </template>
           <template v-else>
             <div>
-              <img :src="content[selected].acf.featured_foto.sizes.medium_large"/>
+              <img :src="content[selected].acf.featured_foto.url"/>
               <p class=" has-text-centered p-10">
                 <nuxt-link :to="'/tuinen/'+content[selected].slug" v-html="content[selected].title.rendered" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
               </p>

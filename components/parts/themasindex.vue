@@ -3,16 +3,19 @@
 
   <div :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
     <div class="thema-wrapper" v-if="slideIn">
-      <div v-for="thema in themas" class="thema-inner pb-40 pr-20 pl-20">
-        <nuxt-link :to="'themas/#'+thema.slug">
-        <div class="logo mb-10":style="{ 'background-image': 'url(' + thema.acf.icon +')' }">
-        </div>
-        <p class="pb-20 has-text-centered has-text-info is-size-4 has-text-weight-semibold" v-html="thema.title.rendered">
+      <div v-for="thema in themas" class=" thema-inner pb-40 pr-20 pl-20">
+        <div class="elevate">
 
-        </p>
-        <p class="has-text-centered has-text-info is-size-5" v-html="thema.acf.blurb">
-        </p>
-      </nuxt-link>
+          <nuxt-link :to="'themas/#'+thema.slug">
+            <div class="logo mb-10":style="{ 'background-image': 'url(' + thema.acf.icon +')' }">
+            </div>
+            <p class="pb-20 has-text-centered has-text-info is-size-4 has-text-weight-semibold" v-html="thema.title.rendered">
+
+            </p>
+            <p class="has-text-centered has-text-info is-size-5" v-html="thema.acf.blurb">
+            </p>
+          </nuxt-link>
+        </div>
       </div>
 
 
@@ -90,6 +93,8 @@ export default {
       }
   }
 }
+
+
 .thema-inner{
   width: 33.333%;
   float: left;
@@ -105,6 +110,21 @@ export default {
 
 
 }
+
+
+@media (max-width: 1024px) {
+
+  .thema-inner{
+    width:75%;
+    display: block;
+    margin: 0 auto;
+    float: none;
+
+
+  }
+
+}
+
 
 @keyframes titleAnimation {
     0% {

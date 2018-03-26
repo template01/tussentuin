@@ -1,6 +1,6 @@
 <template>
-<div class="kenniscardsingle m-10" :class="{slideInHorizontal: slideIn, slideOutHorizontal: slideOut}" :style="{'min-height':minHeight+'px'}">
-    <div class="kenniscardsingleinner columns">
+<div  class="kenniscardsingle m-10"  v-touch:swipe.left="swipeLeft"  v-touch:swipe.right="swipeRight" :class="{slideInHorizontal: slideIn, slideOutHorizontal: slideOut}" :style="{'min-height':minHeight+'px'}">
+  <div v-if="$mq==='lg'" class="kenniscardsingleinner columns">
     <div class="column">
       <div class="p-80 ">
 
@@ -17,8 +17,27 @@
 
     </div>
     <div class="column">
-      <backgroundphoto :borderradius="'0px 10px 10px 0px'" :isHalf="'true'" :isRight="'true'" :patternfull="kennissoorten[selected].acf.background_image.sizes.large"></backgroundphoto>
+      <backgroundphoto :borderradius="'0px 10px 10px 0px'" :isHalf="'true'" :isRight="'true'" :patternfull="kennissoorten[selected].acf.background_image.url"></backgroundphoto>
     </div>
+  </div>
+  <div v-else>
+    <div class="p-20">
+
+      <p class="is-size-4 has-text-weight-semibold has-text-dark mb-20" v-html="kennissoorten[selected].title.rendered">
+
+      </p>
+      <p class="is-size-5 has-text-dark" v-html="kennissoorten[selected].acf.blurb">
+
+      </p>
+      <div class="mt-40">
+        <img class="card-img-mobile" :src="kennissoorten[selected].acf.background_image.url" />
+      </div>
+      <p class="is-size-5 has-text-dark mt-10">
+        <span class="bullet mr-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in kennissoorten"></span>
+      </p>
+
+    </div>
+
   </div>
 </div>
 </template>
@@ -60,6 +79,28 @@ export default {
     }
   },
   methods: {
+    swipeLeft:function(){
+      if(this.selected===this.kennissoorten.length-1){
+
+        this.transitionCard(0)
+
+      }else{
+
+        this.transitionCard(this.selected+1)
+      }
+    },
+
+    swipeRight:function(){
+      if(this.selected===0){
+
+        this.transitionCard(this.kennissoorten.length-1)
+
+      }else{
+
+        this.transitionCard(this.selected-1)
+      }
+    },
+
     transitionCard: function(input) {
       this.slideOut = true
       this.slideIn = false
@@ -121,7 +162,14 @@ export default {
         display: block;
         max-width: 80%;
         width: 100%;
+    }
 
+    .card-img-mobile {
+        margin: 0 auto;
+        display: block;
+        max-width: 100% !important;
+        width: 100% !important;
+        border-radius: 5px;
     }
     .bullet {
         border: 2px solid $brown;

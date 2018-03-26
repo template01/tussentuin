@@ -1,25 +1,50 @@
 <template>
-<div class="window-full-height">
-  <backgroundpattern class="peach-background" :patternfull="'drawing.svg'"></backgroundpattern>
-  <div class="container pt-80 pb-80 window-full-height aligner is-hidden-touch">
-    <div class="pb-80 pt-80">
-      <div class="columns is-mobile pt-80 pb-80">
-        <div class="column is-offset-7 is-5">
-          <intropart :islarge="true" :titletext="title">
-          </intropart>
-          <intropart :islarge="true" :blurbtext="intro">
-          </intropart>
-          <div  class="pt-80">
-            <slot>
-            </slot>
+<div>
+    <div class="window-full-height" v-if="$mq==='lg'">
+      <backgroundpattern class="peach-background" :patternfull="'drawing.svg'"></backgroundpattern>
+
+      <div class="container pt-80 pb-80 window-full-height aligner">
+        <div class="pb-80 pt-80">
+
+          <div class="columns is-mobile pt-80 pb-80">
+            <div class="column is-offset-7 is-5">
+              <intropart :islarge="true" :titletext="title">
+              </intropart>
+              <intropart :islarge="true" :blurbtext="intro">
+              </intropart>
+              <div class="pt-80">
+                <slot>
+                </slot>
+              </div>
+            </div>
+
           </div>
         </div>
+      </div>
+      <backgroundphoto :isHalf="'true'" :patternfull="image.url"></backgroundphoto>
+    </div>
+    <div class="" v-else>
+      <backgroundpattern class="peach-background" :patternfull="'drawing.svg'"></backgroundpattern>
 
+      <div class="container pt-80">
+
+        <div class="columns is-marginless is-mobile pt-80" :class="$mq === 'lg'? 'pt-80':'pt-40'">
+          <div class="" :class="$mq === 'lg'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
+            <intropart :islarge="true" :titletext="title">
+            </intropart>
+            <intropart :islarge="true" :blurbtext="intro">
+            </intropart>
+          </div>
+        </div>
+        <div class="">
+          <slot>
+          </slot>
+        </div>
+
+
+          <img style="display:block" :src="image.url" />
       </div>
     </div>
-  </div>
-  <backgroundphoto :isHalf="'true'" :patternfull="image.url"></backgroundphoto>
-
 </div>
 </template>
 <script>
@@ -37,7 +62,7 @@ import backgroundphoto from '~/components/elements/backgroundphoto.vue'
 
 
 export default {
-  props: ['intro','image','title'],
+  props: ['intro', 'image', 'title'],
   components: {
     logo,
     intropart,

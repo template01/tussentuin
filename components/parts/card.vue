@@ -1,7 +1,7 @@
 <template>
 <div class="p-10">
   <nuxt-link :to="'tuinen/#'+slug">
-    <div class=" tuin-card">
+    <div class="elevate tuin-card">
       <div class="p-20">
         <p class="is-size-4 has-text-weight-semibold has-text-dark has-text-centered" v-html="title">
         </p>

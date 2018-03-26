@@ -30,7 +30,15 @@ module.exports = {
 
 
 
-  // mode: 'spa',
+  mode: 'spa',
+
+  // loadingIndicator: {
+  //   name: 'circle',
+  //   color: 'white',
+  //   background: '#00237d'
+  // },
+
+  loadingIndicator: '~/assets/initloaderspa.html',
 
   css: [
     '~assets/css/marginpaddinghelpers.css',
@@ -83,12 +91,23 @@ module.exports = {
 
   plugins: [
     //'~/plugins/maps.js',
-    '~/plugins/resizer.js',
+    // '~/plugins/resizer.js',
     //GLOBAL MIXINS
-    '~/mixins/computedresizerglobalmixin.js',
-
+    // '~/mixins/computedresizerglobalmixin.js',
     {
-      src:     '~/plugins/lodash-plugin.js',
+      src: '~/plugins/vueswipe.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/nuxt-client-init.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/vuemq.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/lodash-plugin.js',
       ssr: false
     },
     {

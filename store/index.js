@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+export const strict = false
 
 export const state = () => ({
   appinitated:false,
@@ -85,10 +85,42 @@ export const mutations = {
 }
 
 
-// LOAD INITIAL DATA
 
 export const actions = {
+
+  // LOAD INITIAL DATA ssr
+
   async nuxtServerInit({
+    commit,
+    state
+  }, {
+    req
+  }) {
+
+    let [menuRes,footerRes] = await Promise.all([
+    axios.get(state.apiRoot + '/wp/v2/part?slug=menu'),
+      axios.get(state.apiRoot + '/wp/v2/part?slug=footer'),
+    ])
+    state.footerContent = footerRes.data[0]
+    state.menuContent = menuRes.data[0]
+
+    var vmstate = state
+
+    // return {
+      // menuContent: menuRes.data[0].acf,
+      // footerContent: footerRes.data[0].acf
+    // }
+
+
+    // const postsRes = await axios.get(state.apiRoot + '/wp/v2/tuinsoort')
+    // state.posts = postsRes.data
+  },
+
+
+// LOAD INIT DATA spa
+
+
+  async nuxtClientInit({
     commit,
     state
   }, {

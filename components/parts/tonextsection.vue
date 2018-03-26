@@ -1,5 +1,5 @@
 <template>
-  <div class="aligner toNextSection p-80 ">
+  <div class="aligner toNextSection" :class="relative ? 'relative pb-80':'p-80'">
     <a @click="goToId(idprop)" class="has-text-weight-bold aligner-item button down is-centered is-info is-rounded">
       <div class="" v-html="text">
       </div>
@@ -19,7 +19,7 @@ import {
 
 
 export default {
-  props:['idprop','text'],
+  props:['idprop','text','relative'],
   data: function() {
     return {
       genericData: 'generic component text'
@@ -48,6 +48,9 @@ export default {
   width: 100%;
   .innerbutton{
     margin: 0 auto;
+  }
+  &.relative{
+    position: relative;
   }
 }
 

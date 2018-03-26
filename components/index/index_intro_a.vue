@@ -1,20 +1,30 @@
 <template>
-<div class="window-full-height">
-  <backgroundpattern :patternfull="'patternGreen.svg'"></backgroundpattern>
+  <div class="window-full-height"  v-if="$mq==='lg'">
+    <backgroundpattern :patternfull="'patternGreen.svg'"></backgroundpattern>
 
-  <div class="container">
-    <div class="pr-20 pl-20 pt-80 pb-80 window-full-height aligner  window-half-width  is-hidden-touch">
-      <div class="pb-80 pt-80 ">
+    <div class="container">
+      <div class="pr-20 pl-20 pt-80 pb-80 window-full-height aligner  window-half-width ">
+        <div class="pb-80 pt-80 ">
 
-        <div class="columns is-mobile pt-80 pb-80">
-          <div class="column is-12 is-offset-0">
-            <intropart :islarge="true" :titletext="intro">
-            </intropart>
+          <div class="columns is-mobile pt-80 pb-80">
+            <div class="column is-12 is-offset-0">
+              <intropart :islarge="true" :titletext="intro">
+              </intropart>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
-    <div class="pr-20 pl-20 pt-80 pb-80 aligner is-hidden-desktop">
+    <backgroundphoto :isHalf="'true'" :isRight="'true'" :patternfull="image"></backgroundphoto>
+
+  </div>
+
+<div class="" v-else>
+  <backgroundpattern :patternfull="'patternGreen.svg'"></backgroundpattern>
+
+  <div class="container pt-80">
+    <div class="pr-20 pl-20 pt-80 pb-80 ">
       <div class="pt-80 ">
         <div class="">
           <intropart :islarge="true" :titletext="intro">
@@ -22,8 +32,10 @@
         </div>
       </div>
     </div>
+    <slot>
+    </slot>
+    <img style="display:block" :src="image" />
   </div>
-  <backgroundphoto :isHalf="'true'" :isRight="'true'" :patternfull="image"></backgroundphoto>
 
 </div>
 </template>

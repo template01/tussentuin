@@ -1,10 +1,12 @@
 <template>
-<div class="" style="" v-if="loaderhasrun">
+<div class="" style="">
   <div class=" has-text-info">
-    <indexsection :fullheight="true">
-      <index_intro_a :intro="indexContent.intro_a.bam_text" :image="indexContent.intro_a.background_image.sizes.large">
+    <indexsection >
+      <index_intro_a :intro="indexContent.intro_a.bam_text" :image="indexContent.intro_a.background_image.url">
+        <tonextsection :relative="true" :text="'Ga verder'" :idprop="'tuinen'"></tonextsection>
       </index_intro_a>
-      <tonextsection :text="'Ga verder'" :idprop="'tuinen'"></tonextsection>
+      <tonextsection v-if="$mq==='lg'" :text="'Ga verder'" :idprop="'tuinen'"></tonextsection>
+
     </indexsection>
 
     <indexsection id="tuinen">
@@ -30,9 +32,10 @@
       <topage :link="'/kennis'":text="'Lees meer'"></topage>
 
     </indexsection>
-    <indexsection :fullheight="true">
+    <indexsection >
       <index_stichtingtussentuin :image="indexContent.stichting_tussentuin.background_image" :title="indexContent.stichting_tussentuin.titel_desc._titel" :intro="indexContent.stichting_tussentuin.titel_desc._desc">
-        <topage :link="'/stichting'":left="true" :text="'Lees meer'"></topage>
+        <topage v-if="$mq==='lg'" :link="'/stichting'":left="true" :text="'Lees meer'"></topage>
+        <topage v-else :link="'/stichting'" class="pt-40" :text="'Lees meer'"></topage>
       </index_stichtingtussentuin>
     </indexsection>
   </div>

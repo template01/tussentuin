@@ -2,13 +2,13 @@
 <div>
   <div :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
     <div class="card-wrapper" v-if="slideIn">
-        <div class="card-wrapper-inner aligner" :class="{slideInHorizontal: slideInHorizontal, slideOutHorizontal: slideOutHorizontal}">
-          <card v-for="(item,key,index) in chunkTuinsoortenDesktop[selected]" :key="key" class="card-single aligner-item--top" :slug="item.slug" :title="item.title.rendered" :blurb="item.acf.blurb" :image="item.acf.icon"></card>
+        <div class="card-wrapper-inner aligner" v-touch:swipe.left="swipeLeft"  v-touch:swipe.right="swipeRight" :class="{slideInHorizontal: slideInHorizontal, slideOutHorizontal: slideOutHorizontal}">
+          <card v-for="(item,key,index) in chunkTuinsoorten[selected]" :key="key" class="card-single aligner-item--top" :slug="item.slug" :title="item.title.rendered" :blurb="item.acf.blurb" :image="item.acf.icon"></card>
         </div>
     </div>
     <div class="aligner">
       <p class="is-size-5 has-text-dark mt-40">
-        <span class="bullet mr-10" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in chunkTuinsoortenDesktop"></span>
+        <span class="bullet mr-10"  :class="[$mq === 'lg' ? 'mr-10':'mr-5',{active: selected === index}]" @click="transitionCard(index)" v-for="(item, index) in chunkTuinsoorten"></span>
       </p>
     </div>
   </div>
@@ -18,10 +18,6 @@
 import scrollMonitor from 'scrollmonitor'
 import card from '~/components/parts/card.vue'
 import _ from 'lodash'
-// import {
-//   mapGetters
-// } from 'vuex'
-
 
 
 export default {
@@ -40,6 +36,27 @@ export default {
     }
   },
   methods: {
+    swipeLeft:function(){
+      if(this.selected===this.chunkTuinsoorten.length-1){
+
+        this.transitionCard(0)
+
+      }else{
+
+        this.transitionCard(this.selected+1)
+      }
+    },
+
+    swipeRight:function(){
+      if(this.selected===0){
+        this.transitionCard(this.chunkTuinsoorten.length-1)
+
+      }else{
+
+        this.transitionCard(this.selected-1)
+      }
+    },
+
     transitionCard: function(input) {
       this.slideOutHorizontal = true
       this.slideInHorizontal = false
@@ -68,8 +85,12 @@ export default {
     });
   },
   computed: {
-    chunkTuinsoortenDesktop: function() {
-      return _.chunk(this.tuinsoorten, 4);
+    chunkTuinsoorten: function() {
+      if(this.$mq === 'lg'){
+        return _.chunk(this.tuinsoorten, 4);
+      }else{
+        return _.chunk(this.tuinsoorten, 1);
+      }
     }
   },
 
@@ -101,6 +122,12 @@ export default {
 .card-wrapper {
     .card-single {
         width: 25%;
+    }
+
+    @media (max-width: 1024px) {
+      .card-single {
+          width: 75%;
+      }
     }
     .card-wrapper-inner {
         transform: translateX(20px);

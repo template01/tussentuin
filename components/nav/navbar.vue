@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <transition name="fade">
-    <div v-if="!menuopen" class="navbar pr-20 pl-20  mt-20">
+    <div v-if="!menuopen" class="navbar pr-20 pl-20" :class="$mq === 'lg'? 'mt-20':''">
       <nuxt-link to="/" class=" cool-link cool-link-blue valign is-size-4 has-text-weight-semibold has-text-info">Stichting Tussentuin</nuxt-link>
     </div>
   </transition>
@@ -31,6 +31,21 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+.nuxt-link-exact-active {
+
+
+    &:not(:hover){
+      &.cool-link::after {
+          background: transparent;
+      }
+
+    }
+
+    &:hover {
+
+    }
+}
+
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.25s;
@@ -55,6 +70,9 @@ export default {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+    }
+    @media (max-width: 768px) {
+      height: 50px;
     }
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
 <div>
-  <transition name="fade">
+  <!-- <transition name="fade">
     <loadinginit v-if="!appinitated"></loadinginit>
-  </transition>
+  </transition> -->
   <!-- {{loaderhasrun}} -->
   <div>
 
-    <navbar v-if="loaderhasrun"></navbar>
-    <menucomp v-if="loaderhasrun"></menucomp>
-    <togglemenu v-if="loaderhasrun"></togglemenu>
+    <navbar ></navbar>
+    <menucomp ></menucomp>
+    <togglemenu ></togglemenu>
     <nuxt/>
-    <footercomp v-if="loaderhasrun"></footercomp>
+    <footercomp ></footercomp>
   </div>
 </div>
 </template>
@@ -49,15 +49,16 @@ export default {
   mounted() {
     var vm = this
 
-    window.addEventListener("load", function(event) {
-      console.log("DOM fully loaded and parsed");
+    // window.addEventListener("load", function(event) {
+    //   alert('hey')
+    //   console.log("DOM fully loaded and parsed");
       setTimeout(function(){
-        vm.$store.commit('SET_APPINITIATED', true)
+        // vm.$store.commit('SET_APPINITIATED', true)
       },1500)
-      setTimeout(function(){
+      // setTimeout(function(){
         vm.$store.commit('SET_LOADER_RUN', true)
-      },1000)
-    });
+      // },1000)
+    // });
 
 
   }

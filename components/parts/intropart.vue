@@ -1,7 +1,7 @@
 <template>
 <div class="intropart " :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
   <div :class="[inViewClass, hascentertext ? 'has-text-centered':'']">
-    <div v-show="titletext" v-html="'<p>'+titletext+'</p>'" class=" has-text-weight-bold" :class="[slideIn ? 'slideIn':'',  islarge ? 'is-size-1':'is-size-2' ]">
+    <div v-show="titletext" v-html="'<p>'+titletext+'</p>'" class="titletext has-text-weight-bold" :class="[$mq==='lg'? '': 'has-text-centered', slideIn ? 'slideIn':'',  islarge ? 'is-size-1':'is-size-2' ]">
     </div>
     <div v-show="blurbtext" v-html="blurbtext" class="is-size-4 has-text-weight-semibold pt-10 transitionOpacity" :class="[ islarge ? 'is-size-4':'is-size-5']" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]">
     </div>
@@ -87,6 +87,9 @@ export default {
 
 <style lang="scss">
 .intropart {
+  .titletext{
+    width: 100%;
+  }
   .desc{
     img{
       margin: 0 auto;
