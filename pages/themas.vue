@@ -2,12 +2,12 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info">
-      <intro_section_top :pattern="'pattern_grass1.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
+      <intro_section_top :pattern="'/pattern_grass1.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
       </intro_section_top>
     </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="has-text-dark">
-      <intro_section :pattern="'pattern_grass1_inverted.svg'">
-        <section_content :content="fetchedContent.content"></section_content>
+    <tuinthemakennis_section id="" class="pt-80 pb-80 has-text-dark">
+      <intro_section :pattern="'/pattern_grass1_inverted.svg'">
+        <section_content_thema :content="themaContent"></section_content_thema>
       </intro_section>
     </tuinthemakennis_section>
   </div>
@@ -20,6 +20,7 @@ import tuinthemakennis_section from '~/components/tuinthemakennis/section.vue'
 import intro_section from '~/components/tuinthemakennis/intro_section.vue'
 import intro_section_top from '~/components/tuinthemakennis/intro_section_top.vue'
 import section_content from '~/components/tuinthemakennis/section_content.vue'
+import section_content_thema from '~/components/tuinthemakennis/section_content_thema.vue'
 import intropart from '~/components/parts/intropart.vue'
 
 import axios from 'axios'
@@ -40,7 +41,8 @@ export default {
     intro_section,
     section_content,
     intro_section_top,
-    intropart
+    intropart,
+    section_content_thema
   },
   computed: {
     ...mapGetters({
@@ -65,9 +67,12 @@ export default {
           }
 
           setTimeout(function(){
-            var target = document.getElementById(window.location.hash.slice(1))
-            console.log(getOffsetSum(target).top)
-            window.scrollTo({ top: getOffsetSum(target).top - 170, left: 0, behavior: 'smooth' });
+            var hash = window.location.hash.slice(1)
+            if(hash.length>0){
+              var target = document.getElementById(hash)
+              console.log(getOffsetSum(target).top)
+              window.scrollTo({ top: getOffsetSum(target).top - 170, left: 0, behavior: 'smooth' });
+            }
           },1500)
     }
   },
@@ -81,14 +86,16 @@ export default {
     redirect
   }) {
 
-    let [pagecontentRes] = await Promise.all([
+    let [pagecontentRes, themaRes] = await Promise.all([
       axios.get(store.state.apiRoot + '/wp/v2/pages?slug=themas'),
+      axios.get(store.state.apiRoot + '/wp/v2/thema'),
 
     ])
 
     console.log(pagecontentRes.data[0].acf)
     return {
       fetchedContent: pagecontentRes.data[0].acf,
+      themaContent: themaRes.data,
     }
 
   },

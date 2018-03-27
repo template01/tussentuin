@@ -5,7 +5,7 @@
       <index_intro_a :intro="indexContent.intro_a.bam_text" :image="indexContent.intro_a.background_image.url">
         <tonextsection :relative="true" :text="'Ga verder'" :idprop="'tuinen'"></tonextsection>
       </index_intro_a>
-      <tonextsection v-if="$mq==='lg'" :text="'Ga verder'" :idprop="'tuinen'"></tonextsection>
+      <tonextsection v-if="$mq==='lg' || $mq==='xl'" :text="'Ga verder'" :idprop="'tuinen'"></tonextsection>
 
     </indexsection>
 
@@ -34,7 +34,7 @@
     </indexsection>
     <indexsection >
       <index_stichtingtussentuin :image="indexContent.stichting_tussentuin.background_image" :title="indexContent.stichting_tussentuin.titel_desc._titel" :intro="indexContent.stichting_tussentuin.titel_desc._desc">
-        <topage v-if="$mq==='lg'" :link="'/stichting'":left="true" :text="'Lees meer'"></topage>
+        <topage v-if="$mq==='lg' || $mq==='xl'" :link="'/stichting'":left="true" :text="'Lees meer'"></topage>
         <topage v-else :link="'/stichting'" class="pt-40" :text="'Lees meer'"></topage>
       </index_stichtingtussentuin>
     </indexsection>

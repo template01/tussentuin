@@ -96,10 +96,10 @@ $alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'rig
   $color: nth($pair, 1)
   .has-text-#{$name}
     color: $color !important
-  a.has-text-#{$name}
-    &:hover,
-    &:focus
-      color: darken($color, 10%) !important
+  // a.has-text-#{$name}
+  //   &:hover,
+  //   &:focus
+  //     color: darken($color, 10%) !important
 
 @each $name, $shade in $shades
   .has-text-#{$name}

@@ -1,6 +1,6 @@
 <template>
 <div  class="kenniscardsingle m-10"  v-touch:swipe.left="swipeLeft"  v-touch:swipe.right="swipeRight" :class="{slideInHorizontal: slideIn, slideOutHorizontal: slideOut}" :style="{'min-height':minHeight+'px'}">
-  <div v-if="$mq==='lg'" class="kenniscardsingleinner columns">
+  <div v-if="$mq==='lg' || $mq==='xl'" class="kenniscardsingleinner columns">
     <div class="column">
       <div class="p-80 ">
 

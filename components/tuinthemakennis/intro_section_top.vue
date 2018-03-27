@@ -4,11 +4,13 @@
     <div class="container pt-30" :class="!ignorepaddingbottom ? 'pb-80':''">
 
       <div class="columns is-mobile pt-80">
-        <div class=" column is-8 is-offset-2 ">
+        <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
           <intropart :hascentertext="true" :islarge="true" :titletext="title">
           </intropart>
           <intropart :islarge="true" :blurbtext="desc">
           </intropart>
+          <slot>
+          </slot>
         </div>
       </div>
 

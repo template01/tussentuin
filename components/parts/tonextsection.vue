@@ -1,6 +1,6 @@
 <template>
-  <div class="aligner toNextSection" :class="relative ? 'relative pb-80':'p-80'">
-    <a @click="goToId(idprop)" class="has-text-weight-bold aligner-item button down is-centered is-info is-rounded">
+  <div class="toNextSection" :class="[relative ? 'relative pb-80':'p-80',left ? '':'aligner']">
+    <a @click="classobj ? goToClass(classobj) : goToId(idprop)" class="has-text-weight-bold aligner-item button down is-centered is-info is-rounded">
       <div class="" v-html="text">
       </div>
     </a>
@@ -19,13 +19,18 @@ import {
 
 
 export default {
-  props:['idprop','text','relative'],
+  props:['idprop','text','relative','left','classobj'],
   data: function() {
     return {
       genericData: 'generic component text'
     }
   },
   methods:{
+    goToClass: function(classobj){
+      var target = document.querySelectorAll('.'+classobj.class)[classobj.index]
+      window.scrollTo({ top: offset(target).top, left: 0, behavior: 'smooth' });
+
+    },
     goToId: function(){
       var target = document.getElementById(this.idprop)
       console.log(offset(target))

@@ -1,10 +1,10 @@
 <template>
   <div >
-    <backgroundpattern :patternfull="'pattern_grass1.svg'"></backgroundpattern>
+    <backgroundpattern :patternfull="'/pattern_grass1.svg'"></backgroundpattern>
     <div class="container pt-30 pb-80">
 
-      <div class="columns is-mobile pt-80" :class="$mq === 'lg'? 'pt-80':'pt-40'">
-        <div :class="$mq === 'lg'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
+      <div class="columns is-mobile pt-80" :class="$mq === 'lg' || $mq === 'xl'? 'pt-80':'pt-40'">
+        <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
           <intropart :islarge="true" :titletext="title">
           </intropart>
           <intropart :islarge="true" :blurbtext="desc">

@@ -483,80 +483,41 @@ table th {
 .has-text-white {
   color: #FFFFFF !important; }
 
-a.has-text-white:hover, a.has-text-white:focus {
-  color: #e6e6e6 !important; }
-
 .has-text-black {
   color: #0a0a0a !important; }
-
-a.has-text-black:hover, a.has-text-black:focus {
-  color: black !important; }
 
 .has-text-light {
   color: #FFECDC !important; }
 
-a.has-text-light:hover, a.has-text-light:focus {
-  color: #ffd0a9 !important; }
-
 .has-text-dark {
   color: #724A33 !important; }
-
-a.has-text-dark:hover, a.has-text-dark:focus {
-  color: #4f3323 !important; }
 
 .has-text-primary {
   color: #6cff70 !important; }
 
-a.has-text-primary:hover, a.has-text-primary:focus {
-  color: #39ff3e !important; }
-
 .has-text-link {
   color: #091540 !important; }
-
-a.has-text-link:hover, a.has-text-link:focus {
-  color: #030613 !important; }
 
 .has-text-info {
   color: #00237d !important; }
 
-a.has-text-info:hover, a.has-text-info:focus {
-  color: #00154a !important; }
-
 .has-text-success {
   color: #6cff70 !important; }
-
-a.has-text-success:hover, a.has-text-success:focus {
-  color: #39ff3e !important; }
 
 .has-text-warning {
   color: #ffdd57 !important; }
 
-a.has-text-warning:hover, a.has-text-warning:focus {
-  color: #ffd324 !important; }
-
 .has-text-danger {
   color: #ff470f !important; }
-
-a.has-text-danger:hover, a.has-text-danger:focus {
-  color: #db3300 !important; }
 
 .has-text-twitter {
   color: #55acee !important; }
 
-a.has-text-twitter:hover, a.has-text-twitter:focus {
-  color: #2795e9 !important; }
-
 .has-text-linkedin {
   color: #0077b5 !important; }
 
-a.has-text-linkedin:hover, a.has-text-linkedin:focus {
-  color: #005582 !important; }
-
 .has-text-github {
   color: #333 !important; }
-
-a.has-text-github:hover, a.has-text-github:focus {
-  color: #1a1a1a !important; }
 
 .has-text-black-bis {
   color: #121212 !important; }

@@ -1,17 +1,17 @@
 <template>
 <div>
-  <backgroundpattern class="blue-background" :patternfull="'rain.svg'"></backgroundpattern>
-  <div class="container pt-30"  :class="$mq === 'lg'? 'pb-80':'pb-40'">
+  <backgroundpattern class="blue-background" :patternfull="'/rain.svg'"></backgroundpattern>
+  <div class="container pt-30"  :class="$mq === 'lg' || $mq === 'xl'? 'pb-80':'pb-40'">
 
-    <div class="columns is-mobile" :class="$mq === 'lg'? 'pt-80':'pt-40'">
-      <div :class="$mq === 'lg'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
+    <div class="columns is-mobile" :class="$mq === 'lg' || $mq === 'xl'? 'pt-80':'pt-40'">
+      <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
         <intropart :islarge="true" :titletext="title">
         </intropart>
         <intropart :islarge="true" :blurbtext="desc">
         </intropart>
       </div>
     </div>
-    <div class="columns is-mobile" :class="$mq === 'lg'? 'pt-80':''">
+    <div class="columns is-mobile" :class="$mq === 'lg' || $mq === 'xl'? 'pt-80':''">
       <div class=" column ">
         <slot>
         </slot>

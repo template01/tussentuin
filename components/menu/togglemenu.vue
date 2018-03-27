@@ -53,10 +53,10 @@ export default {
     top: 0;
     #togglemenu {
         border: 0 !important;
-        padding: 20px;
-        min-width: 50px;
-        min-height: 50px;
-        height: 80px;
+        padding: 15px;
+        min-width: 45px;
+        min-height: 45px;
+        height: 70px;
         margin: 0 auto;
     }
     @media (max-width: 768px) {

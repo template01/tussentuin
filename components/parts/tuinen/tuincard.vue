@@ -2,47 +2,71 @@
 <div>
 
   <div :id="tuinsortdata.slug" class="tuincard mb-80" :class="[slideIn ? 'slideIn':'', inViewClass]" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
-    <div class="columns ">
+
+
+
+    <div class="columns" v-if="$mq==='lg' || $mq==='xl'">
       <div class="column is-10 is-offset-1">
-        <template v-if="reverse">
-          <div class="columns aligner">
-            <div class="column mr-20 ml-20">
-              <div class="">
-                <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
-                <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
-                <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
-                </p>
-                <div class="is-size-5" v-html="tuinsortdata.acf.desc">
+        <template>
+          <template v-if="reverse">
+            <div  class="columns aligner">
+              <div class="column mr-20 ml-20">
+                <div class="">
+                  <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
+                  <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
+                  <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
+                  </p>
+                  <div class="is-size-5" v-html="tuinsortdata.acf.desc">
+                  </div>
                 </div>
               </div>
+              <div class="column mr-20 ml-20" >
+                <tuincardcaroussel :tuinsoort="tuinsortdata.id" ></tuincardcaroussel>
+              </div>
             </div>
-            <div class="column mr-20 ml-20" >
-              <tuincardcaroussel :tuinsoort="tuinsortdata.id" ></tuincardcaroussel>
-            </div>
-          </div>
-        </template>
+          </template>
         <template v-else>
-          <div class="columns aligner">
-            <div class="column mr-20 ml-20">
-              <tuincardcaroussel :tuinsoort="tuinsortdata.id" :menuleft="true"></tuincardcaroussel>
-            </div>
-            <div class="column mr-20 ml-20">
-              <div class="">
-                <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
-                <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
-                <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
-                </p>
-                <div class="is-size-5" v-html="tuinsortdata.acf.desc">
+            <div  class="columns aligner">
+              <div class="column mr-20 ml-20">
+                <tuincardcaroussel :tuinsoort="tuinsortdata.id" :menuleft="true"></tuincardcaroussel>
+              </div>
+              <div class="column mr-20 ml-20">
+                <div class="">
+                  <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
+                  <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
+                  <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
+                  </p>
+                  <div class="is-size-5" v-html="tuinsortdata.acf.desc">
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </template>
         </template>
+      </div>
+    </div>
+    <div v-else>
+      <div class="columns is-mobile" >
+        <div class="column is-10 is-offset-1">
+          <div class="">
+            <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
+            <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
+            <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
+            </p>
+            <div class="is-size-5" v-html="tuinsortdata.acf.desc">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="columns pb-10 is-mobile" >
+        <div class="column is-10 is-offset-1 ">
+          <tuincardcaroussel :tuinsoort="tuinsortdata.id" ></tuincardcaroussel>
+        </div>
       </div>
     </div>
 
   </div>
-
 </div>
 </template>
 <script>
@@ -100,7 +124,7 @@ export default {
 .tuincard {
     position: relative;
     .icontop {
-        width: 160px;
+        width: 180px;
         display: block;
         margin: 0 auto;
     }

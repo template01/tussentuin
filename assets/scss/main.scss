@@ -1,17 +1,19 @@
 @import "variables";
 
-
 @media (max-width: 768px) {
   .columns{
     margin-left: 0;
     margin-right: 0;
   }
+
   .is-size-1{
     font-size: 2.2rem !important;
   }
+  .is-size-2{
+    font-size: 1.6rem !important;
+  }
   .is-size-3{
     font-size: 1.4rem !important;
-
   }
   .is-size-4{
     font-size: 1.2rem !important;
@@ -41,14 +43,14 @@
 }
 
 .elevate:hover{
-  transform:translateY(-10px);
+  transform:translateY(-3px);
 }
 
 .button:hover{
-  transform:translateX(10px);
+  transform:translateX(3px);
   &.down{
     transform:translateX(0px);
-    transform:translateY(10px);
+    transform:translateY(3px);
   }
   &.ignore{
     transform:translateX(0);
@@ -60,7 +62,7 @@
 }
 
 .button{
-  transform:ranslateX(10px);
+  transform:ranslateX(3px);
   transition: transform 0.25s;
 }
 

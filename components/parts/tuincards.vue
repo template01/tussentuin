@@ -8,7 +8,7 @@
     </div>
     <div class="aligner">
       <p class="is-size-5 has-text-dark mt-40">
-        <span class="bullet mr-10"  :class="[$mq === 'lg' ? 'mr-10':'mr-5',{active: selected === index}]" @click="transitionCard(index)" v-for="(item, index) in chunkTuinsoorten"></span>
+        <span class="bullet mr-10"  :class="[$mq === 'lg' || $mq === 'xl' ? 'mr-10':'mr-5',{active: selected === index}]" @click="transitionCard(index)" v-for="(item, index) in chunkTuinsoorten"></span>
       </p>
     </div>
   </div>
@@ -86,7 +86,7 @@ export default {
   },
   computed: {
     chunkTuinsoorten: function() {
-      if(this.$mq === 'lg'){
+      if(this.$mq === 'lg' || this.$mq === 'xl'){
         return _.chunk(this.tuinsoorten, 4);
       }else{
         return _.chunk(this.tuinsoorten, 1);

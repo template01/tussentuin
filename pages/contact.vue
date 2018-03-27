@@ -2,12 +2,12 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info">
-      <intro_section_top :ignorepaddingbottom="true" :pattern="'patternGreen.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
+      <intro_section_top :ignorepaddingbottom="true" :pattern="'/patternGreen.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
       </intro_section_top>
       <intro_section>
         <div class="container pt-40 pb-40">
           <div class="columns is-mobile">
-            <div class=" column is-8 is-offset-2 ">
+            <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
               <!-- <intropart :secondDelay="400" :desc="layout.content">
             </intropart> -->
             <div class="columns pb-40">

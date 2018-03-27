@@ -1,6 +1,6 @@
 <template>
 <div id="footer" class="" :class="normalpage  ? 'has-text-info blue-background':'has-text-dark'">
-  <div v-if="$mq === 'lg'">
+  <div v-if="$mq === 'lg' || $mq === 'xl' || $mq === 'xl'">
     <div v-if="normalpage" class="wave waveblue"></div>
     <div v-else class="wave wavewhite"></div>
     <div class="innerfooter container pt-30 pb-80 pr-20 pl-20">

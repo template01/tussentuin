@@ -1,6 +1,5 @@
 <template>
 <div class="indexsection-outer":class="[fullheight ? 'window-full-height':'',halfheight ? 'window-half-height':'']">
-   <!-- :style="{ 'background-image': 'url(' + 'patternLeafLighter' + '.svg)' }" -->
   <section class="section is-paddingless">
     <slot>
 

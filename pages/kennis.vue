@@ -2,11 +2,11 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info">
-      <intro_section_top :pattern="'patternDroplet.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
+      <intro_section_top :pattern="'/patternDroplet.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
       </intro_section_top>
     </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="has-text-dark">
-      <intro_section :pattern="'patternDroplet_inverted.svg'">
+    <tuinthemakennis_section id="" class="pb-80 has-text-dark">
+      <intro_section :pattern="'/patternDroplet_inverted.svg'">
         <section_content :content="fetchedContent.content"></section_content>
       </intro_section>
     </tuinthemakennis_section>

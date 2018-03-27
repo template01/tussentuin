@@ -1,6 +1,6 @@
 <template>
 <div class="">
-  <div :class="[inViewClass]" class="transitionOpacity" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]">
+  <div v-touch:swipe.left="swipeLeft" v-touch:swipe.right="swipeRight" :class="[inViewClass]" class="transitionOpacity" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]">
     <div class="tuingallerycaroussel " :class="{slideInHorizontal: slideInHorizontal, slideOutHorizontal: slideOutHorizontal}">
 
       <div>
@@ -41,6 +41,36 @@ export default {
     }
   },
   methods: {
+
+    swipeLeft: function() {
+      if (this.content.length > 1) {
+
+        if (this.selected === this.content.length - 1) {
+
+          this.transitionCard(0)
+
+        } else {
+
+          this.transitionCard(this.selected + 1)
+        }
+      }
+    },
+
+    swipeRight: function() {
+      if (this.content.length > 1) {
+
+        if (this.selected === 0) {
+
+          this.transitionCard(this.content.length - 1)
+
+        } else {
+
+          this.transitionCard(this.selected - 1)
+        }
+      }
+    },
+
+
     transitionCard: function(input) {
       this.slideOutHorizontal = true
       this.slideInHorizontal = false
@@ -52,7 +82,7 @@ export default {
       setTimeout(function() {
         vm.slideOutHorizontal = false
         vm.slideInHorizontal = true
-      }, 600)
+      }, 800)
     }
   },
   mounted() {
@@ -90,8 +120,8 @@ export default {
     opacity: 0.0;
     transition: transform 500ms, opacity 500ms, min-height 500ms;
     overflow: hidden;
-    min-height: 300px;
-    margin-bottom: -40px;
+    // min-height: 300px;
+    // margin-bottom: -40px;
     // max-height: 1000px;
     position: relative;
     background: white;

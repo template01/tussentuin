@@ -1,6 +1,6 @@
 <template>
-  <div class="window-full-height"  v-if="$mq==='lg'">
-    <backgroundpattern :patternfull="'patternGreen.svg'"></backgroundpattern>
+  <div class="window-full-height"  v-if="$mq==='lg' || $mq==='xl'">
+    <backgroundpattern :patternfull="'/patternGreen.svg'"></backgroundpattern>
 
     <div class="container">
       <div class="pr-20 pl-20 pt-80 pb-80 window-full-height aligner  window-half-width ">
@@ -21,7 +21,7 @@
   </div>
 
 <div class="" v-else>
-  <backgroundpattern :patternfull="'patternGreen.svg'"></backgroundpattern>
+  <backgroundpattern :patternfull="'/patternGreen.svg'"></backgroundpattern>
 
   <div class="container pt-80">
     <div class="pr-20 pl-20 pt-80 pb-80 ">

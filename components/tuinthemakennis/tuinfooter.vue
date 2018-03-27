@@ -4,25 +4,25 @@
     <div class="tuinfooter transitionOpacity delay-500" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
       <div :class="[inViewClass]">
         <div class="columns is-mobile">
-          <div class=" column is-8 is-offset-2 ">
+          <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
 
             <!-- {{content.tuin_footer.column_i}} -->
             <div class="columns is-mobile has-text-weight-semibold " v-if="content">
               <div class=" column ">
                 <p class="" v-if="content.tuin_footer.column_i.gerealiseerd">
-                  <span class="mb-5 button is-light nostyle is-paddingless">Gerealiseerd:</span>
-                  <span class="mb-5 button nostyle is-light ml-5 is-paddingless-left">{{content.tuin_footer.column_i.gerealiseerd}}</span>
+                  <span class="mb-5 button ignore is-light nostyle is-paddingless">Gerealiseerd:</span>
+                  <span class="mb-5 button ignore nostyle is-light ml-5 is-paddingless-left">{{content.tuin_footer.column_i.gerealiseerd}}</span>
                 </p>
                 <p class="">
-                  <span class="mb-5 button is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.opdrachtgever">In opdracht van:</span>
+                  <span class="mb-5 button ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.opdrachtgever">In opdracht van:</span>
                   <span v-for="item in content.tuin_footer.column_i.opdrachtgever" class="mb-5 button nostyle is-light ml-5 is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
                 </p>
                 <p class="">
-                  <span class="mb-5 button is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.samenwerking">In samenwerking met:</span>
+                  <span class="mb-5 button ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.samenwerking">In samenwerking met:</span>
                   <span v-for="item in content.tuin_footer.column_i.samenwerking" class="mb-5 button nostyle is-light ml-5 is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
                 </p>
                 <p class="">
-                  <span class="mb-5 button is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.externe_links">Externe links:</span>
+                  <span class="mb-5 button ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.externe_links">Externe links:</span>
                   <span v-for="item in content.tuin_footer.column_i.externe_links" class="mb-5 button nostyle is-light ml-5 is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
                 </p>
 
@@ -30,17 +30,17 @@
               <div class=" column ">
 
                 <p class="" v-if="typeof tuinsoort === 'object'">
-                  <span class="mb-5 button is-light nostyle is-paddingless-left">Tuin type:</span>
+                  <span class="mb-5 button ignore is-light nostyle is-paddingless-left">Tuin type:</span>
                   <!-- {{tuinsoort.slug}} -->
                   <!-- {{this.content.tuin_soort}} -->
                   <nuxt-link :to="'/tuinen/#'+tuinsoort.slug" class="mb-5 button is-light has-text-weight-semibold is-rounded mr-5" v-html="tuinsoort.title.rendered"></nuxt-link>
                 </p>
                 <p class="" v-if="Array.isArray(content.tuin_footer.column_ii.tuin_thema)">
-                  <span class="button is-light nostyle is-paddingless-left">Themas:</span>
+                  <span class="button ignore is-light nostyle is-paddingless-left">Themas:</span>
                   <nuxt-link v-for="item in content.tuin_footer.column_ii.tuin_thema" :to="'/themas/#'+item.post_name" class="mb-5 button is-light has-text-weight-semibold is-rounded mr-5" v-html="item.post_title"></nuxt-link>
                 </p>
                 <p class="" v-if="related.length>0">
-                  <span class="mb-5 button is-light nostyle is-paddingless-left">Tuin type:</span>
+                  <span class="mb-5 button ignore is-light nostyle is-paddingless-left">Gerelateerd:</span>
                   <!-- {{tuinsoort.slug}} -->
                   <!-- {{this.content.tuin_soort}} -->
                   <!-- {{relatedTuinenNotThis}} -->

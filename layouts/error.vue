@@ -1,5 +1,5 @@
 <template>
-  <div class="error-container aligner" :style="{ 'background-image': `url(`+'patternGreen.svg'+`)`}">
+  <div class="error-container aligner" :style="{ 'background-image': `url(`+'/patternGreen.svg'+`)`}">
     <div>
       <h1 class="is-size-1 has-text-info has-text-weight-bold" v-if="error.statusCode === 404">Pagina niet gevonden!</h1>
       <h1 class="is-size-1 has-text-info has-text-weight-bold" v-else>Er is helaas iets mis gegaan!</h1>

@@ -2,12 +2,17 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info peach-background">
-      <intro_section_top class="" :pattern="'drawing.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
+      <intro_section_top class="" :pattern="'/drawing.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
+        <div class="mt-20">
+          <!-- SNEL ALLE TUINEN -->
+          <nuxt-link  class="mr-5 mt-5 has-text-weight-bold button is-centered is-info is-rounded" :to="'tuinen/'+item.slug" v-for="item in tuinContentLimited" v-html="item.title.rendered"></nuxt-link>
+          <a class="mr-5 mt-5 has-text-weight-bold button is-centered is-info is-rounded" @click="showmore = !showmore"><div>{{showmore? '...Toch minder':'...Laad meer'}}</div></a>
+        </div>
       </intro_section_top>
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class="has-text-dark">
 
-      <intro_section :pattern="'drawing_inverted.svg'">
+      <intro_section :pattern="'/drawing_inverted.svg'">
         <div class="container pt-30 pb-80">
           <div class="pt-80">
             <tuincard v-for="(soortdata,index) in tuinsoortenContent"  :reverse="index & 1 ? false:true" :tuinsortdata="soortdata"></tuincard>
@@ -49,10 +54,23 @@ export default {
     ...mapGetters({
       loaderhasrun: "GET_LOADER_RUN",
     }),
+    tuinContentLimited: function(){
+      if(!this.showmore){
+        return this.tuinContent.slice(0, 3);
+      }else{
+        return this.tuinContent
+      }
+    }
   },
 
   mounted(){
     this.scrollToHash()
+  },
+
+  data: function(){
+    return{
+        showmore: false,
+    }
   },
   methods:{
     scrollToHash: function(){
@@ -68,9 +86,12 @@ export default {
           }
 
           setTimeout(function(){
-            var target = document.getElementById(window.location.hash.slice(1))
-            console.log(getOffsetSum(target).top)
-            window.scrollTo({ top: getOffsetSum(target).top - 80, left: 0, behavior: 'smooth' });
+            var hash = window.location.hash.slice(1)
+            if(hash.length>0){
+              var target = document.getElementById(hash)
+              console.log(getOffsetSum(target).top)
+              window.scrollTo({ top: getOffsetSum(target).top - 80, left: 0, behavior: 'smooth' });
+            }
           },1500)
     }
   },
@@ -84,15 +105,17 @@ export default {
     redirect
   }) {
 
-    let [pagecontentRes, tuinsoortenRes] = await Promise.all([
+    let [pagecontentRes, tuinsoortenRes, tuinRes] = await Promise.all([
       axios.get(store.state.apiRoot + '/wp/v2/pages?slug=tuinen'),
       axios.get(store.state.apiRoot + '/wp/v2/tuinsoort'),
+      axios.get(store.state.apiRoot + '/wp/v2/tuin?per_page=100&fields=title.rendered,slug'),
     ])
 
     console.log(pagecontentRes.data[0].acf)
     return {
       fetchedContent: pagecontentRes.data[0].acf,
       tuinsoortenContent: tuinsoortenRes.data,
+      tuinContent: tuinRes.data,
     }
 
   },

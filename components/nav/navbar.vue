@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <transition name="fade">
-    <div v-if="!menuopen" class="navbar pr-20 pl-20" :class="$mq === 'lg'? 'mt-20':''">
+    <div v-if="!menuopen" class="navbar pr-20 pl-20" :class="$mq === 'lg' || $mq === 'xl'? 'mt-20':''">
       <nuxt-link to="/" class=" cool-link cool-link-blue valign is-size-4 has-text-weight-semibold has-text-info">Stichting Tussentuin</nuxt-link>
     </div>
   </transition>
@@ -42,7 +42,8 @@ export default {
     }
 
     &:hover {
-
+      background: transparent;
+      
     }
 }
 
@@ -61,7 +62,7 @@ export default {
     // width: 100%;
     top: 0;
     z-index: 1001;
-    height: 80px;
+    height: 70px;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;

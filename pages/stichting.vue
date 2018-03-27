@@ -5,7 +5,7 @@
       <intro_section_top :pattern="'/patternGreen.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
       </intro_section_top>
     </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="has-text-dark">
+    <tuinthemakennis_section id="" class="pb-80 has-text-dark">
       <intro_section :pattern="'/patternGreen_inverted.svg'">
         <section_content_tuin :content="fetchedContent.acf.content"></section_content_tuin>
       </intro_section>
