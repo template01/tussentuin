@@ -7,7 +7,7 @@
           <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
 
             <!-- {{content.tuin_footer.column_i}} -->
-            <div class="columns is-mobile has-text-weight-semibold " v-if="content">
+            <div class="columns has-text-weight-semibold " v-if="content">
               <div class=" column ">
                 <p class="" v-if="content.tuin_footer.column_i.gerealiseerd">
                   <span class="mb-5 button ignore is-light nostyle is-paddingless">Gerealiseerd:</span>

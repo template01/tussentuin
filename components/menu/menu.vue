@@ -4,8 +4,7 @@
     <div class="ripple-button1">
       <div id="menu-inner" class="aligner">
         <div id="menu-list" class="aligner-item">
-          <span  v-for="link in menuContent.acf.linktointern">  <nuxt-link class="cool-link  cool-link-white cool-link-nav-large is-size-1 has-text-weight-semibold" :to="link.intern_link" v-html="link.naam"></nuxt-link></span>
-
+          <span @click="closemenu(200)" v-for="link in menuContent.acf.linktointern">  <nuxt-link class="cool-link  cool-link-white cool-link-nav-large is-size-1 has-text-weight-semibold" :to="link.intern_link" v-html="link.naam"></nuxt-link></span>
             <span :class="{'mt-40' : index === 0}"   v-for="(link,index) in menuContent.acf.linktoextern"><a class="is-size-3 has-text-weight-semibold" target="_blank" :href="link.extern_link" v-html="link.naam"></a></span></span>
         </div>
       </div>
@@ -32,8 +31,11 @@ export default {
     openmenu: function() {
       this.$store.commit('SET_MENUOPEN')
     },
-    closemenu: function() {
-      this.$store.commit('SET_MENUCLOSE')
+    closemenu: function(delay) {
+      var vm = this
+      setTimeout(function(){
+        vm.$store.commit('SET_MENUCLOSE')
+      },delay)
     }
   },
   watch:{

@@ -4,7 +4,8 @@
     <div class="tuingallerycaroussel " :class="{slideInHorizontal: slideInHorizontal, slideOutHorizontal: slideOutHorizontal}">
 
       <div>
-        <img :src="content[selected].url" />
+        <img v-if="$mq ==='sm'" :src="content[selected].sizes.medium" />
+        <img v-else :src="content[selected].sizes.large" />
         <!-- <p class=" has-text-centered p-10">
                 <nuxt-link :to="'tuinen/'+content[selected].tuin.post_name" v-html="content[selected].tuin.post_title" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
               </p> -->

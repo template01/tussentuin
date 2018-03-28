@@ -2,7 +2,7 @@
 <div class="" style="">
   <div class=" has-text-info">
     <indexsection >
-      <index_intro_a :intro="indexContent.intro_a.bam_text" :image="indexContent.intro_a.background_image.url">
+      <index_intro_a :intro="indexContent.intro_a.bam_text" :image="indexContent.intro_a.background_image">
         <tonextsection :relative="true" :text="'Ga verder'" :idprop="'tuinen'"></tonextsection>
       </index_intro_a>
       <tonextsection v-if="$mq==='lg' || $mq==='xl'" :text="'Ga verder'" :idprop="'tuinen'"></tonextsection>

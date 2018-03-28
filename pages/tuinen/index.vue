@@ -85,12 +85,17 @@ export default {
               return {top: top, left: left};
           }
 
+          var mq = this.$mq
+
           setTimeout(function(){
             var hash = window.location.hash.slice(1)
             if(hash.length>0){
+
               var target = document.getElementById(hash)
-              console.log(getOffsetSum(target).top)
-              window.scrollTo({ top: getOffsetSum(target).top - 80, left: 0, behavior: 'smooth' });
+
+              var offset = mq==='sm'|| mq==='md'? 20: 170
+
+              window.scrollTo({ top: getOffsetSum(target).top - offset, left: 0, behavior: 'smooth' });
             }
           },1500)
     }

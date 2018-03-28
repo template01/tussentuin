@@ -1,6 +1,5 @@
 <template>
-<div class="sectionphoto" :style="{'background-image': `url(`+photoUrl+`)` }">
-
+<div class="sectionphoto" :style="[fixed ? {'background-attachment':'fixed'}:{'background-attachment':''},{'background-image': `url(`+photoUrl+`)` }]">
 </div>
 </template>
 <script>
@@ -12,6 +11,9 @@ import {
 export default {
   props: {
     photoUrl: {},
+    fixed: {
+      default:true
+    },
     isHalf: {},
     isRight: {},
     borderradius: {
@@ -38,7 +40,7 @@ export default {
     width: 100%;
     height: 60vh;
     background-position: center center;
-    background-attachment: fixed;
+    // background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
 

@@ -22,10 +22,12 @@
 
         </div>
       </div>
-      <img style="display:block" v-if="$mq !='lg'" :src="image"/>
+      <img style="display:block" v-if="$mq !='lg'" :src="image.sizes.large"/>
     </div>
-    <backgroundphoto v-if="$mq ==='lg'" :isHalf="'true'" :patternfull="image"></backgroundphoto>
-
+    <backgroundphoto v-if="$mq ==='lg'" :isHalf="'true'" :patternfull="image.sizes.xlarge"></backgroundphoto>
+    <backgroundphoto v-if="$mq ==='xl'" :isHalf="'true'" :patternfull="image.sizes.xxlarge"></backgroundphoto>
+    <!-- <backgroundphoto v-if="$mq==='lg'" :isHalf="'true'" :isRight="'true'" :patternfull="image.sizes.xlarge"></backgroundphoto> -->
+    <!-- <backgroundphoto v-if="$mq==='xl'" :isHalf="'true'" :isRight="'true'" :patternfull="image.sizes.xxlarge"></backgroundphoto> -->
   </div>
 
 

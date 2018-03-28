@@ -2,7 +2,7 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="has-text-info">
-      <tuinintro :image="fetchedContent.acf.achtergronds_foto.url" :title="fetchedContent.title.rendered" :intro="fetchedContent.acf.intro"></tuinintro>
+      <tuinintro :image="fetchedContent.acf.achtergronds_foto" :title="fetchedContent.title.rendered" :intro="fetchedContent.acf.intro"></tuinintro>
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class="pt-20 has-text-dark">
       <intro_section :pattern="'/drawing_inverted.svg'">

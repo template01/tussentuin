@@ -103,7 +103,21 @@ export default {
       display: block;
       border-radius: 5px;
     }
+
+    @media (max-width: 768px) {
+      img{
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        max-width: calc(100% - 40px);
+        display: block;
+        border-radius: 5px;
+      }
+    }
   }
+
+
+
   .topicon{
     width: 100px;
     margin-bottom: 20px;

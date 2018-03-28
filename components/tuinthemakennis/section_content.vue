@@ -18,8 +18,9 @@
       </div>
     </div>
     <div v-if="layout.acf_fc_layout === 'background_image'">
-      <sectionphoto :photoUrl="layout.content_background_image.url"></sectionphoto>
-
+      <sectionphoto v-if="$mq==='xl'" :photoUrl="layout.content_background_image.sizes.xxlarge"></sectionphoto>
+      <sectionphoto v-if="$mq==='lg'" :photoUrl="layout.content_background_image.sizes.xlarge"></sectionphoto>
+      <sectionphoto v-if="$mq==='sm' || $mq==='md'" :fixed="false" :photoUrl="layout.content_background_image.sizes.large"></sectionphoto>
     </div>
   </template>
 

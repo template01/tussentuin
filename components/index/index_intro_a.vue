@@ -16,7 +16,8 @@
       </div>
 
     </div>
-    <backgroundphoto :isHalf="'true'" :isRight="'true'" :patternfull="image"></backgroundphoto>
+    <backgroundphoto v-if="$mq==='lg'" :isHalf="'true'" :isRight="'true'" :patternfull="image.sizes.xlarge"></backgroundphoto>
+    <backgroundphoto v-if="$mq==='xl'" :isHalf="'true'" :isRight="'true'" :patternfull="image.sizes.xxlarge"></backgroundphoto>
 
   </div>
 
@@ -34,7 +35,7 @@
     </div>
     <slot>
     </slot>
-    <img style="display:block" :src="image" />
+    <img style="display:block" :src="image.sizes.large" />
   </div>
 
 </div>
@@ -59,7 +60,7 @@ export default {
       default: '<p>...</p>'
     },
     image: {
-      default: 'fotos/Garten-Landhof-1-tall.jpg'
+      default: ''
     }
   },
   components: {

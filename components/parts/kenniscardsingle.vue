@@ -17,7 +17,7 @@
 
     </div>
     <div class="column">
-      <backgroundphoto :borderradius="'0px 10px 10px 0px'" :isHalf="'true'" :isRight="'true'" :patternfull="kennissoorten[selected].acf.background_image.url"></backgroundphoto>
+      <backgroundphoto :borderradius="'0px 10px 10px 0px'" :isHalf="'true'" :isRight="'true'" :patternfull="kennissoorten[selected].acf.background_image.sizes.large"></backgroundphoto>
     </div>
   </div>
   <div v-else>
@@ -30,7 +30,7 @@
 
       </p>
       <div class="mt-40">
-        <img class="card-img-mobile" :src="kennissoorten[selected].acf.background_image.url" />
+        <img class="card-img-mobile" :src="kennissoorten[selected].acf.background_image.sizes.large" />
       </div>
       <p class="is-size-5 has-text-dark mt-10">
         <span class="bullet mr-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in kennissoorten"></span>
