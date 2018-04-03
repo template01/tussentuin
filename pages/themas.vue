@@ -2,8 +2,15 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info">
-      <intro_section_top :pattern="'/pattern_grass1.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
+      <intro_section_top :pattern="'/pattern_grass1.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
+        <tonextsection class="mt-80" :relative="true" :ignorepaddingbottom="true" :delay="'1700'"  :text="'Ga verder'" :classobj="{class:'indexsection-outer',index:1}"></tonextsection>
       </intro_section_top>
+      <div v-if="fetchedContent.acf.intro_foto" >
+        <sectionphoto v-if="$mq==='xl'" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.xxlarge"></sectionphoto>
+        <sectionphoto v-if="$mq==='lg'" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.xlarge"></sectionphoto>
+        <sectionphoto v-if="$mq==='sm' || $mq==='md' " :fixed="false" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.large"></sectionphoto>
+      </div>
+
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class="pt-80 pb-80 has-text-dark">
       <intro_section :pattern="'/pattern_grass1_inverted.svg'">
@@ -22,6 +29,8 @@ import intro_section_top from '~/components/tuinthemakennis/intro_section_top.vu
 import section_content from '~/components/tuinthemakennis/section_content.vue'
 import section_content_thema from '~/components/tuinthemakennis/section_content_thema.vue'
 import intropart from '~/components/parts/intropart.vue'
+import sectionphoto from '~/components/elements/sectionphoto.vue'
+import tonextsection from '~/components/parts/tonextsection.vue'
 
 import axios from 'axios'
 
@@ -42,7 +51,9 @@ export default {
     section_content,
     intro_section_top,
     intropart,
-    section_content_thema
+    section_content_thema,
+    sectionphoto,
+    tonextsection
   },
   computed: {
     ...mapGetters({
@@ -94,12 +105,10 @@ export default {
     let [pagecontentRes, themaRes] = await Promise.all([
       axios.get(store.state.apiRoot + '/wp/v2/pages?slug=themas'),
       axios.get(store.state.apiRoot + '/wp/v2/thema'),
-
     ])
 
-    console.log(pagecontentRes.data[0].acf)
     return {
-      fetchedContent: pagecontentRes.data[0].acf,
+      fetchedContent: pagecontentRes.data[0],
       themaContent: themaRes.data,
     }
 

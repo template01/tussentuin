@@ -5,8 +5,10 @@
       <intro_section_top class="" :pattern="'/drawing.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
         <div class="mt-20">
           <!-- SNEL ALLE TUINEN -->
-          <nuxt-link  class="mr-5 mt-5 has-text-weight-bold button is-centered is-info is-rounded" :to="'tuinen/'+item.slug" v-for="item in tuinContentLimited" v-html="item.title.rendered"></nuxt-link>
-          <a class="mr-5 mt-5 has-text-weight-bold button is-centered is-info is-rounded" @click="showmore = !showmore"><div>{{showmore? '...Toch minder':'...Laad meer'}}</div></a>
+          <div :class="hasrun ?'':'animate-in'" >
+            <nuxt-link  class="mr-5 mt-5 has-text-weight-bold button is-centered is-info is-rounded" :to="'tuinen/'+item.slug" v-for="item in tuinContentLimited" v-html="item.title.rendered"></nuxt-link>
+            <a class="mr-5 mt-5 has-text-weight-bold button is-centered is-info is-rounded" @click="showmore = !showmore; hasrun = true"><div>{{showmore? '...Toch minder':'...Laad meer'}}</div></a>
+          </div>
         </div>
       </intro_section_top>
     </tuinthemakennis_section>
@@ -70,6 +72,7 @@ export default {
   data: function(){
     return{
         showmore: false,
+        hasrun:false,
     }
   },
   methods:{
@@ -130,5 +133,33 @@ export default {
 </script>
 
 <style lang="scss">
+
+.animate-in {
+
+    a {
+      opacity: 0;
+      animation: fade-in 0.3s;
+      animation-fill-mode: forwards;
+    }
+
+
+
+    @for $i from 0 through 30 {
+        a:nth-child(#{$i}) {
+            animation-delay: 1.2+$i*0.35+s;
+        }
+    }
+
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 </style>

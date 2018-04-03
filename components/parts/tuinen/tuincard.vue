@@ -13,8 +13,9 @@
               <div class="column mr-20 ml-20">
                 <div class="">
                   <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
-                  <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
-                  <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
+                  <p class="pb-30 has-text-centered">
+                    <span class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered"></span>
+                    <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="mt-10 ml-10 button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
                   </p>
                   <div class="is-size-5" v-html="tuinsortdata.acf.desc">
                   </div>
@@ -33,8 +34,9 @@
               <div class="column mr-20 ml-20">
                 <div class="">
                   <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
-                  <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
-                  <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
+                  <p class="pb-30 has-text-centered">
+                    <span class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered"></span>
+                    <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="mt-10 ml-10 button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
                   </p>
                   <div class="is-size-5" v-html="tuinsortdata.acf.desc">
                   </div>

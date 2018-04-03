@@ -2,8 +2,8 @@
 <div v-if="content.length>0" class="">
   <div v-touch:swipe.left="swipeLeft" v-touch:swipe.right="swipeRight" class="tuincardcaroussel aligner" :class="$mq==='lg' || $mq==='xl' ? {slideInVertical: slideInVertical, slideOutVertical: slideOutVertical} : {slideInHorizontal: slideInVertical, slideOutHorizontal: slideOutVertical}">
     <template v-if="menuleft">
-            <p class="bulletWrapper left is-size-5 has-text-dark p-20" v-if="$mq==='lg' || $mq==='xl' && content.length>1">
-              <span class="bullet mt-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
+            <p class="bulletWrapper left is-size-5 has-text-dark p-20" v-if="$mq==='lg' || $mq==='xl'">
+              <span v-if="content.length>1" class="bullet mt-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
             </p>
             <div>
               <!-- {{content[selected].acf.featured_foto.sizes}} -->
@@ -21,8 +21,8 @@
                 <nuxt-link :to="'/tuinen/'+content[selected].slug" v-html="content[selected].title.rendered" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
               </p>
             </div>
-            <p class="bulletWrapperMo is-size-5 has-text-dark p-20"  v-if="$mq==='lg' || $mq==='xl' && content.length>1">
-              <span class="bullet mt-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
+            <p class="bulletWrapperMo is-size-5 has-text-dark p-20"  v-if="$mq==='lg' || $mq==='xl'">
+              <span v-if="content.length>1" class="bullet mt-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
             </p>
           </template>
   </div>

@@ -23,14 +23,15 @@ module.exports = {
       href: '/favicon.ico'
     }],
     script: [{
-      src: 'https://use.fontawesome.com/releases/v5.0.0/js/all.js'
+      src: '/redirect.js'
+    },{
+      src: '/polyfill/polyfill.min.js'
     }],
   },
 
 
-
-
   mode: 'spa',
+
 
   // loadingIndicator: {
   //   name: 'circle',
@@ -58,7 +59,7 @@ module.exports = {
 
 
   router: {
-    middleware: ['closeReadmore', 'closeMenu'],
+    middleware: ['closeReadmore', 'closeMenu','login'],
     scrollBehavior: function(to, from, savedPosition) {
       if (to.path === '/about' && from.path === '/about') {
 
@@ -83,6 +84,7 @@ module.exports = {
         }
       }
     }
+
   },
 
   modules: [

@@ -1,5 +1,5 @@
 <template>
-  <div class="toNextSection" :class="[relative ? 'relative pb-80':'p-80',left ? '':'aligner']">
+  <div class="toNextSection" :style="[{'animation-delay':delay+'ms'}]" :class="[ignorepaddingbottom  ? 'relative p-0':'',relative && !ignorepaddingbottom ? 'relative pb-80':'p-80',left ? '':'aligner']">
     <a @click="classobj ? goToClass(classobj) : goToId(idprop)" class="has-text-weight-bold aligner-item button down is-centered is-info is-rounded">
       <div class="" v-html="text">
       </div>
@@ -19,7 +19,7 @@ import {
 
 
 export default {
-  props:['idprop','text','relative','left','classobj'],
+  props:['idprop','text','relative','left','classobj','ignorepaddingbottom','delay'],
   data: function() {
     return {
       genericData: 'generic component text'
@@ -50,7 +50,13 @@ export default {
 .toNextSection{
   position: absolute;
   bottom: 0;
+  opacity: 0;
   width: 100%;
+  animation-delay: 0.3s;
+  animation-name: titleAnimation;
+  animation-timing-function: ease;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
   .innerbutton{
     margin: 0 auto;
   }
@@ -59,5 +65,13 @@ export default {
   }
 }
 
+@keyframes titleAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 </style>

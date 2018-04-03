@@ -3,7 +3,17 @@
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info">
       <intro_section_top :pattern="'/patternGreen.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
+          <!-- <tonextsection :relative="true" :text="'Ga verder'" :idprop="'tuinen'"></tonextsection> -->
+          <tonextsection class="mt-80"  :ignorepaddingbottom="true" :delay="'1700'" :relative="true"  :text="'Ga verder'" :classobj="{class:'indexsection-outer',index:1}"></tonextsection>
       </intro_section_top>
+
+      <div v-if="fetchedContent.acf.intro_foto">
+        <sectionphoto v-if="$mq==='xl'" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.xxlarge"></sectionphoto>
+        <sectionphoto v-if="$mq==='lg'" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.xlarge"></sectionphoto>
+        <sectionphoto v-if="$mq==='sm' || $mq==='md' " :fixed="false" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.large"></sectionphoto>
+      </div>
+
+
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class="pb-80 has-text-dark">
       <intro_section :pattern="'/patternGreen_inverted.svg'">
@@ -23,6 +33,9 @@ import section_content_tuin from '~/components/tuinthemakennis/section_content_t
 import tuinfooter from '~/components/tuinthemakennis/tuinfooter.vue'
 import tuinintro from '~/components/tuinthemakennis/tuinintro.vue'
 import intropart from '~/components/parts/intropart.vue'
+import sectionphoto from '~/components/elements/sectionphoto.vue'
+import tonextsection from '~/components/parts/tonextsection.vue'
+
 
 import axios from 'axios'
 
@@ -39,7 +52,9 @@ export default {
     tuinintro,
     tuinfooter,
     intro_section_top,
-    intropart
+    intropart,
+    sectionphoto,
+    tonextsection
   },
   computed: {
     ...mapGetters({
