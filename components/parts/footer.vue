@@ -1,8 +1,8 @@
 <template>
 <div id="footer" class="" :class="normalpage  ? 'has-text-info blue-background':'has-text-dark'">
   <div v-if="$mq === 'lg' || $mq === 'xl' || $mq === 'xl'">
-    <div v-if="normalpage" class="wave waveblue"></div>
-    <div v-else class="wave wavewhite"></div>
+    <div v-if="normalpage" class="wave" :style="{ 'background-image': `url(`+'waveblue.svg'+`)`}"></div>
+    <div v-else class="wave" :style="{ 'background-image': `url(`+'wavewhite.svg'+`)`}"></div>
     <div class="innerfooter container pt-30 pb-80 pr-20 pl-20">
       <div class="columns pt-80">
         <div class="column is-3 pr-40 pl-40">
@@ -25,8 +25,8 @@
     </div>
   </div>
   <div v-else>
-    <div v-if="normalpage" class="wave waveblue"></div>
-    <div v-else class="wave wavewhite"></div>
+    <div v-if="normalpage" class="wave" :style="{ 'background-image': `url(`+'waveblue.svg'+`)`}"></div>
+    <div v-else class="wave" :style="{ 'background-image': `url(`+'wavewhite.svg'+`)`}"></div>
     <div class="innerfooter container pb-20 pr-20 pl-20">
       <div class="columns is-mobile pt-80 pb-40">
         <div class="column is-paddingless is-6">
@@ -96,56 +96,11 @@ a {
 }
 
 .wave {
-    // transform:rotate(180deg);
-    text-align: center;
-    background: linear-gradient(to top);
-    height: 50px;
-    // position: absolute;
-    margin-top: -50px;
+    height: 20px;
+    margin-top: -20px;
     width: 100%;
-    // background: green;
-    transform: scaleX(2);
-    @media (max-width: 768px) {
-      transform: scaleX(1);
-
-    }
 }
 
-.wave::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-repeat: repeat-x;
-    height: 10px;
-    background-size: 20px 20px;
-}
-.wave::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    // width: 100px;
-    background-repeat: repeat-x;
-    height: 15px;
-    background-size: 40px 20px;
-}
-
-.wavewhite::before {
-    background-image: radial-gradient(circle at 10px -5px, transparent 12px, white 13px);
-}
-.wavewhite::after {
-    background-image: radial-gradient(circle at 10px 15px, white 12px, transparent 13px);
-}
-
-.waveblue::before {
-    background-image: radial-gradient(circle at 10px -5px, transparent 12px, $lightblue 13px);
-}
-.waveblue::after {
-    background-image: radial-gradient(circle at 10px 15px, $lightblue 12px, transparent 13px);
-}
 
 #footer {
     z-index: 999;

@@ -1,7 +1,7 @@
 <template>
 <div id="togglemenu-outer" class="mt-20">
   <a @click="openmenu()" v-if="!menuopen" id="togglemenu" class="button expand ignore is-info is-centered is-rounded">
-    <div class="">
+    <div class="innerwrapper aligner" :style="$mq === 'lg' || $mq === 'xl' ? {} : {'position':'absolute'}">
       <div class="" id="nav-icon1">
         <span></span>
         <span></span>
@@ -10,7 +10,7 @@
     </div>
   </a>
   <a @click="closemenu()" v-else id="togglemenu" class="button expand ignore is-centered is-rounded">
-    <div class="">
+    <div class="innerwrapper aligner" :style="$mq === 'lg' || $mq === 'xl' ? {} : {'position':'absolute'}">
       <div class="open" id="nav-icon1">
         <span></span>
         <span></span>
@@ -77,6 +77,14 @@ export default {
 
 }
 
+.innerwrapper{
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  // position: absolute;
+}
+
 /* Icon 1 */
 
 #nav-icon1 {
@@ -106,7 +114,7 @@ export default {
     position: absolute;
     height: 3px;
     width: 100%;
-    background: white;
+    background:white;
     // border-radius: 10px;
     opacity: 1;
     left: 0;

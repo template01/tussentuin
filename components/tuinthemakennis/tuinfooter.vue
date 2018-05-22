@@ -39,7 +39,7 @@
                   <span class="button ignore is-light nostyle is-paddingless-left">Themas:</span>
                   <nuxt-link v-for="item in content.tuin_footer.column_ii.tuin_thema" :to="'/themas/#'+item.post_name" class="mb-5 button is-light has-text-weight-semibold is-rounded mr-5" v-html="item.post_title"></nuxt-link>
                 </p>
-                <p class="" v-if="related.length>0">
+                <p class="" v-if="relatedTuinenNotThis.length>0">
                   <span class="mb-5 button ignore is-light nostyle is-paddingless-left">Gerelateerd:</span>
                   <!-- {{tuinsoort.slug}} -->
                   <!-- {{this.content.tuin_soort}} -->
