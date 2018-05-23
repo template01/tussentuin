@@ -12,9 +12,9 @@
       </div>
     </div>
     <div v-if="layout.acf_fc_layout === 'background_image'">
-      <sectionphoto v-if="$mq==='xl'":class="[layout.addpadding['padding-top'] ? 'mt-80':'', layout.addpadding['padding-bottom'] ? 'mb-80':'']" :photoUrl="layout.content.background_image.sizes.xxlarge"></sectionphoto>
-      <sectionphoto v-if="$mq==='lg'":class="[layout.addpadding['padding-top'] ? 'mt-80':'', layout.addpadding['padding-bottom'] ? 'mb-80':'']" :photoUrl="layout.content.background_image.sizes.xlarge"></sectionphoto>
-      <sectionphoto v-if="$mq==='sm' || $mq==='md' ":class="[layout.addpadding['padding-top'] ? 'mt-80':'', layout.addpadding['padding-bottom'] ? 'mb-80':'']" :fixed="false" :photoUrl="layout.content.background_image.sizes.large"></sectionphoto>
+      <sectionphoto v-if="$mq==='xl'":class="[layout.addpadding['padding-top'] ? 'mt-80':'', layout.addpadding['padding-bottom'] ? 'mb-80':'']" :photoUrlSmall="layout.content.background_image.sizes.thumbnail" :photoUrl="layout.content.background_image.sizes.xxlarge"></sectionphoto>
+      <sectionphoto v-if="$mq==='lg'":class="[layout.addpadding['padding-top'] ? 'mt-80':'', layout.addpadding['padding-bottom'] ? 'mb-80':'']" :photoUrlSmall="layout.content.background_image.sizes.thumbnail" :photoUrl="layout.content.background_image.sizes.xlarge"></sectionphoto>
+      <sectionphoto v-if="$mq==='sm' || $mq==='md' ":class="[layout.addpadding['padding-top'] ? 'mt-80':'', layout.addpadding['padding-bottom'] ? 'mb-80':'']" :fixed="false" :photoUrlSmall="layout.content.background_image.sizes.thumbnail" :photoUrl="layout.content.background_image.sizes.large"></sectionphoto>
     </div>
     <div v-if="layout.acf_fc_layout === 'gallery'">
       <div class="container ">
