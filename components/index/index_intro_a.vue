@@ -5,6 +5,7 @@
     <div class="container">
       <div class="pr-20 pl-20 pt-80 pb-80 window-full-height aligner  window-half-width ">
         <div class="pb-80 pt-80 ">
+          <!-- {{image.sizes}} -->
 
           <div class="columns is-mobile pt-80 pb-80">
             <div class="column is-12 is-offset-0">
@@ -16,8 +17,8 @@
       </div>
 
     </div>
-    <backgroundphoto v-if="$mq==='lg'" :isHalf="'true'" :isRight="'true'" :patternfull="image.sizes.xlarge"></backgroundphoto>
-    <backgroundphoto v-if="$mq==='xl'" :isHalf="'true'" :isRight="'true'" :patternfull="image.sizes.xxlarge"></backgroundphoto>
+    <backgroundphoto v-if="$mq==='lg'" :isHalf="'true'" :isRight="'true'" :patternSmall="image.sizes.thumbnail" :patternfull="image.sizes.xlarge"></backgroundphoto>
+    <backgroundphoto v-if="$mq==='xl'" :isHalf="'true'" :isRight="'true'" :patternSmall="image.sizes.thumbnail" :patternfull="image.sizes.xxlarge"></backgroundphoto>
 
   </div>
 

@@ -8,9 +8,9 @@
       </intro_section_top>
 
       <div v-if="fetchedContent.acf.intro_foto">
-        <sectionphoto v-if="$mq==='xl'" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.xxlarge"></sectionphoto>
-        <sectionphoto v-if="$mq==='lg'" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.xlarge"></sectionphoto>
-        <sectionphoto v-if="$mq==='sm' || $mq==='md' " :fixed="false" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.large"></sectionphoto>
+        <sectionphoto v-if="$mq==='xl'" :photoUrlSmall="fetchedContent.acf.intro_foto.background_image.sizes.thumbnail" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.xxlarge"></sectionphoto>
+        <sectionphoto v-if="$mq==='lg'" :photoUrlSmall="fetchedContent.acf.intro_foto.background_image.sizes.thumbnail" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.xlarge"></sectionphoto>
+        <sectionphoto v-if="$mq==='sm' || $mq==='md' " :fixed="false" :photoUrlSmall="fetchedContent.acf.intro_foto.background_image.sizes.thumbnail" :photoUrl="fetchedContent.acf.intro_foto.background_image.sizes.large"></sectionphoto>
       </div>
 
 

@@ -1,5 +1,5 @@
 <template>
-<div class="sectionphoto" :style="[fixed ? {'background-attachment':'fixed'}:{'background-attachment':''},{'background-image': `url(`+photoUrl+`)` }]">
+<div class="sectionphoto" :style="[fixed ? {'background-attachment':'fixed'}:{'background-attachment':''}]" v-lazy:background-image="imgObj" >
 </div>
 </template>
 <script>
@@ -11,6 +11,9 @@ import {
 export default {
   props: {
     photoUrl: {},
+    photoUrlSmall: {
+      default: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Fresh_green_maple_leaves_%287185025589%29.jpg/218px-Fresh_green_maple_leaves_%287185025589%29.jpg'
+    },
     fixed: {
       default:true
     },
@@ -20,9 +23,13 @@ export default {
       default:'0'
     }
   },
-  data: function() {
+  data () {
     return {
-      genericData: 'generic component text'
+      imgObj: {
+        src: this.photoUrl,
+        // error: ,
+        loading: this.photoUrlSmall
+      }
     }
   },
   methods: {},
@@ -35,6 +42,21 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+.sectionphoto[lazy=loading] {
+  filter:blur(20px);
+}
+
+.sectionphoto[lazy=loaded] {
+  animation-name: example;
+  animation-duration: 0.25s;
+}
+@keyframes example {
+    from {filter:blur(20px);}
+    to {filter:blur(0px);}
+}
+
+
+
 .sectionphoto {
   position: relative;
     width: 100%;

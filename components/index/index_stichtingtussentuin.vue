@@ -21,7 +21,9 @@
           </div>
         </div>
       </div>
-      <backgroundphoto :isHalf="'true'" :patternfull="image.url"></backgroundphoto>
+      <!-- <backgroundphoto :isHalf="'true'" :patternSmall="image.sizes.thumbnail" :patternfull="image.url"></backgroundphoto> -->
+      <backgroundphoto v-if="$mq==='lg'" :isHalf="'true'" :patternSmall="image.sizes.thumbnail" :patternfull="image.sizes.xlarge"></backgroundphoto>
+      <backgroundphoto v-if="$mq==='xl'" :isHalf="'true'" :patternSmall="image.sizes.thumbnail" :patternfull="image.sizes.xxlarge"></backgroundphoto>
     </div>
     <div class="" v-else>
       <backgroundpattern class="peach-background" :patternfull="'/drawing.svg'"></backgroundpattern>

@@ -3,7 +3,7 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload, {
   preLoad: 0.8,
   error: 'loading.png',
-  loading: 'loading.png',
+  // loading: 'loading.png',
   attempt: 1
   // preLoad: 0.5,
   // preLoad: 1.3,
