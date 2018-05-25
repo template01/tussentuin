@@ -90,6 +90,10 @@ export default {
 </script>
 
 <style lang="scss">
+bold,strong{
+  color: inherit
+}
+
 .intropart {
   .titletext{
     width: 100%;

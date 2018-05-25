@@ -1,6 +1,13 @@
 <template>
 <div>
   <template v-for="layout in content">
+    <div v-if="layout.acf_fc_layout === 'vimeo_embed'">
+      <div class="container pt-40 pb-40 textphoto">
+        <div class="columns is-mobile">
+          <iframe style="margin:0 auto" :src="vimeoCode(layout.url)" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
     <div v-if="layout.acf_fc_layout === 'textphoto'">
       <div class="container pt-40 pb-40 textphoto">
         <div class="columns is-mobile">
@@ -56,7 +63,11 @@ export default {
       genericData: 'generic component text'
     }
   },
-  methods: {},
+  methods: {
+    vimeoCode: function(url) {
+      return 'https://player.vimeo.com/video/' + /[^/]*$/.exec(url)[0] + '?title=false&byline=false'
+    }
+  },
   computed: {
     ...mapGetters({
       appinitated: "GET_APP_INITIATED",
@@ -66,30 +77,25 @@ export default {
 }
 </script>
 <style  lang="scss">
-
-.textphoto{
-  p{
-    margin-bottom:10px !important;
-  }
-  a{
-    color: inherit;
-    -webkit-box-shadow: inset 0px -2px 0px 0px;
-    -moz-box-shadow: inset 0px -2px 0px 0px;
-    box-shadow: inset 0px -2px 0px 0px;
-  }
-
+.textphoto {
+    p {
+        margin-bottom: 10px !important;
+    }
+    a {
+        color: inherit;
+        -webkit-box-shadow: inset 0 -2px 0 0;
+        -moz-box-shadow: inset 0 -2px 0 0;
+        box-shadow: inset 0 -2px 0 0;
+    }
 
 }
-
 </style>
 
 <style scoped lang="scss">
-
-.tuinintro{
-  position: relative;
+.tuinintro {
+    position: relative;
 }
 .peach-background {
     background: $peach;
 }
-
 </style>
