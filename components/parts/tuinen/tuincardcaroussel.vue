@@ -7,7 +7,7 @@
             </p>
             <div>
               <!-- {{content[selected].acf.featured_foto.sizes}} -->
-              <img :src="content[selected].acf.featured_foto.sizes.medium"/>
+              <img v-if="content[selected].acf.featured_foto" :src="content[selected].acf.featured_foto.sizes.medium"/>
               <p class=" has-text-centered p-10">
                 <nuxt-link :to="'/tuinen/'+content[selected].slug" v-html="content[selected].title.rendered" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
               </p>
@@ -16,7 +16,7 @@
     <template v-else>
             <div>
               <!-- {{content[selected].acf.featured_foto.sizes}} -->
-              <img :src="content[selected].acf.featured_foto.sizes.medium"/>
+              <img v-if="content[selected].acf.featured_foto" :src="content[selected].acf.featured_foto.sizes.medium"/>
               <p class=" has-text-centered p-10">
                 <nuxt-link :to="'/tuinen/'+content[selected].slug" v-html="content[selected].title.rendered" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
               </p>
