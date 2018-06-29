@@ -95,6 +95,12 @@ bold,strong{
 }
 
 .intropart {
+
+  span{
+    // display: none;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+  }
   .titletext{
     width: 100%;
   }

@@ -1,5 +1,9 @@
 @import "variables";
 
+*{
+  font-family: "HK Nova" !important;
+}
+
 @media (max-width: 768px) {
   .columns{
     margin-left: 0;

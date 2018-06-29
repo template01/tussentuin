@@ -4,7 +4,12 @@
     <tuinthemakennis_section id="" class="has-text-info">
       <tuinintro :image="fetchedContent.acf.achtergronds_foto" :title="fetchedContent.title.rendered" :intro="fetchedContent.acf.intro"></tuinintro>
     </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="pt-20 has-text-dark">
+    <tuinthemakennis_section id="" class="pt-20   has-text-dark">
+      <intro_section :pattern="'/drawing_inverted.svg'">
+          <section_info_tuin :id="fetchedContent.id" :content="fetchedContent.acf"></section_info_tuin>
+      </intro_section>
+    </tuinthemakennis_section>
+    <tuinthemakennis_section id="" class=" has-text-dark">
       <intro_section :pattern="'/drawing_inverted.svg'">
         <section_content_tuin :content="fetchedContent.acf.content"></section_content_tuin>
       </intro_section>
@@ -25,6 +30,7 @@ import tuinthemakennis_section from '~/components/tuinthemakennis/section.vue'
 import intro_section from '~/components/tuinthemakennis/intro_section.vue'
 import intro_section_top from '~/components/tuinthemakennis/intro_section_top.vue'
 import section_content_tuin from '~/components/tuinthemakennis/section_content_tuin.vue'
+import section_info_tuin from '~/components/tuinthemakennis/section_info_tuin.vue'
 import tuinfooter from '~/components/tuinthemakennis/tuinfooter.vue'
 import tuinintro from '~/components/tuinthemakennis/tuinintro.vue'
 import intropart from '~/components/parts/intropart.vue'
@@ -41,6 +47,7 @@ export default {
     tuinthemakennis_section,
     intro_section,
     section_content_tuin,
+    section_info_tuin,
     tuinintro,
     tuinfooter,
     intro_section_top,
