@@ -4,11 +4,11 @@
     <tuinthemakennis_section id="" class="has-text-info">
       <tuinintro :image="fetchedContent.acf.achtergronds_foto" :title="fetchedContent.title.rendered" :intro="fetchedContent.acf.intro"></tuinintro>
     </tuinthemakennis_section>
-    <tuinthemakennis_section id="" class="pt-20   has-text-dark">
-      <intro_section :pattern="'/drawing_inverted.svg'">
+    <!-- <tuinthemakennis_section id="" class="pt-20   has-text-dark"> -->
+      <!-- <intro_section :pattern="'/drawing_inverted.svg'"> -->
           <section_info_tuin :id="fetchedContent.id" :content="fetchedContent.acf"></section_info_tuin>
-      </intro_section>
-    </tuinthemakennis_section>
+      <!-- </intro_section> -->
+    <!-- </tuinthemakennis_section> -->
     <tuinthemakennis_section id="" class=" has-text-dark">
       <intro_section :pattern="'/drawing_inverted.svg'">
         <section_content_tuin :content="fetchedContent.acf.content"></section_content_tuin>

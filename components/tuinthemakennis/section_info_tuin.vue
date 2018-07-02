@@ -1,11 +1,20 @@
 <template>
-<div>
+<div class="tuininfo  has-text-dark">
     <div>
-      <div class="container pt-80 has-text-weight-semibold  ">
-        <div class="columns is-mobile">
-          <div class=" column is-6 is-offset-3 ">
+      <div class="   ">
+        <div class=" is-mobile">
+          <div class="tuininfocontent  is-6 is-offset-3 ">
             <p>
-              Gerealiseerd: 2018 / blah: 2018 / Gerealiseerd: 2018 / Jaar: 2018 / Met wie: 2018 / Gerealiseerd: 2018
+              <span><b class="has-text-weight-semibold">Status:</b> start 2017 - tot heden </span>
+              <span><b class="has-text-weight-semibold">Bouwkosten:</b> ca. 00.000 euro </span>
+              <span><b class="has-text-weight-semibold">Onze thema(s):</b> Participatie, Waterberging, Vergroening</span>
+              <span><b class="has-text-weight-semibold">Investeerders(s):</b> Gemeente Den Haag, Gemeente Rotterdam </span>
+              <span><b class="has-text-weight-semibold">Financiering onderhoud/beheer:</b> Gemeente Den Haag </span>
+              <span><b class="has-text-weight-semibold">Betrokken partij(en):</b> Stichting Tussentuin </span>
+              <span><b class="has-text-weight-semibold">Collectieve Oppervlakte (m2):</b> 0000 </span>
+              <span><b class="has-text-weight-semibold">Private Oppervlakte (m2):</b> 0000 </span>
+              <span><b class="has-text-weight-semibold">Functie(s):</b> Openbaar toegangelijk, Rondgang, Siertuin, Waterberging, Zitplekken </span>
+              <!-- Gerealiseerd: 2018 / blah: 2018 / Gerealiseerd: 2018 / Jaar: 2018 / Met wie: 2018 / Gerealiseerd: 2018 -->
             </p>
             <!-- {{content}} -->
           </div>
@@ -60,5 +69,19 @@ export default {
 </style>
 
 <style scoped lang="scss">
+.tuininfo{
+  position: absolute;
+  left:calc(50% - (784px/2) - (300px + 20px));
+  // top: 80px;
+  margin-top: 80px;
+  height: 300px;
+  width: 300px;
+  color: inherit;
+}
+.tuininfocontent{
+  span{
+    display: block;
+  }
+}
 
 </style>

@@ -69,6 +69,7 @@ export default {
 
 .tuinintro{
   position: relative;
+  z-index: 2
 }
 
 

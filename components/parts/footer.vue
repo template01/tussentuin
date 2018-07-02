@@ -1,8 +1,8 @@
 <template>
 <div id="footer" class="" :class="normalpage  ? 'has-text-info blue-background':'has-text-dark'">
   <div v-if="$mq === 'lg' || $mq === 'xl' || $mq === 'xl'">
-    <div v-if="normalpage" class="wave" :style="{ 'background-image': `url(`+'waveblue.svg'+`)`}"></div>
-    <div v-else class="wave" :style="{ 'background-image': `url(`+'wavewhite.svg'+`)`}"></div>
+    <div v-if="normalpage" class="wave" :style="{ 'background-image': `url(`+'/waveblue.svg'+`)`}"></div>
+    <div v-else class="wave" :style="{ 'background-image': `url(`+'/wavewhite.svg'+`)`}"></div>
     <div class="innerfooter container pt-30 pb-80 pr-20 pl-20">
       <div class="columns pt-80">
         <div class="column is-3 pr-40 pl-40">
@@ -25,8 +25,8 @@
     </div>
   </div>
   <div v-else>
-    <div v-if="normalpage" class="wave" :style="{ 'background-image': `url(`+'waveblue.svg'+`)`}"></div>
-    <div v-else class="wave" :style="{ 'background-image': `url(`+'wavewhite.svg'+`)`}"></div>
+    <div v-if="normalpage" class="wave" :style="{ 'background-image': `url(`+'/waveblue.svg'+`)`}"></div>
+    <div v-else class="wave" :style="{ 'background-image': `url(`+'/wavewhite.svg'+`)`}"></div>
     <div class="innerfooter container pb-20 pr-20 pl-20">
       <div class="columns is-mobile pt-80 pb-40">
         <div class="column is-paddingless is-6">

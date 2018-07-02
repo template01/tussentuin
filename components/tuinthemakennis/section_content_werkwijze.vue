@@ -1,29 +1,23 @@
 <template>
 <div>
   <template v-for="item in content">
-    <pre >
-      {{item}}
-    </pre>
+
     <div>
       <div class="container pb-60">
         <div class="columns is-mobile ">
-          <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'" :id="item.slug">
-            <intropart :secondDelay="700" :hascentertext="true"  :icon="item.acf.icon">
+          <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
+            <intropart :secondDelay="700" :hascentertext="true"  :icon="item.groep.icon">
             </intropart>
-            <intropart :hascentertext="true" :islarge="true" :titletext="item.title.rendered">
+            <intropart :hascentertext="true" :islarge="true" :titletext="item.groep.titel">
             </intropart>
-            <intropart class="mt-20" :secondDelay="400" :islarge="true" :blurbtext="item.acf.desc_intro">
-            </intropart>
-            <intropart :secondDelay="400" :desc="item.acf.desc">
+            <!-- <intropart class="mt-20" :secondDelay="400" :islarge="true" :blurbtext="item.groep.omschrijving">
+            </intropart> -->
+            <intropart :secondDelay="400" :desc="item.groep.omschrijving">
             </intropart>
           </div>
         </div>
       </div>
     </div>
-    <!-- <div v-if="layout.acf_fc_layout === 'background_image'">
-      <sectionphoto :photoUrl="layout.content_background_image.url"></sectionphoto>
-
-    </div> -->
   </template>
 
 </div>

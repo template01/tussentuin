@@ -90,8 +90,20 @@ export default {
 </script>
 
 <style lang="scss">
-bold,strong{
-  color: inherit
+blockquote{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: 60px;
+  margin-right: 60px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-top: 3px solid;
+
+}
+b,bold,strong{
+  color: inherit;
+  font-weight: 600 !important;
+  font-size: inherit !important;
 }
 
 .intropart {

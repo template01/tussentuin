@@ -8,26 +8,26 @@
 
             <!-- {{content.tuin_footer.column_i}} -->
             <div class="columns has-text-weight-semibold " v-if="content">
-              <div class=" column ">
+              <div class=" column contentLeft">
                 <p class="" v-if="content.tuin_footer.column_i.gerealiseerd">
-                  <span class="mb-5 button ignore is-light nostyle is-paddingless">Gerealiseerd:</span>
-                  <span class="mb-5 button ignore nostyle is-light ml-5 is-paddingless-left">{{content.tuin_footer.column_i.gerealiseerd}}</span>
+                  <span class="mb-5 mr-5 ignore is-light nostyle is-paddingless">Gerealiseerd:</span>
+                  <span class="mb-5 mr-5 ignore nostyle is-light is-paddingless-left">{{content.tuin_footer.column_i.gerealiseerd}}</span>
                 </p>
                 <p class="">
-                  <span class="mb-5 button ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.opdrachtgever">In opdracht van:</span>
-                  <span v-for="item in content.tuin_footer.column_i.opdrachtgever" class="mb-5 button nostyle is-light ml-5 is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
+                  <span class="mb-5 mr-5 ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.opdrachtgever">In opdracht van:</span>
+                  <span v-for="item in content.tuin_footer.column_i.opdrachtgever" class="mb-5 nostyle is-light is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
                 </p>
                 <p class="">
-                  <span class="mb-5 button ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.samenwerking">In samenwerking met:</span>
-                  <span v-for="item in content.tuin_footer.column_i.samenwerking" class="mb-5 button nostyle is-light ml-5 is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
+                  <span class="mb-5 mr-5 ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.samenwerking">In samenwerking met:</span>
+                  <span v-for="item in content.tuin_footer.column_i.samenwerking" class="mb-5 nostyle is-light is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
                 </p>
                 <p class="">
-                  <span class="mb-5 button ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.externe_links">Externe links:</span>
-                  <span v-for="item in content.tuin_footer.column_i.externe_links" class="mb-5 button nostyle is-light ml-5 is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
+                  <span class="mb-5 mr-5 ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.externe_links">Externe links:</span>
+                  <span v-for="item in content.tuin_footer.column_i.externe_links" class="mb-5 nostyle is-light is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
                 </p>
 
               </div>
-              <div class=" column ">
+              <div class=" column contentRight">
 
                 <p class="" v-if="typeof tuinsoort === 'object'">
                   <span class="mb-5 button ignore is-light nostyle is-paddingless-left">Tuin type:</span>
@@ -155,9 +155,10 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.extra-line-height {
-    line-height: 3;
+.contentLeft,.contentRight{
+  line-height: 2;
 }
+
 
 .is-paddingless-left {
     padding-left: 0;
