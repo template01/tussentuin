@@ -114,7 +114,7 @@ module.exports = {
     script: [{
       src: 'redirect.js'
     },{
-      src: 'polyfill/polyfill.min.js'
+      src: 'polyfill.min.js'
     }]
   },
 
