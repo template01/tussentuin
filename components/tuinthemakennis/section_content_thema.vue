@@ -1,9 +1,6 @@
 <template>
 <div>
   <template v-for="item in content">
-    <pre >
-      {{item}}
-    </pre>
     <div>
       <div class="container pb-60">
         <div class="columns is-mobile ">
