@@ -1,5 +1,5 @@
 <template>
-<div class="" style="" v-if="loaderhasrun">
+<div class="contactpage has-text-info" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info">
       <intro_section_top :ignorepaddingbottom="true" :pattern="'/patternGreen.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
@@ -23,22 +23,21 @@
 
 
 
-            <div class="columns"  :class="$mq === 'lg' || $mq === 'xl'? '':'pt-40'">
+            <div class="columns" :class="$mq === 'lg' || $mq === 'xl'? '':'pt-40'">
               <div :class="$mq === 'lg' || $mq === 'xl'? 'column is-8 is-offset-2 ':'column is-10 is-offset-1'">
                 <div class="columns">
-
-                  <div :class="$mq==='sm'|| $mq==='md' ? 'is-paddingless mt-10':''" class="column pb-10"  v-if="chunkContactPersons[0]">
-                    <div v-for="person in chunkContactPersons[0]">
+                  <div :class="$mq==='sm'|| $mq==='md' ? 'is-paddingless mt-10':''" class="column" v-if="chunkContactPersons[0]">
+                    <div class="" v-for="person in chunkContactPersons[0]">
                       <contact_person :person="person"></contact_person>
                     </div>
                   </div>
-                  <div :class="$mq==='sm'|| $mq==='md' ? 'is-paddingless mt-10':''" class="column pb-10" v-if="chunkContactPersons[1]">
-                    <div v-for="person in chunkContactPersons[1]">
+                  <div :class="$mq==='sm'|| $mq==='md' ? 'is-paddingless mt-10':''" class="column " v-if="chunkContactPersons[1]">
+                    <div class="" v-for="person in chunkContactPersons[1]">
                       <contact_person :person="person"></contact_person>
                     </div>
                   </div>
-                  <div :class="$mq==='sm'|| $mq==='md' ? 'is-paddingless mt-10':''" class="column pb-10" v-if="chunkContactPersons[2]">
-                    <div v-for="person in chunkContactPersons[2]">
+                  <div :class="$mq==='sm'|| $mq==='md' ? 'is-paddingless mt-10':''" class="column " v-if="chunkContactPersons[2]">
+                    <div class="" v-for="person in chunkContactPersons[2]">
                       <contact_person :person="person"></contact_person>
                     </div>
                   </div>
@@ -81,11 +80,34 @@ export default {
       loaderhasrun: "GET_LOADER_RUN",
     }),
     chunkContactPersons: function() {
+
+      function splitArray(array, numChunks) {
+        return _.reduce(_.range(numChunks), ({
+          array,
+          result,
+          numChunks
+        }, chunkIndex) => {
+          const numItems = Math.ceil(array.length / numChunks)
+          const items = _.take(array, numItems)
+          result.push(items)
+          return {
+            array: _.drop(array, numItems),
+            result,
+            numChunks: numChunks - 1
+          }
+        }, {
+          array,
+          result: [],
+          numChunks
+        }).result
+      }
+
       var contactpersons = this.fetchedContent.acf.contact_persons
+      console.log(contactpersons.length)
       if (contactpersons.length < 4) {
-        return _.chunk(contactpersons, 1);
+        return splitArray(contactpersons, 1);
       } else {
-        return _.chunk(contactpersons, 3);
+        return splitArray(contactpersons, 3);
       }
     }
   },
@@ -116,6 +138,10 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
+<style lang="scss">
+.contactpage {
+  *{
+    color: inherit !important;
+  }
+}
 </style>

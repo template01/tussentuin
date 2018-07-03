@@ -1,9 +1,9 @@
 <template>
-<div class="pt-10">
+<div class="pt-10 pb-40">
   <div class="profiel" :style="{'background-image': `url(`+person.profiel_foto.sizes.medium+`)` }">
 
   </div>
-  <p class="has-text-centered mt-20" v-html="person.naam">
+  <p class="has-text-centered mt-10" v-html="person.naam">
   </p>
   <p class="has-text-centered">
     <a class=" has-text-info" :href="'mailto:'+person.email+'?Subject=Hoi%20'+person.naam" target="_top" v-html="person.email"></a>
