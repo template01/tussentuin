@@ -6,7 +6,7 @@
         <div class="mt-20">
           <!-- SNEL ALLE TUINEN -->
           <div :class="hasrun ?'':'animate-in'" >
-            <nuxt-link  class="mr-5 mt-5 has-text-weight-bold button is-centered is-info is-rounded" :to="'tuinen/'+item.slug" v-for="item in tuinContentLimited" v-html="item.title.rendered"></nuxt-link>
+            <nuxt-link  class="mr-5 mt-5 has-text-weight-bold button is-centered is-info is-rounded" :to="'/tuinen/'+item.slug" v-for="item in tuinContentLimited" v-html="item.title.rendered"></nuxt-link>
             <a class="mr-5 mt-5 has-text-weight-bold button is-centered is-info is-rounded" @click="showmore = !showmore; hasrun = true"><div>{{showmore? '...Toch minder':'...Laad meer'}}</div></a>
           </div>
         </div>

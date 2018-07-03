@@ -26,7 +26,7 @@
             </p>
           </template>
   </div>
-  <p class="bulletWrapperMobile is-size-5 has-text-dark" v-if="$mq!='lg' && content.length>1">
+  <p class="bulletWrapperMobile is-size-5 has-text-dark" v-if="$mq!='lg' && $mq !='xl' && content.length>1">
     <span class="bulletMobile" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
   </p>
 
