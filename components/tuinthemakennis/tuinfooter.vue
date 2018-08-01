@@ -1,12 +1,11 @@
 <template>
 <div>
-  <div class="container pt-40 pb-40">
+  <div class="container pt-20 pb-20">
     <div class="tuinfooter transitionOpacity delay-500" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
       <div :class="[inViewClass]">
         <div class="columns is-mobile">
           <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">
 
-            <!-- {{content.tuin_footer.column_i}} -->
             <div class="columns has-text-weight-semibold " v-if="content">
               <div class=" column contentLeft">
                 <p class="" v-if="content.tuin_footer.column_i.gerealiseerd">
@@ -15,15 +14,15 @@
                 </p>
                 <p class="">
                   <span class="mb-5 mr-5 ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.opdrachtgever">In opdracht van:</span>
-                  <span v-for="item in content.tuin_footer.column_i.opdrachtgever" class="mb-5 nostyle is-light is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
+                  <span v-for="(item, index) in content.tuin_footer.column_i.opdrachtgever" class="mb-5 nostyle is-light is-paddingless-left"><a class="mr-10 has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
                 </p>
                 <p class="">
                   <span class="mb-5 mr-5 ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.samenwerking">In samenwerking met:</span>
-                  <span v-for="item in content.tuin_footer.column_i.samenwerking" class="mb-5 nostyle is-light is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
+                  <span v-for="item in content.tuin_footer.column_i.samenwerking" class="mb-5 nostyle is-light is-paddingless-left"><a class="mr-10 has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
                 </p>
                 <p class="">
                   <span class="mb-5 mr-5 ignore is-light nostyle is-paddingless" v-if="content.tuin_footer.column_i.externe_links">Externe links:</span>
-                  <span v-for="item in content.tuin_footer.column_i.externe_links" class="mb-5 nostyle is-light is-paddingless-left"><a class="has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
+                  <span v-for="item in content.tuin_footer.column_i.externe_links" class="mb-5 nostyle is-light is-paddingless-left"><a class="mr-10 has-text-dark has-text-underline-dark" target="_blank" :href="item.url" v-html="item.naam"></a></span>
                 </p>
 
               </div>
@@ -31,8 +30,6 @@
 
                 <p class="" v-if="typeof tuinsoort === 'object'">
                   <span class="mb-5 button ignore is-light nostyle is-paddingless-left">Tuin type:</span>
-                  <!-- {{tuinsoort.slug}} -->
-                  <!-- {{this.content.tuin_soort}} -->
                   <nuxt-link :to="'/tuinen/#'+tuinsoort.slug" class="mb-5 button is-light has-text-weight-semibold is-rounded mr-5" v-html="tuinsoort.title.rendered"></nuxt-link>
                 </p>
                 <p class="" v-if="Array.isArray(content.tuin_footer.column_ii.tuin_thema)">
@@ -41,23 +38,8 @@
                 </p>
                 <p class="" v-if="relatedTuinenNotThis.length>0">
                   <span class="mb-5 button ignore is-light nostyle is-paddingless-left">Gerelateerd:</span>
-                  <!-- {{tuinsoort.slug}} -->
-                  <!-- {{this.content.tuin_soort}} -->
-                  <!-- {{relatedTuinenNotThis}} -->
                   <nuxt-link v-for="item in relatedTuinenNotThis" :to="'/tuinen/'+item.slug" class="mb-5 button is-light has-text-weight-semibold is-rounded mr-5" v-html="item.title.rendered"></nuxt-link>
-
-                  <!-- <nuxt-link :to="'/tuinen/#'+tuinsoort.slug" class="mb-5 button is-light has-text-weight-semibold is-rounded mr-5" v-html="tuinsoort.title.rendered"></nuxt-link> -->
                 </p>
-                <!-- <p class="" v-if="Array.isArray(content.tuin_footer.column_ii.tuin_thema)">
-                  <span class="button is-light nostyle is-paddingless-left">Themas:</span>
-                  <nuxt-link v-for="item in content.tuin_footer.column_ii.tuin_thema" :to="'/themas/#'+item.post_name" class="mb-5 button is-light has-text-weight-semibold is-rounded mr-5" v-html="item.post_title"></nuxt-link>
-                </p>
-v-if="content.length>0"
-                <p class="" v-if="">
-                  <span class="button is-light nostyle is-paddingless-left">Andere tuinen:</span>
-                  <nuxt-link v-for="item in relatedTuinenNotThis" :to="'/tuinen/'+item.post_name" class="mb-5 button is-light has-text-weight-semibold is-rounded mr-5" v-html="item.post_title"></nuxt-link>
-                </p>
-                 -->
               </div>
             </div>
           </div>
@@ -84,8 +66,8 @@ export default {
   data: function() {
     return {
       slideIn: false,
-      tuinsoort:'',
-      related:[],
+      tuinsoort: '',
+      related: [],
       inViewClass: 'fadeInTuinfooter',
     }
   },
@@ -108,35 +90,35 @@ export default {
     this.getTuinSoort(this.content.tuin_soort)
     this.getRelatedTuinen(this.content.tuin_soort)
   },
-  methods:{
-    getRelatedTuinen: function(input){
+  methods: {
+    getRelatedTuinen: function(input) {
       console.log(input)
 
-      axios.get(this.$store.state.apiRoot + '/wp/v2/tuin?tuinsoort='+input)
-      .then(response => {
-        // JSON responses are automatically parsed.
-        this.related = response.data
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
+      axios.get(this.$store.state.apiRoot + '/wp/v2/tuin?tuinsoort=' + input)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          this.related = response.data
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
 
     },
-    getTuinSoort: function(input){
+    getTuinSoort: function(input) {
       console.log(input)
 
-      axios.get(this.$store.state.apiRoot + '/wp/v2/tuinsoort/'+input)
-      .then(response => {
-        // JSON responses are automatically parsed.
-        this.tuinsoort = response.data
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
+      axios.get(this.$store.state.apiRoot + '/wp/v2/tuinsoort/' + input)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          this.tuinsoort = response.data
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
 
     },
 
-},
+  },
   computed: {
     ...mapGetters({
       appinitated: "GET_APP_INITIATED",
@@ -155,10 +137,10 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.contentLeft,.contentRight{
-  line-height: 2;
+.contentLeft,
+.contentRight {
+    line-height: 2;
 }
-
 
 .is-paddingless-left {
     padding-left: 0;

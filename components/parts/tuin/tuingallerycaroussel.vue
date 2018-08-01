@@ -1,5 +1,5 @@
 <template>
-<div class="">
+<div class="mb-40">
   <div v-touch:swipe.left="swipeLeft" v-touch:swipe.right="swipeRight" :class="[inViewClass]" class="transitionOpacity" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]">
     <div class="tuingallerycaroussel " :class="{slideInHorizontal: slideInHorizontal, slideOutHorizontal: slideOutHorizontal}">
 

@@ -71,14 +71,14 @@ export default {
         span{
           // transition-delay: 1s;
           opacity: 0;
-          animation: fade-in 0.3s;
+          animation: fade-in 0.15s;
           animation-fill-mode: forwards;
           display: inline-block;
           clear: both;
           width: 100%;
         }
         a {
-
+          line-height: 1.3;
             &:hover{
               // -webkit-box-shadow: inset 0px -6px 0px 0px;
               // -moz-box-shadow: inset 0px -6px 0px 0px;
@@ -92,8 +92,8 @@ export default {
 
 
         @for $i from 1 through 30 {
-            a:nth-child(#{$i}) {
-                animation-delay: $i*0.25+s;
+            span:nth-child(#{$i}) {
+                animation-delay: $i*0.15+s;
             }
         }
 

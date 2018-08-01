@@ -78,9 +78,9 @@ export default {
 </script>
 <style  lang="scss">
 .textphoto {
-    p {
-        margin-bottom: 10px !important;
-    }
+    // p {
+    //     margin-bottom: 20px !important;
+    // }
     a {
         color: inherit;
         -webkit-box-shadow: inset 0 -2px 0 0;

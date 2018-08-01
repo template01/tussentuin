@@ -1,5 +1,5 @@
 <template>
-<div class="intropart " :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
+<div class="intropart " :class="ignoremarginbottom ? 'ignoremarginbottom':''" :style="slideIn ? {'opacity':'1'}:{'opacity':'0'}">
   <div :class="[inViewClass, hascentertext ? 'has-text-centered':'']">
     <div v-show="titletext" v-html="'<p>'+titletext+'</p>'" class="titletext has-text-weight-bold" :class="[$mq==='lg' || $mq==='xl'? '': 'has-text-centered', slideIn ? 'slideIn':'',  islarge ? 'is-size-1':'is-size-2' ]">
     </div>
@@ -53,6 +53,10 @@ export default {
       type: Number,
       default: 1100
     },
+    ignoremarginbottom: {
+      type: Boolean,
+      default: false
+    }
 
 
   },
@@ -93,13 +97,20 @@ export default {
 blockquote{
   margin-top: 40px;
   margin-bottom: 20px;
-  margin-left: 60px;
-  margin-right: 60px;
   padding-top: 20px;
   padding-bottom: 10px;
   border-top: 3px solid;
 
 }
+
+@media screen and (min-width: 769px){
+  blockquote{
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+}
+
+
 b,bold,strong{
   color: inherit;
   font-weight: 600 !important;
@@ -205,5 +216,19 @@ b,bold,strong{
             clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0%);
         }
     }
+}
+</style>
+
+<style lang="scss">
+.intropart:not(.ignoremarginbottom){
+  p {
+    margin-bottom: 20px !important;
+  }
+  // a {
+  //     color: inherit;
+  //     -webkit-box-shadow: inset 0 -2px 0 0;
+  //     -moz-box-shadow: inset 0 -2px 0 0;
+  //     box-shadow: inset 0 -2px 0 0;
+  // }
 }
 </style>

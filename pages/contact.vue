@@ -5,7 +5,7 @@
       <intro_section_top :ignorepaddingbottom="true" :pattern="'/patternGreen.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
       </intro_section_top>
       <intro_section>
-        <intropart :secondDelay="1100" class="pb-80">
+        <intropart :ignoremarginbottom="true" :secondDelay="1100" class="pb-80">
           <div class="container pt-40 pb-20">
             <div class="columns is-mobile">
               <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">

@@ -5,14 +5,14 @@
     <div v-else class="wave" :style="{ 'background-image': `url(`+'/wavewhite.svg'+`)`}"></div>
     <div class="innerfooter container pt-30 pb-80 pr-20 pl-20">
       <div class="columns pt-80">
-        <div class="column is-3 pr-40 pl-40">
+        <div class="column is-2 pr-40 pl-40">
           <img v-if="normalpage" class="logo" :src="footerContent.acf.logo_alt" />
           <img v-else class="logo" :src="footerContent.acf.logo" />
         </div>
-        <div class="column pr-40 pl-40">
+        <div class="column pr-40 pl-40 has-text-centered">
           <div class="is-size-4 has-text-weight-semibold pt-20 is-size-5 ">
             <span v-for="link in footerContent.acf.linkto">
-              <nuxt-link  v-if="link.inten_of_extern" class="cool-link pr-30"  :class="normalpage  ? 'cool-link-blue':'cool-link-dark'" :to="'/'+link.intern_link" v-html="link.naam"></nuxt-link>
+              <nuxt-link  v-if="link.inten_of_extern" class="cool-link pr-20"  :class="normalpage  ? 'cool-link-blue':'cool-link-dark'" :to="'/'+link.intern_link" v-html="link.naam"></nuxt-link>
               <a v-else class="pr-30" target="_blank" :href="link.extern_link" v-html="link.naam"></a>
             </span>
           </div>
