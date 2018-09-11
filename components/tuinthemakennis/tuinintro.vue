@@ -1,6 +1,6 @@
 <template>
   <div class="tuinintro" :class="$mq ==='lg' || $mq ==='xl'? 'window-full-height':''">
-    <backgroundpattern class="peach-background" :patternfull="'/drawing.svg'"></backgroundpattern>
+    <backgroundpattern class="peach-background" :patternfull="'/drawing.png'"></backgroundpattern>
     <div class="container " :class="$mq ==='lg' || $mq ==='xl'? 'pt-80  pb-80 window-full-height aligner':''">
       <div class="pt-80" :class="$mq ==='lg' || $mq ==='xl'? 'pb-80':''">
 

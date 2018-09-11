@@ -2,7 +2,7 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info peach-background">
-      <intro_section_top class="" :pattern="'/drawing.svg'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
+      <intro_section_top class="" :pattern="'/drawing.png'" :title="fetchedContent.titel" :desc="fetchedContent.desc">
         <div class="mt-20">
           <!-- SNEL ALLE TUINEN -->
           <div :class="hasrun ?'':'animate-in'" >

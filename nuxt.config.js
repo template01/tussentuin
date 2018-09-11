@@ -112,9 +112,9 @@ module.exports = {
         href: '/favicon-128.png'
       }],
     script: [{
-      src: 'redirect.js'
+      src: '/redirect.js'
     },{
-      src: 'polyfill.min.js'
+      src: '/polyfill.min.js'
     }]
   },
 

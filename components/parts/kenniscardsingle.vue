@@ -11,7 +11,10 @@
 
         </p>
         <p class="is-size-5 has-text-dark mt-40">
+          <span class="bullet prev mr-5"  :class="" @click="swipeRight"><span class="chevron left"></span></span>
           <span class="bullet mr-10" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in kennissoorten"></span>
+          <span class="bullet next mr-10"  :class="" @click="swipeLeft"><span class="chevron right"></span></span>
+
         </p>
       </div>
 
@@ -33,7 +36,10 @@
         <img class="card-img-mobile" :src="kennissoorten[selected].acf.background_image.sizes.large" />
       </div>
       <p class="is-size-5 has-text-dark mt-10">
+        <span class="bullet prev mr-5"  :class="" @click="swipeRight"><span class="chevron left"></span></span>
         <span class="bullet mr-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in kennissoorten"></span>
+        <span class="bullet next mr-10"  :class="" @click="swipeLeft"><span class="chevron right"></span></span>
+
       </p>
 
     </div>
@@ -60,22 +66,6 @@ export default {
       slideIn: true,
       minHeight: 300,
       minHeightInit: 300,
-      cardsData: [{
-          "title": "Tour-De-Tuin",
-          "blurb": "Fusce et facilisis dolor. Suspendisse cursus urna sit amet orci Suspendisse cursus urna sit amet orci iaculis vehicula aenean molestFusce et facilisis dolor. Suspendisse cursus u",
-          "image": "fotos/Garten-Landhof-1-tall.jpg",
-        },
-        {
-          "title": "Tuineren 101",
-          "blurb": "Suspendisse cursus urna sit amet orci Suspendisse cursus urna sit amet orci iaculis vehicula aenean molestFusce et facilisis dolor. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. ",
-          "image": "fotos/Tuin-de-Bajonet-3.jpg",
-        },
-        {
-          "title": "Ontwerp en Plannen",
-          "blurb": "Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Suspendisse cursus urna sit amet orci Suspendisse cursus urna sit amet orci iaculis vehicula aenean molestFusce et facilisis dolor. ",
-          "image": "fotos/Buurtpluktuin-20-4-2016-7.jpg",
-        }
-      ]
     }
   },
   methods: {
@@ -172,15 +162,52 @@ export default {
         border-radius: 5px;
     }
     .bullet {
-        border: 2px solid $brown;
-        height: 15px;
-        width: 15px;
+        border: 3px solid $brown;
+        height: 20px;
+        width: 20px;
         border-radius: 100%;
         overflow: hidden;
         display: inline-block;
         cursor: pointer;
         &.active {
             background: $brown;
+        }
+
+        &.next{
+          border: 0px solid $brown;
+        }
+        &.prev{
+          border: 0px solid $brown;
+        }
+
+        .chevron::before {
+          color: $brown;
+          border-style: solid;
+          border-color: inherit;
+          border-width: 3px 3px 0 0;
+          content: '';
+          display: inline-block;
+          height: 13px;
+          position: relative;
+          top: 3px;
+          transform: rotate(-45deg);
+          vertical-align: top;
+          width: 13px;
+        }
+
+        .chevron.right:before {
+          left: 0;
+          transform: rotate(45deg);
+        }
+
+        .chevron.bottom:before {
+          top: 0;
+          transform: rotate(135deg);
+        }
+
+        .chevron.left:before {
+          left: 0.25em;
+          transform: rotate(-135deg);
         }
 
     }

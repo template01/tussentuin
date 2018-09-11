@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="window-full-height" v-if="$mq==='lg' || $mq==='xl'">
-      <backgroundpattern class="peach-background" :patternfull="'/drawing.svg'"></backgroundpattern>
+      <backgroundpattern class="peach-background" :patternfull="'/drawing.png'"></backgroundpattern>
 
       <div class="container pt-80 pb-80 window-full-height aligner">
         <div class="pb-80 pt-80">
@@ -26,7 +26,7 @@
       <backgroundphoto v-if="$mq==='xl'" :isHalf="'true'" :patternSmall="image.sizes.thumbnail" :patternfull="image.sizes.xxlarge"></backgroundphoto>
     </div>
     <div class="" v-else>
-      <backgroundpattern class="peach-background" :patternfull="'/drawing.svg'"></backgroundpattern>
+      <backgroundpattern class="peach-background" :patternfull="'/drawing.png'"></backgroundpattern>
 
       <div class="container pt-80">
 

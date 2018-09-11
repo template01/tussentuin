@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="column is-3  pr-40 pl-40">
-          <div class="has-text-weight-semibold pt-20 is-size-5" v-html="footerContent.acf.contact">
+          <div class="contactWrapper has-text-weight-semibold pt-20 is-size-5" v-html="footerContent.acf.contact">
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
           <img v-else class="logomobile" :src="footerContent.acf.logo" />
         </div>
         <div class="column is-paddingless is-6 ">
-          <div class="has-text-weight-semibold is-size-5" v-html="footerContent.acf.contact">
+          <div class="contactWrapper has-text-weight-semibold is-size-5" v-html="footerContent.acf.contact">
           </div>
         </div>
       </div>
@@ -82,6 +82,8 @@ export default {
 
 }
 </script>
+
+
 <style scoped lang="scss">
 a {
     color: inherit;
@@ -111,5 +113,17 @@ a {
 
 .innerfooter{
   overflow-x: hidden;
+}
+</style>
+
+<style lang="scss">
+#footer{
+  .contactWrapper{
+    a{
+      color: inherit !important;
+      border-bottom: 3px solid !important;
+      border-color: inherit;
+    }
+  }
 }
 </style>

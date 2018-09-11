@@ -2,8 +2,11 @@
 <div v-if="content.length>0" class="">
   <div v-touch:swipe.left="swipeLeft" v-touch:swipe.right="swipeRight" class="tuincardcaroussel aligner" :class="$mq==='lg' || $mq==='xl' ? {slideInVertical: slideInVertical, slideOutVertical: slideOutVertical} : {slideInHorizontal: slideInVertical, slideOutHorizontal: slideOutVertical}">
     <template v-if="menuleft">
-            <p class="bulletWrapper left is-size-5 has-text-dark p-20" v-if="$mq==='lg' || $mq==='xl'">
+            <p class="bulletWrapper left is-size-5 has-text-dark p-20" v-if="($mq==='lg' || $mq==='xl') && content.length>1">
+              <span class="bullet prev"  :class="[]" @click="swipeRight"><span class="chevron top"></span></span>
               <span v-if="content.length>1" class="bullet mt-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
+              <span class="bullet next"  :class="[]" @click="swipeLeft"><span class="chevron bottom"></span></span>
+
             </p>
             <div>
               <!-- {{content[selected].acf.featured_foto.sizes}} -->
@@ -21,13 +24,19 @@
                 <nuxt-link :to="'/tuinen/'+content[selected].slug" v-html="content[selected].title.rendered" class="button is-light has-text-dark has-text-weight-semibold is-rounded"></nuxt-link>
               </p>
             </div>
-            <p class="bulletWrapperMo is-size-5 has-text-dark p-20"  v-if="$mq==='lg' || $mq==='xl'">
+            <p class="bulletWrapper is-size-5 has-text-dark p-20"  v-if="($mq==='lg' || $mq==='xl') && content.length>1">
+              <span class="bullet prev"  :class="[]" @click="swipeRight"><span class="chevron top"></span></span>
               <span v-if="content.length>1" class="bullet mt-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
+              <span class="bullet next"  :class="[]" @click="swipeLeft"><span class="chevron bottom"></span></span>
+
             </p>
           </template>
   </div>
   <p class="bulletWrapperMobile is-size-5 has-text-dark" v-if="$mq!='lg' && $mq !='xl' && content.length>1">
+    <span class="bulletMobile prev"  :class="[]" @click="swipeRight"><span class="chevron left"></span></span>
     <span class="bulletMobile" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
+    <span class="bulletMobile next"  :class="[]" @click="swipeLeft"><span class="chevron right"></span></span>
+
   </p>
 
 </div>
@@ -162,15 +171,55 @@ export default {
         &.left {}
     }
     .bullet {
-        border: 2px solid $brown;
-        height: 15px;
-        width: 15px;
+        border: 3px solid $brown;
+        height: 20px;
+        width: 20px;
         border-radius: 100%;
         overflow: hidden;
         display: table;
         cursor: pointer;
         &.active {
             background: $brown;
+        }
+        &.next{
+          border: 0px solid $brown;
+        }
+        &.prev{
+          border: 0px solid $brown;
+        }
+
+        .chevron::before {
+          color: $brown;
+          border-style: solid;
+          border-color: inherit;
+          border-width: 3px 3px 0 0;
+          content: '';
+          display: inline-block;
+          height: 13px;
+          position: relative;
+          top: 3px;
+          transform: rotate(-45deg);
+          vertical-align: top;
+          width: 13px;
+        }
+
+        .chevron.right:before {
+          left: 0;
+          transform: rotate(45deg);
+        }
+
+        .chevron.bottom:before {
+          top: 0;
+          transform: translateY(7px) rotate(135deg);
+        }
+        .chevron.top:before {
+          transform: translateY(7px) rotate(-45deg);
+        }
+
+
+        .chevron.left:before {
+          left: 0.25em;
+          transform: rotate(-135deg);
         }
 
     }
@@ -182,10 +231,10 @@ export default {
     text-align: center;
     position: relative;
     .bulletMobile {
-        border: 2px solid $brown;
-        height: 15px;
-        width: 15px;
-        margin: 2.5px;
+        border: 3px solid $brown;
+        height: 20px;
+        width: 20px;
+        margin: 4px;
         display: inline-block;
         border-radius: 100%;
         overflow: hidden;
@@ -193,6 +242,53 @@ export default {
         &.active {
             background: $brown;
         }
+        &.next{
+          border: 0px solid $brown;
+        }
+        &.prev{
+          border: 0px solid $brown;
+        }
+
+        .chevron{
+          transform: translateX(-3px);
+          display:block;
+        }
+
+        .chevron::before {
+
+          color: $brown;
+          border-style: solid;
+          border-color: inherit;
+          border-width: 3px 3px 0 0;
+          content: '';
+          display: inline-block;
+          height: 13px;
+          position: relative;
+          top: 3px;
+          transform: rotate(-45deg);
+          vertical-align: top;
+          width: 13px;
+        }
+
+        .chevron.right:before {
+          left: 0;
+          transform: rotate(45deg);
+        }
+
+        .chevron.bottom:before {
+          top: 0;
+          transform: translateY(7px) rotate(135deg);
+        }
+        .chevron.top:before {
+          transform: translateY(7px) rotate(-45deg);
+        }
+
+
+        .chevron.left:before {
+          left: 0.25em;
+          transform: rotate(-135deg) ;
+        }
+
 
     }
 }

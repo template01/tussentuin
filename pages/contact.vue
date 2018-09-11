@@ -22,25 +22,13 @@
             </div>
 
 
-
             <div class="columns" :class="$mq === 'lg' || $mq === 'xl'? '':'pt-40'">
-              <div :class="$mq === 'lg' || $mq === 'xl'? 'column is-8 is-offset-2 ':'column is-10 is-offset-1'">
-                <div class="columns">
-                  <div :class="$mq==='sm'|| $mq==='md' ? 'is-paddingless mt-10':''" class="column" v-if="chunkContactPersons[0]">
-                    <div class="" v-for="person in chunkContactPersons[0]">
-                      <contact_person :person="person"></contact_person>
-                    </div>
+              <div class="column  is-10 is-offset-1">
+                <div class="personWrapper">
+                  <div class="block mr-20 ml-20" v-for="person in fetchedContent.acf.contact_persons">
+                    <contact_person :person="person"></contact_person>
                   </div>
-                  <div :class="$mq==='sm'|| $mq==='md' ? 'is-paddingless mt-10':''" class="column " v-if="chunkContactPersons[1]">
-                    <div class="" v-for="person in chunkContactPersons[1]">
-                      <contact_person :person="person"></contact_person>
-                    </div>
-                  </div>
-                  <div :class="$mq==='sm'|| $mq==='md' ? 'is-paddingless mt-10':''" class="column " v-if="chunkContactPersons[2]">
-                    <div class="" v-for="person in chunkContactPersons[2]">
-                      <contact_person :person="person"></contact_person>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -113,6 +101,7 @@ export default {
   },
 
 
+
   async asyncData({
     params,
     query,
@@ -140,8 +129,17 @@ export default {
 
 <style lang="scss">
 .contactpage {
-  *{
-    color: inherit !important;
+    * {
+        color: inherit !important;
+    }
+
+    .personWrapper {
+  text-align:center;
+}
+
+  .block {
+    display:inline-block;
+
   }
 }
 </style>

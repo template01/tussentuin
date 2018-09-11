@@ -1,6 +1,6 @@
 <template>
   <div >
-    <backgroundpattern class="peach-background" :patternfull="'/drawing.svg'"></backgroundpattern>
+    <backgroundpattern class="peach-background" :patternfull="'/drawing.png'"></backgroundpattern>
     <div class="container pt-30 pb-80">
       <div class="columns is-mobile pt-80" :class="$mq === 'lg' || $mq === 'xl'? 'pt-80':'pt-40'">
         <div :class="$mq === 'lg' || $mq === 'xl'? ' column is-8 is-offset-2 ':'column is-10 is-offset-1'">

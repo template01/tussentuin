@@ -1,5 +1,5 @@
 <template>
-<div class="pt-10 pb-40">
+<div class="pt-10 ">
   <div class="profiel" :style="{'background-image': `url(`+person.profiel_foto.sizes.medium+`)` }">
 
   </div>

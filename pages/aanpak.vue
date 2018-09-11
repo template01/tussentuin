@@ -2,7 +2,7 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="pt-80 has-text-info peach-background">
-      <intro_section_top  :pattern="'/drawing.svg'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
+      <intro_section_top  :pattern="'/drawing.png'" :title="fetchedContent.acf.titel" :desc="fetchedContent.acf.desc">
         <tonextsection class="mt-80" :relative="true" :ignorepaddingbottom="true" :delay="'1700'"  :text="'Ga verder'" :classobj="{class:'indexsection-outer',index:1}"></tonextsection>
       </intro_section_top>
       <div v-if="fetchedContent.acf.intro_foto" >
@@ -73,7 +73,7 @@ export default {
   }) {
 
     let [pagecontentRes] = await Promise.all([
-      axios.get(store.state.apiRoot + '/wp/v2/pages?slug=werkwijze'),
+      axios.get(store.state.apiRoot + '/wp/v2/pages?slug=aanpak'),
     ])
 
     return {

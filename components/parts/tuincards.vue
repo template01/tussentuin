@@ -8,7 +8,10 @@
     </div>
     <div class="aligner">
       <p class="is-size-5 has-text-dark mt-40">
+        <span class="bullet prev mr-10"  :class="[$mq === 'lg' || $mq === 'xl' ? 'mr-10':'mr-5']" @click="swipeRight"><span class="chevron left"></span></span>
+
         <span class="bullet mr-10"  :class="[$mq === 'lg' || $mq === 'xl' ? 'mr-10':'mr-5',{active: selected === index}]" @click="transitionCard(index)" v-for="(item, index) in chunkTuinsoorten"></span>
+        <span class="bullet next"  :class="[$mq === 'lg' || $mq === 'xl' ? 'mr-10':'mr-5']" @click="swipeLeft"><span class="chevron right"></span></span>
       </p>
     </div>
   </div>
@@ -98,15 +101,52 @@ export default {
 </script>
 <style scoped lang="scss">
 .bullet {
-    border: 2px solid $darkblue;
-    height: 15px;
-    width: 15px;
+    border: 3px solid $darkblue;
+    height: 20px;
+    width: 20px;
     border-radius: 100%;
     overflow: hidden;
     display: inline-block;
     cursor: pointer;
+    overflow: hidden;
     &.active {
         background: $darkblue;
+    }
+    &.next{
+      border: 0px solid $darkblue;
+    }
+    &.prev{
+      border: 0px solid $darkblue;
+    }
+
+    .chevron::before {
+      color: $darkblue;
+      border-style: solid;
+      border-color: inherit;
+      border-width: 3px 3px 0 0;
+      content: '';
+      display: inline-block;
+      height: 13px;
+      position: relative;
+      top: 3px;
+      transform: rotate(-45deg);
+      vertical-align: top;
+      width: 13px;
+    }
+
+    .chevron.right:before {
+    	left: 0;
+    	transform: rotate(45deg);
+    }
+
+    .chevron.bottom:before {
+    	top: 0;
+    	transform: rotate(135deg);
+    }
+
+    .chevron.left:before {
+    	left: 0.25em;
+    	transform: rotate(-135deg);
     }
 
 }

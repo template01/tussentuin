@@ -11,7 +11,10 @@
               </p> -->
       </div>
       <p class="bulletWrapper is-size-5 has-text-dark pt-20">
+        <span class="bullet prev mr-10"  :class="" @click="swipeRight"><span class="chevron left"></span></span>
         <span class="bullet mr-5" :class="{active: selected === index}" @click="transitionCard(index)" v-for="(item, index) in  content"></span>
+        <span class="bullet next"  :class="" @click="swipeLeft"><span class="chevron right"></span>right</span>
+
       </p>
     </div>
 
@@ -137,9 +140,9 @@ export default {
         width: 100%;
     }
     .bullet {
-        border: 2px solid $brown;
-        height: 15px;
-        width: 15px;
+        border: 3px solid $brown;
+        height: 20px;
+        width: 20px;
         border-radius: 100%;
         overflow: hidden;
         display: inline-block;
@@ -147,6 +150,43 @@ export default {
         &.active {
             background: $brown;
         }
+        &.next{
+          border: 0px solid $brown;
+        }
+        &.prev{
+          border: 0px solid $brown;
+        }
+
+        .chevron::before {
+          color: $brown;
+          border-style: solid;
+          border-color: inherit;
+          border-width: 3px 3px 0 0;
+          content: '';
+          display: inline-block;
+          height: 13px;
+          position: relative;
+          top: 3px;
+          transform: rotate(-45deg);
+          vertical-align: top;
+          width: 13px;
+        }
+
+        .chevron.right:before {
+        	left: 0;
+        	transform: rotate(45deg);
+        }
+
+        .chevron.bottom:before {
+        	top: 0;
+        	transform: rotate(135deg);
+        }
+
+        .chevron.left:before {
+        	left: 0.25em;
+        	transform: rotate(-135deg);
+        }
+
 
     }
 }
