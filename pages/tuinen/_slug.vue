@@ -4,7 +4,6 @@
     <tuinthemakennis_section id="" class="has-text-info">
       <tuinintro :image="fetchedContent.acf.achtergronds_foto" :title="fetchedContent.title.rendered" :intro="fetchedContent.acf.intro"></tuinintro>
     </tuinthemakennis_section>
-    <!-- <section_info_tuin :id="fetchedContent.id" :content="fetchedContent.acf"></section_info_tuin> -->
     <tuinthemakennis_section id="" class=" has-text-dark">
       <intro_section :pattern="'/drawing_inverted.svg'">
         <section_content_tuin :content="fetchedContent.acf.content"></section_content_tuin>
@@ -13,7 +12,6 @@
     <tuinthemakennis_section id="" class="has-text-dark">
       <intro_section :pattern="'/drawing_inverted.svg'">
         <tuinfooter :id="fetchedContent.id" :content="fetchedContent.acf"></tuinfooter>
-        <!-- <section_content_tuin :content="fetchedContent.acf.content"></section_content_tuin> -->
       </intro_section>
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class=" has-text-dark">
