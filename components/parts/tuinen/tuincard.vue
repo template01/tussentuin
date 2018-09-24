@@ -12,7 +12,7 @@
             <div  class="columns aligner">
               <div class="column mr-20 ml-20">
                 <div class="">
-                  <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
+                  <img class="icontop pb-10" :src="tuinsortdata.acf.icon" />
                   <p class="pb-30 has-text-centered">
                     <span class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered"></span>
                     <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="mt-10 ml-10 button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
@@ -33,7 +33,7 @@
               </div>
               <div class="column mr-20 ml-20">
                 <div class="">
-                  <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
+                  <img class="icontop pb-10" :src="tuinsortdata.acf.icon" />
                   <p class="pb-30 has-text-centered">
                     <span class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered"></span>
                     <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="mt-10 ml-10 button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
@@ -51,7 +51,7 @@
       <div class="columns is-mobile" >
         <div class="column is-10 is-offset-1">
           <div class="">
-            <img class="icontop pb-30" :src="tuinsortdata.acf.icon" />
+            <img class="icontop pb-10" :src="tuinsortdata.acf.icon" />
             <a target="_blank" v-if="tuinsortdata.acf.pdf_upload" :href="tuinsortdata.acf.pdf_upload" v-html="'PDF'" class="pdf-attachment button is-light has-text-dark has-text-weight-semibold is-rounded"></a>
             <p class="pb-30 is-size-2 has-text-weight-bold has-text-centered" v-html="tuinsortdata.title.rendered">
             </p>

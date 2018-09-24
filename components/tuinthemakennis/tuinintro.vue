@@ -6,7 +6,7 @@
 
         <div class="columns is-mobile pt-80 " :class="$mq ==='lg' || $mq ==='xl'? '':''">
           <div class="column" :class="$mq ==='lg' || $mq ==='xl'? 'is-offset-7 is-5':'is-offset-1 is-10'">
-            <img width="180px" src="http://api.tussentuin.nl/wp-content/uploads/2018/03/tuinen-02.svg"/>
+            <img class="mb-20" width="180px" v-if="$mq ==='lg' || $mq ==='xl'" :src="tuinsoort.acf.icon"/>
             <intropart :islarge="true" :titletext="title">
             </intropart>
             <intropart :islarge="true" :blurbtext="intro">
@@ -45,7 +45,7 @@ import tonextsection from '~/components/parts/tonextsection.vue'
 
 
 export default {
-  props: ['image','title','intro'],
+  props: ['image','title','intro','tuinsoort'],
   components: {
     intropart,
     backgroundpattern,

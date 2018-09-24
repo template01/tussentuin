@@ -2,7 +2,7 @@
 <div class="" style="" v-if="loaderhasrun">
   <div class="">
     <tuinthemakennis_section id="" class="has-text-info">
-      <tuinintro :image="fetchedContent.acf.achtergronds_foto" :title="fetchedContent.title.rendered" :intro="fetchedContent.acf.intro"></tuinintro>
+      <tuinintro :tuinsoort="tuinsortdata" :image="fetchedContent.acf.achtergronds_foto" :title="fetchedContent.title.rendered" :intro="fetchedContent.acf.intro"></tuinintro>
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class=" has-text-dark">
       <intro_section :pattern="'/drawing_inverted.svg'">
@@ -11,7 +11,7 @@
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class="has-text-dark">
       <intro_section :pattern="'/drawing_inverted.svg'">
-        <tuinfooter :id="fetchedContent.id" :content="fetchedContent.acf"></tuinfooter>
+        <tuinfooter :tuinsoort="tuinsortdata" :id="fetchedContent.id" :content="fetchedContent.acf"></tuinfooter>
       </intro_section>
     </tuinthemakennis_section>
     <tuinthemakennis_section id="" class=" has-text-dark">
@@ -74,15 +74,21 @@ export default {
     route,
     redirect
   }) {
+    //
+    // let [pagecontentRes] = await Promise.all([
+    //   axios.get(store.state.apiRoot + '/wp/v2/tuin?slug=' + route.params.slug),
+    //
+    // ])
+    //
+    // console.log(pagecontentRes.data[0].acf)
 
-    let [pagecontentRes] = await Promise.all([
-      axios.get(store.state.apiRoot + '/wp/v2/tuin?slug=' + route.params.slug),
+    const tuinslug = await axios.get(store.state.apiRoot + '/wp/v2/tuin?slug=' + route.params.slug)
+    const tuinslugdata = tuinslug.data[0].acf.tuin_soort
+    const tuinsoort = await axios.get(store.state.apiRoot + '/wp/v2/tuinsoort/' + tuinslugdata)
 
-    ])
-
-    console.log(pagecontentRes.data[0].acf)
     return {
-      fetchedContent: pagecontentRes.data[0],
+      fetchedContent: tuinslug.data[0],
+      tuinsortdata: tuinsoort.data
     }
 
   },

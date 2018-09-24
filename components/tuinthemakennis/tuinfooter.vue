@@ -61,12 +61,12 @@ import {
 import _ from 'lodash'
 
 export default {
-  props: ['content', 'id'],
+  props: ['content', 'id','tuinsoort'],
   components: {},
   data: function() {
     return {
       slideIn: false,
-      tuinsoort: '',
+      // tuinsoort: '',
       related: [],
       inViewClass: 'fadeInTuinfooter',
     }
@@ -87,7 +87,7 @@ export default {
       // vm.slideIn = false
     });
 
-    this.getTuinSoort(this.content.tuin_soort)
+    // this.getTuinSoort(this.content.tuin_soort)
     this.getRelatedTuinen(this.content.tuin_soort)
   },
   methods: {
@@ -104,19 +104,19 @@ export default {
         })
 
     },
-    getTuinSoort: function(input) {
-      console.log(input)
-
-      axios.get(this.$store.state.apiRoot + '/wp/v2/tuinsoort/' + input)
-        .then(response => {
-          // JSON responses are automatically parsed.
-          this.tuinsoort = response.data
-        })
-        .catch(e => {
-          this.errors.push(e)
-        })
-
-    },
+    // getTuinSoort: function(input) {
+    //   console.log(input)
+    //
+    //   axios.get(this.$store.state.apiRoot + '/wp/v2/tuinsoort/' + input)
+    //     .then(response => {
+    //       // JSON responses are automatically parsed.
+    //       this.tuinsoort = response.data
+    //     })
+    //     .catch(e => {
+    //       this.errors.push(e)
+    //     })
+    //
+    // },
 
   },
   computed: {

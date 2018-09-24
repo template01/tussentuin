@@ -7,11 +7,11 @@
     </div>
     <div v-show="desc" v-html="desc" class="desc is-size-3 pt-40 transitionOpacity" :class="[ islarge ? 'is-size-4':'is-size-5']" :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]">
     </div>
-    <div :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]" class="transitionOpacity" >
-      <slot >
+    <div :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]" class="transitionOpacity">
+      <slot>
       </slot>
     </div>
-    <img :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]" class="topicon transitionOpacity" v-show="icon" :src="icon"/>
+    <img :style="[slideIn ? {'opacity':'1'}:{'opacity':'0'},{'transition-delay':secondDelay+'ms'}]" class="topicon transitionOpacity" v-show="icon" :src="icon" />
   </div>
 </div>
 </template>
@@ -25,7 +25,7 @@ import scrollMonitor from 'scrollmonitor'
 
 export default {
   props: {
-    hascentertext:{
+    hascentertext: {
 
     },
     titletext: {
@@ -94,68 +94,63 @@ export default {
 </script>
 
 <style lang="scss">
-blockquote{
-  margin-top: 40px;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  border-top: 3px solid;
+blockquote {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-top: 3px solid;
 
 }
 
-@media screen and (min-width: 769px){
-  blockquote{
-    margin-left: 60px;
-    margin-right: 60px;
-  }
+@media screen and (min-width: 769px) {
+    blockquote {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
 }
 
-
-b,bold,strong{
-  color: inherit;
-  font-weight: 600 !important;
-  font-size: inherit !important;
+b,
+bold,
+strong {
+    color: inherit;
+    font-weight: 600 !important;
+    font-size: inherit !important;
 }
 
 .intropart {
 
-  span{
-    // display: none;
-    font-size: inherit !important;
-    font-weight: inherit !important;
-  }
-  .titletext{
-    width: 100%;
-  }
-  .desc{
-    img{
-      margin: 0 auto;
-      margin-top: 40px;
-      margin-bottom: 40px;
-      max-width: calc(100% - 80px);
-      display: block;
-      border-radius: 5px;
+    span {
+        // display: none;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+    }
+    .titletext {
+        width: 100%;
+    }
+    .desc {
+        img {
+            margin: 40px auto;
+            max-width: calc(100% - 80px);
+            display: block;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            img {
+                margin: 20px auto;
+                max-width: calc(100% - 40px);
+                display: block;
+                border-radius: 5px;
+            }
+        }
     }
 
-    @media (max-width: 768px) {
-      img{
-        margin: 0 auto;
-        margin-top: 20px;
+    .topicon {
+        width: 100px;
         margin-bottom: 20px;
-        max-width: calc(100% - 40px);
-        display: block;
-        border-radius: 5px;
-      }
+        opacity: 0;
     }
-  }
-
-
-
-  .topicon{
-    width: 100px;
-    margin-bottom: 20px;
-    opacity: 0;
-  }
     .is-size-1 {
         p {
             padding-top: 0;
@@ -220,15 +215,17 @@ b,bold,strong{
 </style>
 
 <style lang="scss">
-.intropart:not(.ignoremarginbottom){
-  p {
-    margin-bottom: 20px !important;
-  }
-  // a {
-  //     color: inherit;
-  //     -webkit-box-shadow: inset 0 -2px 0 0;
-  //     -moz-box-shadow: inset 0 -2px 0 0;
-  //     box-shadow: inset 0 -2px 0 0;
-  // }
+.intropart:not(.ignoremarginbottom) {
+    p {
+        margin-bottom: 20px !important;
+    }
+    .desc {
+        a {
+            color: inherit;
+            -webkit-box-shadow: inset 0 -2px 0 0;
+            -moz-box-shadow: inset 0 -2px 0 0;
+            box-shadow: inset 0 -2px 0 0;
+        }
+    }
 }
 </style>
