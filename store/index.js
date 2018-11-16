@@ -10,7 +10,8 @@ export const state = () => ({
   footerContent:[],
   menuContent:[],
   screensize: 0,
-  screensizeformat:null
+  screensizeformat:null,
+  iOS: false
 })
 
 //
@@ -81,6 +82,13 @@ export const mutations = {
   SET_SCREENSIZEFORMAT(state, screensizeformat) {
     state.screensizeformat = screensizeformat;
   },
+
+  SET_IOS(state) {
+    state.iOS = !!navigator.platform.match(/iPhone|iPod|iPad/);;
+  },
+
+
+
 
 }
 

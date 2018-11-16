@@ -6,11 +6,11 @@
   <!-- {{loaderhasrun}} -->
   <div>
 
-    <navbar ></navbar>
-    <menucomp ></menucomp>
-    <togglemenu ></togglemenu>
+    <navbar></navbar>
+    <menucomp></menucomp>
+    <togglemenu></togglemenu>
     <nuxt/>
-    <footercomp ></footercomp>
+    <footercomp></footercomp>
   </div>
 </div>
 </template>
@@ -49,15 +49,17 @@ export default {
   mounted() {
     var vm = this
 
+    vm.$store.commit('SET_IOS')
+
     // window.addEventListener("load", function(event) {
     //   alert('hey')
     //   console.log("DOM fully loaded and parsed");
-      setTimeout(function(){
-        // vm.$store.commit('SET_APPINITIATED', true)
-      },1500)
-      // setTimeout(function(){
-        vm.$store.commit('SET_LOADER_RUN', true)
-      // },1000)
+    setTimeout(function() {
+      // vm.$store.commit('SET_APPINITIATED', true)
+    }, 1500)
+    // setTimeout(function(){
+    vm.$store.commit('SET_LOADER_RUN', true)
+    // },1000)
     // });
 
 
@@ -79,9 +81,10 @@ export default {
 }
 
 
-body{
+body {
   overflow-x: hidden;
 }
+
 html {
 
   -ms-text-size-adjust: 100%;
@@ -98,5 +101,4 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
 </style>

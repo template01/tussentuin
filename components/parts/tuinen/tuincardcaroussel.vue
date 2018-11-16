@@ -182,10 +182,10 @@ export default {
             background: $brown;
         }
         &.next{
-          border: 0px solid $brown;
+          border: 0px solid $brown !important;
         }
         &.prev{
-          border: 0px solid $brown;
+          border: 0px solid $brown !important;
         }
 
         .chevron::before {

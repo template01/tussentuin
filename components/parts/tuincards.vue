@@ -101,6 +101,8 @@ export default {
 </script>
 <style scoped lang="scss">
 .bullet {
+
+    color: $darkblue !important;
     border: 3px solid $darkblue;
     height: 20px;
     width: 20px;
@@ -113,10 +115,10 @@ export default {
         background: $darkblue;
     }
     &.next{
-      border: 0px solid $darkblue;
+      border: 0px solid $darkblue !important;
     }
     &.prev{
-      border: 0px solid $darkblue;
+      border: 0px solid $darkblue !important;
     }
 
     .chevron::before {

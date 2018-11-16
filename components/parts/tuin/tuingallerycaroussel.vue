@@ -140,7 +140,8 @@ export default {
         width: 100%;
     }
     .bullet {
-        border: 3px solid $brown;
+        color: $brown !important;
+        border: 3px solid;
         height: 20px;
         width: 20px;
         border-radius: 100%;
@@ -151,10 +152,10 @@ export default {
             background: $brown;
         }
         &.next{
-          border: 0px solid $brown;
+          border: 0px solid $brown !important;
         }
         &.prev{
-          border: 0px solid $brown;
+          border: 0px solid $brown !important;
         }
 
         .chevron::before {

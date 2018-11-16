@@ -162,6 +162,7 @@ export default {
         border-radius: 5px;
     }
     .bullet {
+        color: $brown !important;
         border: 3px solid $brown;
         height: 20px;
         width: 20px;
@@ -174,10 +175,10 @@ export default {
         }
 
         &.next{
-          border: 0px solid $brown;
+          border: 0px solid $brown !important;
         }
         &.prev{
-          border: 0px solid $brown;
+          border: 0px solid $brown !important;
         }
 
         .chevron::before {
